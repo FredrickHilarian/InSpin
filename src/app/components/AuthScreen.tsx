@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Mail, Lock, Eye, EyeOff, User, Building, Check, ArrowRight, Sun, ShieldCheck, BarChart3, Clock, FileText, TrendingUp, Key } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, User, Building, Check, ArrowRight, ShieldCheck, BarChart3, Clock, FileText, TrendingUp, Key } from "lucide-react";
 import leftPanelImg from "../../imports/images/left-panel.webp";
 import leftPanelPasswordImg from "../../imports/images/left-panel password.webp";
 import InspinLogo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 interface AuthScreenProps {
   onLogin: () => void;
@@ -59,8 +60,8 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
   const bgImage = mode === "reset" ? leftPanelPasswordImg : leftPanelImg;
 
   return (
-    <div className="min-h-screen w-screen bg-[#f1f5f9] flex items-center justify-center p-4 md:p-8 font-['Inter',sans-serif]">
-      <div className="bg-white rounded-[32px] shadow-2xl w-full max-w-[1080px] min-h-[640px] grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-slate-100">
+    <div className="min-h-screen w-screen bg-[#f1f5f9] dark:bg-[#090d16] flex items-center justify-center p-4 md:p-8 font-['Inter',sans-serif] transition-colors">
+      <div className="bg-white dark:bg-[#111827] rounded-[32px] shadow-2xl w-full max-w-[1080px] min-h-[640px] grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-slate-100 dark:border-slate-800 transition-colors">
         
         {/* Left Side: Brand Visual Panel */}
         <div 
@@ -72,7 +73,7 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
           }}
         >
           {/* Logo */}
-          <div className="z-10 select-none bg-white/95 px-4 py-2.5 rounded-2xl shadow-sm border border-white/10 w-fit flex items-center justify-center self-center">
+          <div className="z-10 select-none bg-white/95 dark:bg-slate-900/90 px-4 py-2.5 rounded-2xl shadow-sm border border-white/10 dark:border-slate-700/50 w-fit flex items-center justify-center self-center transition-colors">
             <InspinLogo height={28} width={80} />
           </div>
 
@@ -129,12 +130,10 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
         </div>
 
         {/* Right Side: Forms */}
-        <div className="md:col-span-6 p-8 md:p-12 flex flex-col justify-between relative bg-white">
+        <div className="md:col-span-6 p-8 md:p-12 flex flex-col justify-between relative bg-white dark:bg-[#111827] transition-colors">
           {/* Top theme/helper action */}
           <div className="absolute top-6 right-6">
-            <button className="size-9 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100 text-slate-400 flex items-center justify-center cursor-pointer transition-colors shadow-sm">
-              <Sun className="size-4" />
-            </button>
+            <ThemeToggle />
           </div>
 
           {/* Spacer to push form down slightly */}
@@ -147,15 +146,15 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
             {mode === "login" && (
               <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1 mb-0.5">
-                  <h3 className="text-[20px] font-bold text-slate-800 tracking-tight">Sign In</h3>
-                  <p className="text-[12.5px] text-slate-400 font-semibold">Access your workspace and insights</p>
+                  <h3 className="text-[20px] font-bold text-slate-800 dark:text-slate-100 tracking-tight">Sign In</h3>
+                  <p className="text-[12.5px] text-slate-400 dark:text-slate-400 font-semibold">Access your workspace and insights</p>
                 </div>
 
                 {/* Demo Credentials Callout */}
-                <div className="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-3.5 flex flex-col gap-2">
+                <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-800/50 rounded-2xl p-3.5 flex flex-col gap-2 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11.5px] font-bold text-emerald-900 flex items-center gap-1.5">
-                      <Key className="size-3.5 text-[#059669]" />
+                    <span className="text-[11.5px] font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
+                      <Key className="size-3.5 text-[#059669] dark:text-emerald-400" />
                       Demo Login Credentials
                     </span>
                     <button
@@ -170,14 +169,14 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                       Auto-fill
                     </button>
                   </div>
-                  <div className="bg-white/90 rounded-xl p-2.5 border border-emerald-100 flex flex-col gap-1.5 text-[11.5px]">
+                  <div className="bg-white/90 dark:bg-[#0d1424] rounded-xl p-2.5 border border-emerald-100 dark:border-emerald-900/60 flex flex-col gap-1.5 text-[11.5px] transition-colors">
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-500 font-medium">Email:</span>
-                      <span className="font-semibold text-slate-800 font-mono text-[11.5px]">admin@inspin.com</span>
+                      <span className="text-slate-500 dark:text-slate-400 font-medium">Email:</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-200 font-mono text-[11.5px]">admin@inspin.com</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-500 font-medium">Password:</span>
-                      <code className="font-mono font-bold text-emerald-800 bg-emerald-100/70 px-1.5 py-0.5 rounded text-[11.5px]">
+                      <span className="text-slate-500 dark:text-slate-400 font-medium">Password:</span>
+                      <code className="font-mono font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-900/50 px-1.5 py-0.5 rounded text-[11.5px]">
                         Welcometonewworld
                       </code>
                     </div>
@@ -186,25 +185,25 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
 
                 {/* Email Input */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Work Email</label>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Work Email</label>
                   <div className="relative">
-                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="admin@inspin.com"
-                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Password Input */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Password</label>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type={showPassword ? "text" : "password"}
                       required
@@ -214,12 +213,12 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                         if (error) setError(null);
                       }}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-10 py-2.5 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-10 py-2.5 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-[11px] font-bold cursor-pointer"
+                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 text-[11px] font-bold cursor-pointer"
                     >
                       {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                     </button>
@@ -228,21 +227,21 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
 
                 {/* Remember & Forgot actions */}
                 <div className="flex justify-between items-center text-[12px] font-semibold">
-                  <label className="flex items-center gap-2 text-slate-500 cursor-pointer select-none">
+                  <label className="flex items-center gap-2 text-slate-500 dark:text-slate-400 cursor-pointer select-none">
                     <input type="checkbox" className="accent-[#059669] size-3.5" />
                     Remember me
                   </label>
                   <button
                     type="button"
                     onClick={() => changeMode("reset")}
-                    className="text-[#059669] hover:underline cursor-pointer"
+                    className="text-[#059669] dark:text-emerald-400 hover:underline cursor-pointer"
                   >
                     Forgot password?
                   </button>
                 </div>
 
                 {error && (
-                  <div className="p-3 bg-rose-50 border border-rose-200 text-rose-800 text-[12px] font-semibold rounded-xl text-center animate-in fade-in-20 duration-300">
+                  <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/50 text-rose-800 dark:text-rose-300 text-[12px] font-semibold rounded-xl text-center animate-in fade-in-20 duration-300">
                     {error}
                   </div>
                 )}
@@ -250,17 +249,17 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full py-2.5 bg-[#059669] hover:bg-[#047857] text-white rounded-xl text-[13px] font-bold shadow-sm shadow-emerald-100 transition-colors cursor-pointer mt-2"
+                  className="w-full py-2.5 bg-[#059669] hover:bg-[#047857] text-white rounded-xl text-[13px] font-bold shadow-sm shadow-emerald-100 dark:shadow-none transition-colors cursor-pointer mt-2"
                 >
                   Sign In
                 </button>
 
-                <div className="text-center text-[12px] font-semibold text-slate-400 mt-4">
+                <div className="text-center text-[12px] font-semibold text-slate-400 dark:text-slate-400 mt-4">
                   Don't have an account?{" "}
                   <button
                     type="button"
                     onClick={() => changeMode("signup")}
-                    className="text-[#059669] hover:underline cursor-pointer"
+                    className="text-[#059669] dark:text-emerald-400 hover:underline cursor-pointer"
                   >
                     Sign up
                   </button>
@@ -272,47 +271,47 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
             {mode === "signup" && (
               <form onSubmit={handleSignupSubmit} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1 mb-1">
-                  <h3 className="text-[20px] font-bold text-slate-800 tracking-tight">Create your account</h3>
-                  <p className="text-[12px] text-slate-400 font-semibold">Join your team workspace</p>
+                  <h3 className="text-[20px] font-bold text-slate-800 dark:text-slate-100 tracking-tight">Create your account</h3>
+                  <p className="text-[12px] text-slate-400 dark:text-slate-400 font-semibold">Join your team workspace</p>
                 </div>
 
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Full Name</label>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Full Name</label>
                   <div className="relative">
-                    <User className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <User className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type="text"
                       required
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="Elena Rostova"
-                      className="w-full pl-10 pr-4 py-2 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-4 py-2 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Work Email</label>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Work Email</label>
                   <div className="relative">
-                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="elena@company.com"
-                      className="w-full pl-10 pr-4 py-2 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-4 py-2 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Password */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Password</label>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type={showPassword ? "text" : "password"}
                       required
@@ -322,12 +321,12 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                         if (error) setError(null);
                       }}
                       placeholder="SuperSecure123!"
-                      className="w-full pl-10 pr-10 py-2 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-10 py-2 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-[11px] font-bold cursor-pointer"
+                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 text-[11px] font-bold cursor-pointer"
                     >
                       {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                     </button>
@@ -338,34 +337,34 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                       <div className="h-1 bg-emerald-500 rounded-full flex-1" />
                       <div className="h-1 bg-emerald-500 rounded-full flex-1" />
                       <div className="h-1 bg-emerald-500 rounded-full flex-1" />
-                      <div className="h-1 bg-slate-200 rounded-full flex-1" />
+                      <div className="h-1 bg-slate-200 dark:bg-slate-700 rounded-full flex-1" />
                     </div>
                     <div className="flex justify-between items-center text-[10px] font-bold mt-0.5">
-                      <span className="text-emerald-600">Strong password</span>
-                      <span className="text-slate-400">Must be 8+ characters</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">Strong password</span>
+                      <span className="text-slate-400 dark:text-slate-500">Must be 8+ characters</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Organization */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                    Organization Name <span className="text-slate-400 lowercase normal-case">(Optional)</span>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                    Organization Name <span className="text-slate-400 dark:text-slate-500 lowercase normal-case">(Optional)</span>
                   </label>
                   <div className="relative">
-                    <Building className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <Building className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type="text"
                       value={organization}
                       onChange={(e) => setOrganization(e.target.value)}
                       placeholder="Acme Research Corp"
-                      className="w-full pl-10 pr-4 py-2 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-4 py-2 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Agree terms */}
-                <label className="flex items-start gap-2.5 text-[11.5px] font-semibold text-slate-500 cursor-pointer select-none leading-tight mt-1">
+                <label className="flex items-start gap-2.5 text-[11.5px] font-semibold text-slate-500 dark:text-slate-400 cursor-pointer select-none leading-tight mt-1">
                   <input
                     type="checkbox"
                     checked={agreeTerms}
@@ -374,13 +373,13 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                   />
                   <span>
                     I agree to the{" "}
-                    <span className="text-[#059669] hover:underline">Terms of Service</span> and{" "}
-                    <span className="text-[#059669] hover:underline">Privacy Policy</span>
+                    <span className="text-[#059669] dark:text-emerald-400 hover:underline">Terms of Service</span> and{" "}
+                    <span className="text-[#059669] dark:text-emerald-400 hover:underline">Privacy Policy</span>
                   </span>
                 </label>
 
                 {error && (
-                  <div className="p-3 bg-rose-50 border border-rose-200 text-rose-800 text-[12px] font-semibold rounded-xl text-center animate-in fade-in-20 duration-300">
+                  <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/50 text-rose-800 dark:text-rose-300 text-[12px] font-semibold rounded-xl text-center animate-in fade-in-20 duration-300">
                     {error}
                   </div>
                 )}
@@ -389,17 +388,17 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                 <button
                   type="submit"
                   disabled={!agreeTerms}
-                  className="w-full py-2.5 bg-[#059669] hover:bg-[#047857] disabled:bg-slate-200 disabled:text-slate-400 text-white rounded-xl text-[13px] font-bold shadow-sm shadow-emerald-100 transition-colors cursor-pointer mt-2"
+                  className="w-full py-2.5 bg-[#059669] hover:bg-[#047857] disabled:bg-slate-200 dark:disabled:bg-slate-800 disabled:text-slate-400 dark:disabled:text-slate-600 text-white rounded-xl text-[13px] font-bold shadow-sm shadow-emerald-100 dark:shadow-none transition-colors cursor-pointer mt-2"
                 >
                   Create Account
                 </button>
 
-                <div className="text-center text-[12px] font-semibold text-slate-400 mt-2">
+                <div className="text-center text-[12px] font-semibold text-slate-400 dark:text-slate-400 mt-2">
                   Already have an account?{" "}
                   <button
                     type="button"
                     onClick={() => changeMode("login")}
-                    className="text-[#059669] hover:underline cursor-pointer"
+                    className="text-[#059669] dark:text-emerald-400 hover:underline cursor-pointer"
                   >
                     Sign in
                   </button>
@@ -411,30 +410,30 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
             {mode === "reset" && (
               <form onSubmit={handleResetSubmit} className="flex flex-col gap-5">
                 <div className="flex flex-col gap-1.5 mb-2">
-                  <h3 className="text-[20px] font-bold text-slate-800 tracking-tight">Reset your password</h3>
-                  <p className="text-[12.5px] text-slate-400 font-semibold">Enter your work email and we will send you a reset link</p>
+                  <h3 className="text-[20px] font-bold text-slate-800 dark:text-slate-100 tracking-tight">Reset your password</h3>
+                  <p className="text-[12.5px] text-slate-400 dark:text-slate-400 font-semibold">Enter your work email and we will send you a reset link</p>
                 </div>
 
                 {/* Success Banner */}
                 {resetSent && (
-                  <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[12px] font-semibold rounded-xl flex items-center gap-2 animate-in fade-in-20 duration-300">
-                    <Check className="size-4 text-emerald-600 shrink-0" />
+                  <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-300 text-[12px] font-semibold rounded-xl flex items-center gap-2 animate-in fade-in-20 duration-300">
+                    <Check className="size-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     Reset link sent successfully! Redirecting...
                   </div>
                 )}
 
                 {/* Email Input */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Work Email</label>
+                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Work Email</label>
                   <div className="relative">
-                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 dark:text-slate-500" />
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="name@company.com"
-                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] outline-none text-[13px] font-medium text-slate-800 rounded-xl"
+                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50/50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:border-[#059669] dark:focus:border-emerald-500 focus:ring-1 focus:ring-[#059669] dark:focus:ring-emerald-500 outline-none text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl transition-colors"
                     />
                   </div>
                 </div>
@@ -442,18 +441,18 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full py-2.5 bg-[#059669] hover:bg-[#047857] text-white rounded-xl text-[13px] font-bold shadow-sm shadow-emerald-100 transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
+                  className="w-full py-2.5 bg-[#059669] hover:bg-[#047857] text-white rounded-xl text-[13px] font-bold shadow-sm shadow-emerald-100 dark:shadow-none transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
                 >
                   <Mail className="size-4" />
                   Send Reset Link
                 </button>
 
-                <div className="text-center text-[12px] font-semibold text-slate-400 mt-4">
+                <div className="text-center text-[12px] font-semibold text-slate-400 dark:text-slate-400 mt-4">
                   Remember your password?{" "}
                   <button
                     type="button"
                     onClick={() => changeMode("login")}
-                    className="text-[#059669] hover:underline cursor-pointer"
+                    className="text-[#059669] dark:text-emerald-400 hover:underline cursor-pointer"
                   >
                     Sign in
                   </button>
