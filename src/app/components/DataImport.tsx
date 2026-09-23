@@ -1525,7 +1525,7 @@ export default function DataImport({ onExploreInsights }: { onExploreInsights?: 
                         {/* Donut sectors */}
                         <svg className="size-full transform -rotate-90" viewBox="0 0 36 36">
                           {/* Background grey */}
-                          <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" strokeWidth="4" />
+                          <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="4" />
                           {/* Promoters (Green, 32%): strokeDasharray="32 68" offset 0 */}
                           <circle cx="18" cy="18" r="15.915" fill="none" stroke="#16a34a" strokeWidth="4" strokeDasharray="32 68" strokeDashoffset="0" />
                           {/* Passives (Yellow, 38%): strokeDasharray="38 62" offset 32 */}
@@ -1534,8 +1534,8 @@ export default function DataImport({ onExploreInsights }: { onExploreInsights?: 
                           <circle cx="18" cy="18" r="15.915" fill="none" stroke="#ef4444" strokeWidth="4" strokeDasharray="30 70" strokeDashoffset="-70" />
                         </svg>
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                          <span className="text-lg font-extrabold text-[#0f172a]">2,847</span>
-                          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Responses</span>
+                          <span className="text-lg font-extrabold text-[#0f172a] dark:text-slate-100">2,847</span>
+                          <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Responses</span>
                         </div>
                       </div>
 
@@ -1543,14 +1543,14 @@ export default function DataImport({ onExploreInsights }: { onExploreInsights?: 
                       <div className="flex flex-col gap-2.5 text-[12px]">
                         <div className="flex items-center gap-2">
                           <div className="size-2 rounded-full bg-[#16a34a]" />
-                          <span className="text-slate-600 font-medium">Promoters (9-10)</span>
-                          <span className="font-bold text-[#0f172a]">32%</span>
+                          <span className="text-slate-600 dark:text-slate-300 font-medium">Promoters (9-10)</span>
+                          <span className="font-bold text-[#0f172a] dark:text-slate-100">32%</span>
                           <span className="text-slate-400 text-[10px]">(912)</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="size-2 rounded-full bg-[#f59e0b]" />
-                          <span className="text-slate-600 font-medium">Passives (7-8)</span>
-                          <span className="font-bold text-[#0f172a]">38%</span>
+                          <span className="text-slate-600 dark:text-slate-300 font-medium">Passives (7-8)</span>
+                          <span className="font-bold text-[#0f172a] dark:text-slate-100">38%</span>
                           <span className="text-slate-400 text-[10px]">(1,082)</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -1687,9 +1687,9 @@ export default function DataImport({ onExploreInsights }: { onExploreInsights?: 
 
                     <svg className="w-full h-full overflow-visible" viewBox="0 0 600 160">
                       {/* Grid lines */}
-                      <line x1="0" y1="40" x2="600" y2="40" stroke="#f1f5f9" strokeDasharray="3 3" />
-                      <line x1="0" y1="80" x2="600" y2="80" stroke="#e2e8f0" />
-                      <line x1="0" y1="120" x2="600" y2="120" stroke="#f1f5f9" strokeDasharray="3 3" />
+                      <line x1="0" y1="40" x2="600" y2="40" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeDasharray="3 3" />
+                      <line x1="0" y1="80" x2="600" y2="80" stroke="#e2e8f0" className="stroke-slate-200 dark:stroke-slate-800" />
+                      <line x1="0" y1="120" x2="600" y2="120" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeDasharray="3 3" />
 
                       {/* Area Gradient under line */}
                       <defs>
@@ -1711,15 +1711,15 @@ export default function DataImport({ onExploreInsights }: { onExploreInsights?: 
                       />
 
                       {/* Data point dots */}
-                      <circle cx="50" cy="75" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="115" cy="40" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="180" cy="105" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="245" cy="45" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="310" cy="82" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="375" cy="110" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="440" cy="48" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="505" cy="130" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
-                      <circle cx="570" cy="58" r="4" fill="white" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="50" cy="75" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="115" cy="40" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="180" cy="105" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="245" cy="45" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="310" cy="82" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="375" cy="110" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="440" cy="48" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="505" cy="130" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
+                      <circle cx="570" cy="58" r="4" fill="white" className="dark:fill-slate-900" stroke="#10b981" strokeWidth="2.5" />
                     </svg>
 
                     {/* X axis labels */}

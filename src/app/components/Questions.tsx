@@ -106,6 +106,7 @@ function DonutChart({ value, data }: { value: string; data: { label: string; per
             r="15.915"
             fill="none"
             stroke="#f1f5f9"
+            className="stroke-slate-100 dark:stroke-slate-800"
             strokeWidth="3.2"
           />
           {data.map((item, idx) => {
@@ -132,14 +133,14 @@ function DonutChart({ value, data }: { value: string; data: { label: string; per
           })}
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-[15px] font-bold text-slate-800 leading-none">{value}</span>
+          <span className="text-[15px] font-bold text-slate-800 dark:text-slate-100 leading-none">{value}</span>
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
         {data.map((item, idx) => (
           <div key={idx} className="flex items-center gap-2">
             <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-            <span className="text-[12px] text-slate-500 font-medium whitespace-nowrap">
+            <span className="text-[12px] text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">
               {item.label} ({item.percentage}%)
             </span>
           </div>
@@ -534,25 +535,25 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
               <div className="flex flex-col items-center justify-center shrink-0 w-[140px]">
                 <div className="relative w-28 h-28">
                   <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                    <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" strokeWidth="3" />
+                    <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="3" />
                     <circle cx="18" cy="18" r="15.915" fill="none" stroke="#059669" strokeWidth="3" strokeDasharray="83 100" />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-[24px] font-bold text-slate-800 leading-none">83%</span>
+                    <span className="text-[24px] font-bold text-slate-800 dark:text-slate-100 leading-none">83%</span>
                   </div>
                 </div>
                 <p className="text-[12px] font-bold text-[#059669] text-center mt-2.5">
-                  Positive<br/><span className="text-[10px] text-slate-400 font-medium">(Satisfied or higher)</span>
+                  Positive<br/><span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">(Satisfied or higher)</span>
                 </p>
               </div>
             </div>
           </div>
 
           {/* vs Previous Survey sparkline section */}
-          <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-[13px] font-semibold text-slate-500">
-              <span>vs Previous Survey <span className="text-[11px] text-slate-400 font-medium">(Jan 2025)</span></span>
-              <span className="flex items-center gap-0.5 text-red-500 font-bold bg-red-50 px-1.5 py-0.5 rounded">
+          <div className="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-[13px] font-semibold text-slate-500 dark:text-slate-400">
+              <span>vs Previous Survey <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">(Jan 2025)</span></span>
+              <span className="flex items-center gap-0.5 text-red-500 dark:text-rose-400 font-bold bg-red-50 dark:bg-rose-950/50 px-1.5 py-0.5 rounded">
                 ↓ 31%
               </span>
             </div>
@@ -753,7 +754,31 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
 
       {/* Sentiment Over Time Section */}
       <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm mb-8">
-        <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100 mb-6">Sentiment Over Time</h3>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100">Sentiment Over Time</h3>
+            <p className="text-[12px] text-slate-400 dark:text-slate-500 font-medium">Longitudinal tracking across survey intervals</p>
+          </div>
+          {/* Chart Legend */}
+          <div className="flex items-center gap-3.5 text-[11.5px] font-semibold flex-wrap">
+            <div className="flex items-center gap-1.5">
+              <span className="size-2.5 rounded-full bg-[#059669]"></span>
+              <span className="text-slate-600 dark:text-slate-300">Positive</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="size-2.5 rounded-full bg-[#f59e0b]"></span>
+              <span className="text-slate-600 dark:text-slate-300">Neutral</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="size-2.5 rounded-full bg-[#ef4444]"></span>
+              <span className="text-slate-600 dark:text-slate-300">Negative</span>
+            </div>
+            <div className="flex items-center gap-1.5 pl-2 border-l border-slate-200 dark:border-slate-700">
+              <span className="w-3.5 h-0.5 border-t-2 border-dashed border-amber-500"></span>
+              <span className="text-amber-700 dark:text-amber-400">Policy Shift</span>
+            </div>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3 relative h-[250px] w-full">

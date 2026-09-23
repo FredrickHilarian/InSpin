@@ -32,6 +32,8 @@ interface SegmentData {
   nps: number;
   concern: string;
   sentiment: { neg: number; neu: number; pos: number };
+  trend: number[]; // 8-week sentiment trajectory
+  themeDominance: Record<string, number>; // theme percentage scores
   transcripts: { text: string; author: string }[];
   recommendations: { icon: "calendar" | "search" | "bell" | "file"; title: string; desc: string; priority: "CRITICAL" | "MEDIUM" | "EFFICIENT" }[];
 }
@@ -53,6 +55,9 @@ export default function Segments() {
   const [chatInput, setChatInput] = useState("");
   const [chatMessages, setChatMessages] = useState<string[]>([]);
 
+  // Right sidebar sentiment breakdown selector
+  const [sidebarSegmentTab, setSidebarSegmentTab] = useState<"seg1" | "seg2">("seg1");
+
   // Sample data to make page dynamic depending on selected segments
   const segmentDataMap: Record<string, SegmentData> = {
     Engineering: {
@@ -63,6 +68,14 @@ export default function Segments() {
       nps: -12,
       concern: "Scheduling",
       sentiment: { neg: 70, neu: 20, pos: 10 },
+      trend: [46, 40, 35, 29, 25, 20, 14, 10], // declining sentiment over 8 weeks
+      themeDominance: {
+        "Scheduling & Clocking": 73,
+        "Communication Barriers": 30,
+        "Equipment & Workspace": 48,
+        "Travel & Commuting": 43,
+        "Payment & Compensations": 48,
+      },
       transcripts: [
         {
           text: "The core working hours feel like an archaic way of measuring technical contribution. My best work happens late at night.",
@@ -96,6 +109,14 @@ export default function Segments() {
       nps: 62,
       concern: "Communication",
       sentiment: { neg: 10, neu: 25, pos: 65 },
+      trend: [48, 52, 54, 58, 62, 60, 63, 65], // steady positive trend
+      themeDominance: {
+        "Scheduling & Clocking": 22,
+        "Communication Barriers": 42,
+        "Equipment & Workspace": 32,
+        "Travel & Commuting": 58,
+        "Payment & Compensations": 52,
+      },
       transcripts: [
         {
           text: "I have complete freedom on how I organize my campaigns. As long as the results are there, no one micro-manages.",
@@ -129,6 +150,14 @@ export default function Segments() {
       nps: 22,
       concern: "Quota Pressures",
       sentiment: { neg: 35, neu: 30, pos: 35 },
+      trend: [42, 45, 41, 38, 42, 37, 36, 35], // fluctuating trend
+      themeDominance: {
+        "Scheduling & Clocking": 45,
+        "Communication Barriers": 55,
+        "Equipment & Workspace": 38,
+        "Travel & Commuting": 68,
+        "Payment & Compensations": 64,
+      },
       transcripts: [
         {
           text: "CRM logging requirements take up almost 2 hours of my day. I'd rather be on calls.",
@@ -162,6 +191,14 @@ export default function Segments() {
       nps: -24,
       concern: "Ticket Overload",
       sentiment: { neg: 75, neu: 15, pos: 10 },
+      trend: [34, 30, 27, 22, 19, 15, 12, 10], // steep decline
+      themeDominance: {
+        "Scheduling & Clocking": 68,
+        "Communication Barriers": 50,
+        "Equipment & Workspace": 40,
+        "Travel & Commuting": 35,
+        "Payment & Compensations": 58,
+      },
       transcripts: [
         {
           text: "Customers expect immediate responses on chat, but we don't have enough coverage on weekends.",
@@ -192,6 +229,9 @@ export default function Segments() {
   // Get active data based on dropdown selection
   const data1 = segmentDataMap[segment1] || segmentDataMap["Engineering"];
   const data2 = segmentDataMap[segment2] || segmentDataMap["Marketing"];
+
+  // Active right sidebar data
+  const activeSidebarData = sidebarSegmentTab === "seg1" ? data1 : data2;
 
   // Dropdown list
   const availableSegments = ["Engineering", "Marketing", "Sales", "Support"];
@@ -229,6 +269,45 @@ export default function Segments() {
 
   const donut1 = getDonutSegments(data1.sentiment.neg, data1.sentiment.neu, data1.sentiment.pos);
   const donut2 = getDonutSegments(data2.sentiment.neg, data2.sentiment.neu, data2.sentiment.pos);
+
+  // SVG Cubic Bezier path generator for smooth 8-week sparkline trends
+  const generateTrendPath = (dataPoints: number[], width = 280, height = 75, padX = 14, padY = 12) => {
+    if (!dataPoints || dataPoints.length === 0) return { linePath: "", areaPath: "", points: [] };
+    const usableWidth = width - padX * 2;
+    const usableHeight = height - padY * 2;
+    const stepX = usableWidth / (dataPoints.length - 1);
+
+    const coords = dataPoints.map((val, idx) => {
+      const x = padX + idx * stepX;
+      // 100% -> y = padY, 0% -> y = height - padY
+      const y = height - padY - (val / 100) * usableHeight;
+      return { x, y, val };
+    });
+
+    let linePath = `M ${coords[0].x.toFixed(1)} ${coords[0].y.toFixed(1)}`;
+    for (let i = 0; i < coords.length - 1; i++) {
+      const curr = coords[i];
+      const next = coords[i + 1];
+      const cpX1 = curr.x + (next.x - curr.x) / 2;
+      const cpY1 = curr.y;
+      const cpX2 = curr.x + (next.x - curr.x) / 2;
+      const cpY2 = next.y;
+      linePath += ` C ${cpX1.toFixed(1)} ${cpY1.toFixed(1)}, ${cpX2.toFixed(1)} ${cpY2.toFixed(1)}, ${next.x.toFixed(1)} ${next.y.toFixed(1)}`;
+    }
+
+    const last = coords[coords.length - 1];
+    const first = coords[0];
+    const areaPath = `${linePath} L ${last.x.toFixed(1)} ${(height - 4).toFixed(1)} L ${first.x.toFixed(1)} ${(height - 4).toFixed(1)} Z`;
+
+    return { linePath, areaPath, points: coords };
+  };
+
+  // Precomputed trend curves for both active segments
+  const trendCurve1 = generateTrendPath(data1.trend, 280, 75);
+  const trendCurve2 = generateTrendPath(data2.trend, 280, 75);
+
+  const delta1 = data1.trend[data1.trend.length - 1] - data1.trend[0];
+  const delta2 = data2.trend[data2.trend.length - 1] - data2.trend[0];
 
   return (
     <div className="w-full flex flex-row gap-[24px] h-[calc(100vh-120px)] overflow-hidden text-slate-800 px-[32px] py-[8px] max-w-[1440px] mx-auto">
@@ -457,81 +536,63 @@ export default function Segments() {
           </div>
 
           {/* Comparison Rows */}
-          <div className="flex flex-col gap-[14px] mt-[6px]">
-            {/* Row 1 */}
-            <div className="flex items-center gap-[12px] text-[13px] font-medium text-slate-700 dark:text-slate-300">
-              <div className="w-[180px] shrink-0 font-semibold text-[#0f172a] dark:text-slate-100">Scheduling & Clocking</div>
-              <div className="w-[160px] shrink-0">
-                <span className="bg-red-50 dark:bg-rose-950/50 text-red-600 dark:text-rose-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold">SIGNIFICANT DIFFERENCE</span>
-              </div>
-              <div className="w-[36px] text-right font-bold text-emerald-600 dark:text-emerald-400">73%</div>
-              <div className="flex-1 h-[8px] rounded-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
-                <div className="absolute left-0 top-0 h-full bg-emerald-500 rounded-l-full transition-all" style={{ width: "73%" }}></div>
-                <div className="absolute right-0 top-0 h-full bg-indigo-500 rounded-r-full transition-all" style={{ width: "22%" }}></div>
-              </div>
-              <div className="w-[36px] text-left font-bold text-indigo-600 dark:text-indigo-400 ml-[6px]">22%</div>
-            </div>
+          <div className="flex flex-col gap-[16px] mt-[6px]">
+            {[
+              "Scheduling & Clocking",
+              "Communication Barriers",
+              "Equipment & Workspace",
+              "Travel & Commuting",
+              "Payment & Compensations"
+            ].map((themeName) => {
+              const val1 = data1.themeDominance[themeName] ?? 50;
+              const val2 = data2.themeDominance[themeName] ?? 50;
+              const diff = Math.abs(val1 - val2);
+              const isSignificant = diff >= 25;
+              const isModerate = diff >= 10 && diff < 25;
 
-            {/* Row 2 */}
-            <div className="flex items-center gap-[12px] text-[13px] font-medium text-slate-700 dark:text-slate-300">
-              <div className="w-[180px] shrink-0 font-semibold text-[#0f172a] dark:text-slate-100">Communication Barriers</div>
-              <div className="w-[160px] shrink-0">
-                <span className="bg-red-50 dark:bg-rose-950/50 text-red-600 dark:text-rose-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold">SIGNIFICANT DIFFERENCE</span>
-              </div>
-              <div className="w-[36px] text-right font-bold text-emerald-600 dark:text-emerald-400">30%</div>
-              <div className="flex-1 h-[8px] rounded-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
-                <div className="absolute left-0 top-0 h-full bg-emerald-500 rounded-l-full transition-all" style={{ width: "30%" }}></div>
-                <div className="absolute right-0 top-0 h-full bg-indigo-500 rounded-r-full transition-all" style={{ width: "42%" }}></div>
-              </div>
-              <div className="w-[36px] text-left font-bold text-indigo-600 dark:text-indigo-400 ml-[6px]">42%</div>
-            </div>
-
-            {/* Row 3 */}
-            <div className="flex items-center gap-[12px] text-[13px] font-medium text-slate-700 dark:text-slate-300">
-              <div className="w-[180px] shrink-0 font-semibold text-[#0f172a] dark:text-slate-100">Equipment & Workspace</div>
-              <div className="w-[160px] shrink-0">
-                <span className="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold">MODERATE DIFFERENCE</span>
-              </div>
-              <div className="w-[36px] text-right font-bold text-emerald-600 dark:text-emerald-400">48%</div>
-              <div className="flex-1 h-[8px] rounded-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
-                <div className="absolute left-0 top-0 h-full bg-emerald-500 rounded-l-full transition-all" style={{ width: "48%" }}></div>
-                <div className="absolute right-0 top-0 h-full bg-indigo-500 rounded-r-full transition-all" style={{ width: "32%" }}></div>
-              </div>
-              <div className="w-[36px] text-left font-bold text-indigo-600 dark:text-indigo-400 ml-[6px]">32%</div>
-            </div>
-
-            {/* Row 4 */}
-            <div className="flex items-center gap-[12px] text-[13px] font-medium text-slate-700 dark:text-slate-300">
-              <div className="w-[180px] shrink-0 font-semibold text-[#0f172a] dark:text-slate-100">Travel & Commuting</div>
-              <div className="w-[160px] shrink-0">
-                <span className="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold">MODERATE DIFFERENCE</span>
-              </div>
-              <div className="w-[36px] text-right font-bold text-emerald-600 dark:text-emerald-400">43%</div>
-              <div className="flex-1 h-[8px] rounded-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
-                <div className="absolute left-0 top-0 h-full bg-emerald-500 rounded-l-full transition-all" style={{ width: "43%" }}></div>
-                <div className="absolute right-0 top-0 h-full bg-indigo-500 rounded-r-full transition-all" style={{ width: "58%" }}></div>
-              </div>
-              <div className="w-[36px] text-left font-bold text-indigo-600 dark:text-indigo-400 ml-[6px]">58%</div>
-            </div>
-
-            {/* Row 5 */}
-            <div className="flex items-center gap-[12px] text-[13px] font-medium text-slate-700 dark:text-slate-300">
-              <div className="w-[180px] shrink-0 font-semibold text-[#0f172a] dark:text-slate-100">Payment & Compensations</div>
-              <div className="w-[160px] shrink-0">
-                <span className="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold">MODERATE DIFFERENCE</span>
-              </div>
-              <div className="w-[36px] text-right font-bold text-emerald-600 dark:text-emerald-400">48%</div>
-              <div className="flex-1 h-[8px] rounded-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
-                <div className="absolute left-0 top-0 h-full bg-emerald-500 rounded-l-full transition-all" style={{ width: "48%" }}></div>
-                <div className="absolute right-0 top-0 h-full bg-indigo-500 rounded-r-full transition-all" style={{ width: "52%" }}></div>
-              </div>
-              <div className="w-[36px] text-left font-bold text-indigo-600 dark:text-indigo-400 ml-[6px]">52%</div>
-            </div>
+              return (
+                <div key={themeName} className="flex flex-col sm:flex-row sm:items-center gap-[12px] text-[13px] font-medium text-slate-700 dark:text-slate-300 py-[4px] border-b border-slate-50 dark:border-slate-800/60 last:border-b-0">
+                  <div className="w-[190px] shrink-0 font-semibold text-[#0f172a] dark:text-slate-100">{themeName}</div>
+                  <div className="w-[165px] shrink-0">
+                    {isSignificant ? (
+                      <span className="bg-red-50 dark:bg-rose-950/50 text-red-600 dark:text-rose-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold tracking-wide">SIGNIFICANT DIFFERENCE</span>
+                    ) : isModerate ? (
+                      <span className="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold tracking-wide">MODERATE DIFFERENCE</span>
+                    ) : (
+                      <span className="bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 px-[8px] py-[2.5px] rounded-full text-[10px] font-bold tracking-wide">ALIGNED</span>
+                    )}
+                  </div>
+                  {/* Dual paired comparison bars - 0 to 100% scale without bar collision */}
+                  <div className="flex-1 flex flex-col gap-[6px] justify-center min-w-[200px]">
+                    {/* Segment 1 Bar */}
+                    <div className="flex items-center gap-[10px]">
+                      <div className="flex-1 h-[7px] rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                        <div
+                          className="h-full bg-emerald-500 rounded-full transition-all duration-500 ease-out"
+                          style={{ width: `${val1}%` }}
+                        />
+                      </div>
+                      <span className="w-[36px] text-right font-bold text-emerald-600 dark:text-emerald-400 text-[12px]">{val1}%</span>
+                    </div>
+                    {/* Segment 2 Bar */}
+                    <div className="flex items-center gap-[10px]">
+                      <div className="flex-1 h-[7px] rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                        <div
+                          className="h-full bg-indigo-500 rounded-full transition-all duration-500 ease-out"
+                          style={{ width: `${val2}%` }}
+                        />
+                      </div>
+                      <span className="w-[36px] text-right font-bold text-indigo-600 dark:text-indigo-400 text-[12px]">{val2}%</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Note Panel */}
           <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-[12px] p-[12px] text-[12px] text-slate-500 dark:text-slate-300 leading-relaxed mt-[6px]">
-            <strong>AI INTERPRETATION:</strong> Engineering sentiment is heavily impacted by scheduling rigidity and tool limitations, while Marketing sentiment is driven by communication silos and cross-functional misalignment.
+            <strong>AI INTERPRETATION:</strong> {segment1} sentiment is heavily impacted by {data1.concern.toLowerCase()} concerns, while {segment2} priorities reflect {data2.concern.toLowerCase()} friction.
           </div>
         </div>
 
@@ -822,15 +883,42 @@ export default function Segments() {
 
         {/* Sentiment Distribution Donut */}
         <div className="flex flex-col gap-[12px] pt-[16px] border-t border-slate-100 dark:border-slate-800">
-          <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sentiment Distribution</h4>
+          <div className="flex items-center justify-between">
+            <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sentiment Breakdown</h4>
+            {/* Segment Selector Toggle */}
+            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg text-[10px] font-bold">
+              <button
+                type="button"
+                onClick={() => setSidebarSegmentTab("seg1")}
+                className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${
+                  sidebarSegmentTab === "seg1"
+                    ? "bg-white dark:bg-slate-700 text-emerald-600 dark:text-emerald-400 shadow-sm"
+                    : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+                }`}
+              >
+                {segment1}
+              </button>
+              <button
+                type="button"
+                onClick={() => setSidebarSegmentTab("seg2")}
+                className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${
+                  sidebarSegmentTab === "seg2"
+                    ? "bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-sm"
+                    : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+                }`}
+              >
+                {segment2}
+              </button>
+            </div>
+          </div>
 
           <div className="flex items-center gap-[16px]">
-            {/* SVG donut chart */}
-            <div className="relative size-[72px] shrink-0">
+            {/* SVG dynamic donut chart */}
+            <div className="relative size-[76px] shrink-0">
               <svg className="size-full transform -rotate-90" viewBox="0 0 36 36">
                 <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="4" />
 
-                {/* Green Promoters: 64% */}
+                {/* Green Promoters */}
                 <circle
                   cx="18"
                   cy="18"
@@ -838,11 +926,11 @@ export default function Segments() {
                   fill="transparent"
                   stroke="#10b981"
                   strokeWidth="4"
-                  strokeDasharray="64 100"
+                  strokeDasharray={`${activeSidebarData.sentiment.pos} 100`}
                   strokeDashoffset="0"
                 />
 
-                {/* Yellow Passives: 21% */}
+                {/* Yellow Passives */}
                 <circle
                   cx="18"
                   cy="18"
@@ -850,11 +938,11 @@ export default function Segments() {
                   fill="transparent"
                   stroke="#f59e0b"
                   strokeWidth="4"
-                  strokeDasharray="21 100"
-                  strokeDashoffset="-64"
+                  strokeDasharray={`${activeSidebarData.sentiment.neu} 100`}
+                  strokeDashoffset={-activeSidebarData.sentiment.pos}
                 />
 
-                {/* Red Detractors: 15% */}
+                {/* Red Detractors */}
                 <circle
                   cx="18"
                   cy="18"
@@ -862,10 +950,17 @@ export default function Segments() {
                   fill="transparent"
                   stroke="#ef4444"
                   strokeWidth="4"
-                  strokeDasharray="15 100"
-                  strokeDashoffset="-85"
+                  strokeDasharray={`${activeSidebarData.sentiment.neg} 100`}
+                  strokeDashoffset={-(activeSidebarData.sentiment.pos + activeSidebarData.sentiment.neu)}
                 />
               </svg>
+              {/* Center percentage badge */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center leading-none text-center">
+                <span className={`text-[12px] font-extrabold ${sidebarSegmentTab === "seg1" ? "text-emerald-600 dark:text-emerald-400" : "text-indigo-600 dark:text-indigo-400"}`}>
+                  {activeSidebarData.sentiment.pos}%
+                </span>
+                <span className="text-[7.5px] text-slate-400 font-bold uppercase mt-0.5">Pos</span>
+              </div>
             </div>
 
             {/* Legend with percentages */}
@@ -875,53 +970,148 @@ export default function Segments() {
                   <span className="size-[6px] rounded-full bg-emerald-500"></span>
                   <span>Promoters</span>
                 </div>
-                <span className="font-bold text-slate-800 dark:text-slate-100">64%</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100">{activeSidebarData.sentiment.pos}%</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-[6px]">
                   <span className="size-[6px] rounded-full bg-amber-500"></span>
                   <span>Passives</span>
                 </div>
-                <span className="font-bold text-slate-800 dark:text-slate-100">21%</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100">{activeSidebarData.sentiment.neu}%</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-[6px]">
                   <span className="size-[6px] rounded-full bg-rose-500"></span>
                   <span>Detractors</span>
                 </div>
-                <span className="font-bold text-slate-800 dark:text-slate-100">15%</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100">{activeSidebarData.sentiment.neg}%</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Trend Over Time Sparklines */}
-        <div className="flex flex-col gap-[10px] pt-[16px] border-t border-slate-100 dark:border-slate-800">
+        {/* Trend Over Time Comparative Sparkline */}
+        <div className="flex flex-col gap-[12px] pt-[16px] border-t border-slate-100 dark:border-slate-800">
           <div className="flex items-center justify-between">
             <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Trend Over Time</h4>
-            <span className="text-[11px] text-slate-400 font-medium">Last 8 weeks</span>
+            <span className="text-[10.5px] text-slate-400 dark:text-slate-500 font-semibold bg-slate-50 dark:bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-100 dark:border-slate-700/60">
+              Last 8 Weeks
+            </span>
           </div>
 
-          {/* Sparkline Visual SVG */}
-          <div className="h-[52px] w-full bg-[#f8fafc] dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 rounded-[12px] p-[10px] flex items-center justify-center">
-            <svg className="w-full h-full" viewBox="0 0 200 40">
-              {/* Green Sparkline line */}
-              <path
-                d="M 10 30 Q 30 25 50 18 T 90 28 T 130 12 T 170 18 T 190 8"
-                fill="transparent"
-                stroke="#10b981"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              {/* Red Sparkline line */}
-              <path
-                d="M 10 38 Q 30 35 50 37 T 90 32 T 130 36 T 170 34 T 190 33"
-                fill="transparent"
-                stroke="#ef4444"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
+          {/* Color-Coded Legend & Real-Time Cohort Metrics */}
+          <div className="grid grid-cols-2 gap-2 text-[11px] font-medium">
+            <div className="flex items-center justify-between bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100/80 dark:border-emerald-900/40 rounded-lg px-2.5 py-1.5">
+              <div className="flex items-center gap-1.5 truncate">
+                <span className="size-2 rounded-full bg-emerald-500 shrink-0" />
+                <span className="font-semibold text-emerald-950 dark:text-emerald-200 truncate">{segment1}</span>
+              </div>
+              <span className={`text-[10px] font-bold shrink-0 ml-1 ${delta1 >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}`}>
+                {delta1 >= 0 ? `+${delta1}%` : `${delta1}%`}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-100/80 dark:border-indigo-900/40 rounded-lg px-2.5 py-1.5">
+              <div className="flex items-center gap-1.5 truncate">
+                <span className="size-2 rounded-full bg-indigo-500 shrink-0" />
+                <span className="font-semibold text-indigo-950 dark:text-indigo-200 truncate">{segment2}</span>
+              </div>
+              <span className={`text-[10px] font-bold shrink-0 ml-1 ${delta2 >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}`}>
+                {delta2 >= 0 ? `+${delta2}%` : `${delta2}%`}
+              </span>
+            </div>
+          </div>
+
+          {/* Comparative SVG Line Chart with Safe Viewport & Gradients */}
+          <div className="w-full bg-[#f8fafc] dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/60 rounded-[14px] p-2.5 flex flex-col gap-1.5">
+            <div className="h-[75px] w-full relative">
+              <svg className="w-full h-full overflow-visible" viewBox="0 0 280 75">
+                <defs>
+                  {/* Segment 1 Emerald Area Gradient */}
+                  <linearGradient id="seg1AreaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.22" />
+                    <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+                  </linearGradient>
+                  {/* Segment 2 Indigo Area Gradient */}
+                  <linearGradient id="seg2AreaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#6366f1" stopOpacity="0.20" />
+                    <stop offset="100%" stopColor="#6366f1" stopOpacity="0.0" />
+                  </linearGradient>
+                </defs>
+
+                {/* Subtle horizontal benchmark guidelines */}
+                <line x1="14" y1="23" x2="266" y2="23" stroke="#e2e8f0" className="stroke-slate-200 dark:stroke-slate-700/50" strokeDasharray="2 3" strokeWidth="1" />
+                <line x1="14" y1="46" x2="266" y2="46" stroke="#e2e8f0" className="stroke-slate-200 dark:stroke-slate-700/50" strokeDasharray="2 3" strokeWidth="1" />
+
+                {/* Translucent Area Fills */}
+                {trendCurve1.areaPath && (
+                  <path d={trendCurve1.areaPath} fill="url(#seg1AreaGrad)" />
+                )}
+                {trendCurve2.areaPath && (
+                  <path d={trendCurve2.areaPath} fill="url(#seg2AreaGrad)" />
+                )}
+
+                {/* Segment 1 Line (Emerald) */}
+                {trendCurve1.linePath && (
+                  <path
+                    d={trendCurve1.linePath}
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                )}
+
+                {/* Segment 2 Line (Indigo) */}
+                {trendCurve2.linePath && (
+                  <path
+                    d={trendCurve2.linePath}
+                    fill="none"
+                    stroke="#6366f1"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                )}
+
+                {/* Final Endpoint Dots */}
+                {trendCurve1.points.length > 0 && (
+                  <g>
+                    <circle
+                      cx={trendCurve1.points[trendCurve1.points.length - 1].x}
+                      cy={trendCurve1.points[trendCurve1.points.length - 1].y}
+                      r="4"
+                      fill="#10b981"
+                      stroke="#ffffff"
+                      className="dark:stroke-slate-900"
+                      strokeWidth="2"
+                    />
+                  </g>
+                )}
+                {trendCurve2.points.length > 0 && (
+                  <g>
+                    <circle
+                      cx={trendCurve2.points[trendCurve2.points.length - 1].x}
+                      cy={trendCurve2.points[trendCurve2.points.length - 1].y}
+                      r="4"
+                      fill="#6366f1"
+                      stroke="#ffffff"
+                      className="dark:stroke-slate-900"
+                      strokeWidth="2"
+                    />
+                  </g>
+                )}
+              </svg>
+            </div>
+
+            {/* Week progression ticks */}
+            <div className="flex justify-between items-center text-[9.5px] font-bold text-slate-400 dark:text-slate-500 px-1.5 pt-0.5 border-t border-slate-100 dark:border-slate-700/40">
+              <span>W1</span>
+              <span>W3</span>
+              <span>W5</span>
+              <span>W8 (Now)</span>
+            </div>
           </div>
         </div>
 
