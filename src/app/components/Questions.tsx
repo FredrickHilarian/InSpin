@@ -390,29 +390,29 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
   return (
     <div className="flex flex-col size-full overflow-y-auto pr-2 pb-10 custom-scrollbar">
       {/* Breadcrumb Navigation */}
-      <div className="flex items-center gap-2 mb-4 text-[13px] text-slate-500 font-medium">
-        <button onClick={onBack} className="flex items-center gap-1 text-[#059669] hover:underline cursor-pointer font-semibold">
+      <div className="flex items-center gap-2 mb-4 text-[13px] text-slate-500 dark:text-slate-400 font-medium">
+        <button onClick={onBack} className="flex items-center gap-1 text-[#059669] dark:text-emerald-400 hover:underline cursor-pointer font-semibold">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
           Question Explorer
         </button>
-        <span className="text-slate-300">/</span>
-        <span className="text-slate-700 font-semibold">Q1</span>
+        <span className="text-slate-300 dark:text-slate-600">/</span>
+        <span className="text-slate-700 dark:text-slate-200 font-semibold">Q1</span>
       </div>
 
       {/* Sub-Header bar with actions */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           {/* Q1 of 24 selector */}
-          <div className="flex items-center gap-1 border border-slate-200 bg-white rounded-xl px-2 py-1 shadow-sm font-semibold text-[13px] text-slate-700">
-            <button className="p-0.5 hover:bg-slate-50 rounded text-slate-400">
+          <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] rounded-xl px-2 py-1 shadow-sm font-semibold text-[13px] text-slate-700 dark:text-slate-200">
+            <button className="p-0.5 hover:bg-slate-50 dark:hover:bg-slate-800 rounded text-slate-400">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
-            <span className="px-1 text-slate-800">Q1 of 24</span>
-            <button className="p-0.5 hover:bg-slate-50 rounded text-slate-400">
+            <span className="px-1 text-slate-800 dark:text-slate-100">Q1 of 24</span>
+            <button className="p-0.5 hover:bg-slate-50 dark:hover:bg-slate-800 rounded text-slate-400">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
@@ -420,58 +420,58 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-[#e8f7f0] text-[#059669] rounded-full text-[12px] font-bold shadow-sm">
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 rounded-full text-[12px] font-bold shadow-sm">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068" />
               </svg>
               92.3% Complete
             </span>
-            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[12px] font-bold shadow-sm">
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 rounded-full text-[12px] font-bold shadow-sm">
               2,787 Responses
             </span>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-1.5 px-4 py-2 border border-slate-200 bg-white hover:bg-slate-50 rounded-xl text-[13px] font-bold text-slate-700 shadow-sm cursor-pointer transition-colors">
+          <button className="flex items-center gap-1.5 px-4 py-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl text-[13px] font-bold text-slate-700 dark:text-slate-200 shadow-sm cursor-pointer transition-colors">
             Save Finding
           </button>
           <button className="flex items-center gap-1.5 px-4 py-2 bg-[#059669] hover:bg-[#047857] text-white rounded-xl text-[13px] font-bold shadow-sm cursor-pointer transition-colors">
             Add to Report
           </button>
-          <button className="flex items-center gap-1.5 px-4 py-2 border border-slate-200 bg-white hover:bg-slate-50 rounded-xl text-[13px] font-bold text-slate-700 shadow-sm cursor-pointer transition-colors">
+          <button className="flex items-center gap-1.5 px-4 py-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl text-[13px] font-bold text-slate-700 dark:text-slate-200 shadow-sm cursor-pointer transition-colors">
             Share
           </button>
-          <button className="p-2 border border-slate-200 bg-white hover:bg-slate-50 rounded-xl text-slate-500 shadow-sm cursor-pointer transition-colors">
+          <button className="p-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl text-slate-500 dark:text-slate-400 shadow-sm cursor-pointer transition-colors">
             •••
           </button>
         </div>
       </div>
 
       {/* Main Title */}
-      <h2 className="text-[26px] font-bold text-slate-900 leading-tight mb-4">
+      <h2 className="text-[26px] font-bold text-slate-900 dark:text-white leading-tight mb-4">
         How satisfied are you with your current work schedule flexibility?
       </h2>
 
       {/* Badges row */}
       <div className="flex items-center gap-2 mb-6">
-        <span className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-600 font-semibold text-[11px] uppercase tracking-wide">Single Choice</span>
-        <span className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-600 font-semibold text-[11px] uppercase tracking-wide">Workplace Satisfaction</span>
-        <span className="px-2.5 py-0.5 rounded-md bg-[#e8f7f0] text-[#059669] font-bold text-[11px] uppercase tracking-wide">High Priority</span>
-        <span className="text-[12px] text-slate-400 font-medium ml-2">Last updated: May 20, 2026</span>
+        <span className="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold text-[11px] uppercase tracking-wide">Single Choice</span>
+        <span className="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold text-[11px] uppercase tracking-wide">Workplace Satisfaction</span>
+        <span className="px-2.5 py-0.5 rounded-md bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 font-bold text-[11px] uppercase tracking-wide">High Priority</span>
+        <span className="text-[12px] text-slate-400 dark:text-slate-500 font-medium ml-2">Last updated: May 20, 2026</span>
       </div>
 
       {/* AI Narrative Summary Card */}
-      <div className="bg-[#f5f3ff] border border-[#ddd6fe]/50 rounded-[20px] p-6 shadow-sm mb-6 flex flex-col gap-4 relative">
+      <div className="bg-[#f5f3ff] dark:bg-indigo-950/30 border border-[#ddd6fe]/50 dark:border-indigo-900/40 rounded-[20px] p-6 shadow-sm mb-6 flex flex-col gap-4 relative">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[#7c3aed]">
+          <div className="flex items-center gap-2 text-[#7c3aed] dark:text-indigo-400">
             <IconSparkles />
             <h3 className="font-bold text-[15px] uppercase tracking-wider">AI Narrative Summary</h3>
           </div>
-          <span className="text-[12px] font-bold text-[#7c3aed] bg-purple-100/60 px-2.5 py-0.5 rounded-md">Confidence: 96%</span>
+          <span className="text-[12px] font-bold text-[#7c3aed] dark:text-indigo-400 bg-purple-100/60 dark:bg-indigo-950/80 px-2.5 py-0.5 rounded-md">Confidence: 96%</span>
         </div>
 
-        <p className="text-[14.5px] text-[#5b21b6] font-medium leading-relaxed">
+        <p className="text-[14.5px] text-[#5b21b6] dark:text-indigo-200 font-medium leading-relaxed">
           Schedule flexibility is the most critical employee concern in this survey. While 45% of respondents report satisfaction, 
           a concentrated cluster of dissatisfaction exists in Engineering (28%), Night shift employees (31%), and employees with 
           10+ years tenure (34%). This represents a significant decline of 31% compared to the previous survey. The decline aligns 
@@ -480,17 +480,17 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
 
         <div className="flex items-center justify-between pt-2">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="px-3 py-1 rounded-lg border border-[#ddd6fe] bg-white text-[#7c3aed] text-[11.5px] font-bold">
+            <span className="px-3 py-1 rounded-lg border border-[#ddd6fe] dark:border-indigo-900/50 bg-white dark:bg-slate-800 text-[#7c3aed] dark:text-indigo-400 text-[11.5px] font-bold">
               Prioritization: High Impact
             </span>
-            <span className="px-3 py-1 rounded-lg border border-[#ddd6fe] bg-white text-[#7c3aed] text-[11.5px] font-bold">
+            <span className="px-3 py-1 rounded-lg border border-[#ddd6fe] dark:border-indigo-900/50 bg-white dark:bg-slate-800 text-[#7c3aed] dark:text-indigo-400 text-[11.5px] font-bold">
               Impact: Company-wide
             </span>
-            <span className="px-3 py-1 rounded-lg border border-red-200 bg-red-50 text-red-600 text-[11.5px] font-bold">
+            <span className="px-3 py-1 rounded-lg border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 text-[11.5px] font-bold">
               Action Urgency: Immediate
             </span>
           </div>
-          <button className="text-[13px] font-bold text-[#7c3aed] hover:underline flex items-center gap-1 cursor-pointer">
+          <button className="text-[13px] font-bold text-[#7c3aed] dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer">
             View AI reasoning
             <IconChevronRight />
           </button>
@@ -500,13 +500,13 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
       {/* Response Distribution & Research Note Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         {/* Response Distribution */}
-        <div className="lg:col-span-2 bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-1.5">
-                <h3 className="font-bold text-[16px] text-slate-800">Response Distribution</h3>
-                <span className="text-[12px] text-slate-400 font-medium">2,787 responses</span>
-                <span className="text-slate-300 text-[13px] cursor-pointer">ⓘ</span>
+                <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100">Response Distribution</h3>
+                <span className="text-[12px] text-slate-400 dark:text-slate-500 font-medium">2,787 responses</span>
+                <span className="text-slate-300 dark:text-slate-600 text-[13px] cursor-pointer">ⓘ</span>
               </div>
             </div>
 
@@ -566,13 +566,13 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
           </div>
         </div>
 
-        {/* Research Note */}
-        <div className="bg-[#fefaf0]/60 rounded-[20px] p-6 border border-[#fef08a] shadow-sm flex flex-col justify-between relative overflow-hidden">
-          <div className="absolute -right-6 -top-6 w-20 h-20 bg-amber-200/20 rounded-full blur-xl" />
+        {/* Research Note Card */}
+        <div className="bg-[#fefaf0]/60 dark:bg-amber-950/20 rounded-[20px] p-6 border border-[#fef08a] dark:border-amber-800/40 shadow-sm flex flex-col justify-between relative overflow-hidden">
+          <div className="absolute -right-6 -top-6 w-20 h-20 bg-amber-200/20 dark:bg-amber-600/10 rounded-full blur-xl" />
           
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2 text-amber-700">
+              <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                 </svg>
@@ -581,7 +581,7 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
               <span className="text-slate-400 text-[15px] cursor-pointer hover:text-slate-600">📌</span>
             </div>
 
-            <p className="text-[13px] text-amber-900/80 leading-relaxed font-semibold mb-4">
+            <p className="text-[13px] text-amber-900/80 dark:text-amber-200/90 leading-relaxed font-semibold mb-4">
               Adding your observations helps make sense of the data context and may aid in actions. Use @ to mention teammates and link to workspaces or reports.
             </p>
 
@@ -589,7 +589,7 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
               value={noteText}
               onChange={(e) => setNoteText(e.target.value)}
               placeholder="Start typing your note here..."
-              className="w-full h-[90px] border border-amber-200/60 rounded-xl p-3 bg-white/80 outline-none text-[13px] text-slate-800 placeholder:text-slate-400 focus:border-amber-400 resize-none shadow-inner"
+              className="w-full h-[90px] border border-amber-200/60 dark:border-amber-700/50 rounded-xl p-3 bg-white/80 dark:bg-[#111827] outline-none text-[13px] text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-amber-400 resize-none shadow-inner"
             />
           </div>
 
@@ -600,7 +600,7 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
       {/* Reporting Evidence */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-bold text-[16px] text-slate-800">Reporting Evidence</h3>
+          <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100">Reporting Evidence</h3>
           <button className="text-[12.5px] font-bold text-[#059669] hover:underline flex items-center gap-0.5 cursor-pointer">
             View all responses
             <IconChevronRight />
@@ -613,23 +613,23 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
               quote: "The new scheduling system makes it nearly impossible for parents to plan ahead. Any control disappeared.",
               dept: "Engineering",
               sentiment: "Negative",
-              color: "text-amber-600 bg-amber-50 border-amber-100"
+              color: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 border-amber-100 dark:border-amber-900/50"
             },
             {
               quote: "I love the flexibility — I can adjust my hours around school pickups.",
               dept: "Marketing",
               sentiment: "Positive",
-              color: "text-[#059669] bg-[#e8f7f0] border-[#a7f3d0]/30"
+              color: "text-[#059669] dark:text-emerald-400 bg-[#e8f7f0] dark:bg-emerald-950/40 border-[#a7f3d0]/30 dark:border-emerald-800/40"
             },
             {
               quote: "Stress of policy changes, we lost all schedule autonomy.",
               dept: "Operations",
               sentiment: "Very Negative",
-              color: "text-red-600 bg-red-50 border-red-100"
+              color: "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 border-red-100 dark:border-red-900/50"
             }
           ].map((item, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-              <p className="text-[13.5px] text-slate-600 font-medium italic leading-relaxed mb-4">
+            <div key={idx} className="bg-white dark:bg-[#111827] rounded-2xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <p className="text-[13.5px] text-slate-600 dark:text-slate-300 font-medium italic leading-relaxed mb-4">
                 "{item.quote}"
               </p>
               
@@ -647,11 +647,11 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
       {/* Breakdowns Row (3 Columns) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Cross-Segment Breakdown */}
-        <div className="bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
+        <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-[15px] text-slate-800">Cross-Segment Breakdown</h3>
-              <button className="flex items-center gap-1.5 px-2.5 py-1.5 border border-slate-200 rounded-lg text-[11px] font-bold text-slate-600 hover:bg-slate-50 cursor-pointer">
+              <h3 className="font-bold text-[15px] text-slate-800 dark:text-slate-100">Cross-Segment Breakdown</h3>
+              <button className="flex items-center gap-1.5 px-2.5 py-1.5 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-lg text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 cursor-pointer">
                 Segmented by Department
                 <IconChevronDown />
               </button>
@@ -667,28 +667,28 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
                 { label: "Engineering", value: 28, color: "bg-[#ef4444]" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <span className="text-[12px] text-slate-500 font-semibold w-[80px] shrink-0 truncate">{item.label}</span>
-                  <div className="flex-1 h-[8px] bg-slate-100 rounded-full overflow-hidden">
+                  <span className="text-[12px] text-slate-500 dark:text-slate-400 font-semibold w-[80px] shrink-0 truncate">{item.label}</span>
+                  <div className="flex-1 h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className={`h-full rounded-full ${item.color}`} style={{ width: `${item.value}%` }} />
                   </div>
-                  <span className="text-[12px] text-slate-700 font-bold w-[30px] text-right">{item.value}%</span>
+                  <span className="text-[12px] text-slate-700 dark:text-slate-200 font-bold w-[30px] text-right">{item.value}%</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-purple-50 border border-purple-100 rounded-xl p-3.5 mt-5 flex gap-1.5">
-            <span className="text-purple-600 text-[14px]">✨</span>
-            <p className="text-[11.5px] text-purple-900/80 font-medium leading-normal">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-900/50 rounded-xl p-3.5 mt-5 flex gap-1.5">
+            <span className="text-purple-600 dark:text-purple-400 text-[14px]">✨</span>
+            <p className="text-[11.5px] text-purple-900/80 dark:text-purple-300 font-medium leading-normal">
               <strong>AI Insight:</strong> Engineering team shows dramatically lower satisfaction. Consider targeted interventions and workload flexibility review.
             </p>
           </div>
         </div>
 
         {/* Demographic Lens */}
-        <div className="bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
+        <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
           <div>
-            <h3 className="font-bold text-[15px] text-slate-800 mb-4">Demographic Lens</h3>
+            <h3 className="font-bold text-[15px] text-slate-800 dark:text-slate-100 mb-4">Demographic Lens</h3>
             <p className="text-[12px] font-bold text-slate-400 uppercase tracking-wide mb-3">Satisfaction by Tenure</p>
 
             <div className="flex flex-col gap-3">
@@ -700,28 +700,28 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
                 { label: "10+ yr", value: 34, color: "bg-[#ef4444]" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <span className="text-[12px] text-slate-500 font-semibold w-[80px] shrink-0 truncate">{item.label}</span>
-                  <div className="flex-1 h-[8px] bg-slate-100 rounded-full overflow-hidden">
+                  <span className="text-[12px] text-slate-500 dark:text-slate-400 font-semibold w-[80px] shrink-0 truncate">{item.label}</span>
+                  <div className="flex-1 h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className={`h-full rounded-full ${item.color}`} style={{ width: `${item.value}%` }} />
                   </div>
-                  <span className="text-[12px] text-slate-700 font-bold w-[30px] text-right">{item.value}%</span>
+                  <span className="text-[12px] text-slate-700 dark:text-slate-200 font-bold w-[30px] text-right">{item.value}%</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-purple-50 border border-purple-100 rounded-xl p-3.5 mt-5 flex gap-1.5">
-            <span className="text-purple-600 text-[14px]">✨</span>
-            <p className="text-[11.5px] text-purple-900/80 font-medium leading-normal">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-900/50 rounded-xl p-3.5 mt-5 flex gap-1.5">
+            <span className="text-purple-600 dark:text-purple-400 text-[14px]">✨</span>
+            <p className="text-[11.5px] text-purple-900/80 dark:text-purple-300 font-medium leading-normal">
               <strong>AI Insight:</strong> Satisfaction steadily declines as tenure increases.
             </p>
           </div>
         </div>
 
         {/* By Seniority Level */}
-        <div className="bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
+        <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
           <div>
-            <h3 className="font-bold text-[15px] text-slate-800 mb-4">By Seniority Level</h3>
+            <h3 className="font-bold text-[15px] text-slate-800 dark:text-slate-100 mb-4">By Seniority Level</h3>
             <p className="text-[12px] font-bold text-slate-400 uppercase tracking-wide mb-3">Satisfaction by Level</p>
 
             <div className="flex flex-col gap-3">
@@ -732,19 +732,19 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
                 { label: "Director / VP", value: 74, color: "bg-[#059669]" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <span className="text-[12px] text-slate-500 font-semibold w-[120px] shrink-0 truncate">{item.label}</span>
-                  <div className="flex-1 h-[8px] bg-slate-100 rounded-full overflow-hidden">
+                  <span className="text-[12px] text-slate-500 dark:text-slate-400 font-semibold w-[120px] shrink-0 truncate">{item.label}</span>
+                  <div className="flex-1 h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className={`h-full rounded-full ${item.color}`} style={{ width: `${item.value}%` }} />
                   </div>
-                  <span className="text-[12px] text-slate-700 font-bold w-[30px] text-right">{item.value}%</span>
+                  <span className="text-[12px] text-slate-700 dark:text-slate-200 font-bold w-[30px] text-right">{item.value}%</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-purple-50 border border-purple-100 rounded-xl p-3.5 mt-5 flex gap-1.5">
-            <span className="text-purple-600 text-[14px]">✨</span>
-            <p className="text-[11.5px] text-purple-900/80 font-medium leading-normal">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-900/50 rounded-xl p-3.5 mt-5 flex gap-1.5">
+            <span className="text-purple-600 dark:text-purple-400 text-[14px]">✨</span>
+            <p className="text-[11.5px] text-purple-900/80 dark:text-purple-300 font-medium leading-normal">
               <strong>AI Insight:</strong> ICs report significantly lower satisfaction than leadership levels.
             </p>
           </div>
@@ -752,19 +752,19 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
       </div>
 
       {/* Sentiment Over Time Section */}
-      <div className="bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm mb-8">
-        <h3 className="font-bold text-[16px] text-slate-800 mb-6">Sentiment Over Time</h3>
+      <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm mb-8">
+        <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100 mb-6">Sentiment Over Time</h3>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3 relative h-[250px] w-full">
             {/* Custom SVG Line Chart */}
             <svg className="w-full h-full overflow-visible" viewBox="0 0 600 200">
               {/* Grid Lines */}
-              <line x1="0" y1="20" x2="600" y2="20" stroke="#f1f5f9" strokeWidth="1" />
-              <line x1="0" y1="60" x2="600" y2="60" stroke="#f1f5f9" strokeWidth="1" />
-              <line x1="0" y1="100" x2="600" y2="100" stroke="#f1f5f9" strokeWidth="1" />
-              <line x1="0" y1="140" x2="600" y2="140" stroke="#f1f5f9" strokeWidth="1" />
-              <line x1="0" y1="180" x2="600" y2="180" stroke="#f8fafc" strokeWidth="1.5" />
+              <line x1="0" y1="20" x2="600" y2="20" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="1" />
+              <line x1="0" y1="60" x2="600" y2="60" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="1" />
+              <line x1="0" y1="100" x2="600" y2="100" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="1" />
+              <line x1="0" y1="140" x2="600" y2="140" stroke="#f1f5f9" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="1" />
+              <line x1="0" y1="180" x2="600" y2="180" stroke="#f8fafc" className="stroke-slate-100 dark:stroke-slate-800" strokeWidth="1.5" />
 
               {/* Vertical dotted line indicating policy change */}
               <line x1="300" y1="0" x2="300" y2="180" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4 4" />
@@ -784,13 +784,13 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
             </svg>
 
             {/* Policy Annotation Card overlay */}
-            <div className="absolute top-[2px] left-[42%] bg-[#fffbeb] border border-amber-200/80 rounded-xl p-2.5 shadow-sm text-center">
-              <p className="text-[11px] font-bold text-amber-800">Policy change implemented</p>
-              <p className="text-[10px] text-slate-500 font-medium">March 1, 2026</p>
+            <div className="absolute top-[2px] left-[42%] bg-[#fffbeb] dark:bg-amber-950/60 border border-amber-200/80 dark:border-amber-700/50 rounded-xl p-2.5 shadow-sm text-center">
+              <p className="text-[11px] font-bold text-amber-800 dark:text-amber-300">Policy change implemented</p>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">March 1, 2026</p>
             </div>
 
             {/* Chart X axis labels */}
-            <div className="flex justify-between items-center mt-3 text-[11px] font-bold text-slate-400 px-2">
+            <div className="flex justify-between items-center mt-3 text-[11px] font-bold text-slate-400 dark:text-slate-500 px-2">
               <span>Jan '26</span>
               <span>Feb '26</span>
               <span>Mar '26</span>
@@ -801,19 +801,19 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
           </div>
 
           {/* Sentiment Drop card */}
-          <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 flex flex-col justify-center">
+          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col justify-center">
             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wide mb-1 block">Key change after policy implementation</span>
             <span className="flex items-center gap-1 text-[26px] font-bold text-red-500 leading-none">
               ↓ 31%
             </span>
-            <p className="text-[13px] text-slate-700 font-semibold mt-2">Positive sentiment drop</p>
+            <p className="text-[13px] text-slate-700 dark:text-slate-200 font-semibold mt-2">Positive sentiment drop</p>
             <span className="text-[11px] text-slate-400 font-medium">(Mar – Jun 2026)</span>
           </div>
         </div>
 
-        <div className="bg-purple-50 border border-purple-100 rounded-xl p-4 mt-6 flex gap-1.5">
-          <span className="text-purple-600 text-[14px]">✨</span>
-          <p className="text-[12px] text-purple-900/80 font-medium leading-relaxed">
+        <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-900/50 rounded-xl p-4 mt-6 flex gap-1.5">
+          <span className="text-purple-600 dark:text-purple-400 text-[14px]">✨</span>
+          <p className="text-[12px] text-purple-900/80 dark:text-purple-300 font-medium leading-relaxed">
             <strong>AI Insight:</strong> The March inflection aligns precisely with the overtime policy change. Post-change satisfaction dropped 31%.
           </p>
         </div>
@@ -822,7 +822,7 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
       {/* Related Findings */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-bold text-[16px] text-slate-800">Related Findings</h3>
+          <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100">Related Findings</h3>
           <button className="text-[12.5px] font-bold text-[#059669] hover:underline flex items-center gap-0.5 cursor-pointer">
             View all related
             <IconChevronRight />
@@ -831,21 +831,21 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
-            { id: "Q7", title: "Work-life balance rating", relation: "Strongly Related", relationColor: "text-[#059669] bg-[#e8f7f0]", index: "0.87", trend: "↓ 28%", trendColor: "text-red-500" },
-            { id: "Q12", title: "Overtime satisfaction", relation: "Strongly Related", relationColor: "text-[#059669] bg-[#e8f7f0]", index: "0.79", trend: "↓ 32%", trendColor: "text-red-500" },
-            { id: "Q8", title: "Stress levels at work", relation: "Related", relationColor: "text-blue-600 bg-blue-50", index: "0.63", trend: "↓ 24%", trendColor: "text-red-500" },
-            { id: "Q3", title: "Equipment adequacy", relation: "Weakly Related", relationColor: "text-slate-500 bg-slate-100", index: "0.34", trend: "↑ 5%", trendColor: "text-emerald-500" }
+            { id: "Q7", title: "Work-life balance rating", relation: "Strongly Related", relationColor: "text-[#059669] dark:text-emerald-400 bg-[#e8f7f0] dark:bg-emerald-950/40", index: "0.87", trend: "↓ 28%", trendColor: "text-red-500" },
+            { id: "Q12", title: "Overtime satisfaction", relation: "Strongly Related", relationColor: "text-[#059669] dark:text-emerald-400 bg-[#e8f7f0] dark:bg-emerald-950/40", index: "0.79", trend: "↓ 32%", trendColor: "text-red-500" },
+            { id: "Q8", title: "Stress levels at work", relation: "Related", relationColor: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40", index: "0.63", trend: "↓ 24%", trendColor: "text-red-500" },
+            { id: "Q3", title: "Equipment adequacy", relation: "Weakly Related", relationColor: "text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800", index: "0.34", trend: "↑ 5%", trendColor: "text-emerald-500" }
           ].map((item, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-4.5 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+            <div key={idx} className="bg-white dark:bg-[#111827] rounded-2xl p-4.5 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[13px] font-bold text-[#059669]">{item.id}</span>
+                <span className="text-[13px] font-bold text-[#059669] dark:text-emerald-400">{item.id}</span>
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${item.relationColor}`}>{item.relation}</span>
               </div>
-              <h4 className="text-[13.5px] font-bold text-slate-800 leading-snug mb-4">{item.title}</h4>
-              <div className="flex items-center justify-between pt-3 border-t border-slate-50">
+              <h4 className="text-[13.5px] font-bold text-slate-800 dark:text-slate-100 leading-snug mb-4">{item.title}</h4>
+              <div className="flex items-center justify-between pt-3 border-t border-slate-50 dark:border-slate-800">
                 <div className="flex flex-col">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Correlation</span>
-                  <span className="text-[13px] font-bold text-slate-700">{item.index}</span>
+                  <span className="text-[13px] font-bold text-slate-700 dark:text-slate-200">{item.index}</span>
                 </div>
                 <span className={`text-[13px] font-bold ${item.trendColor}`}>{item.trend}</span>
               </div>
@@ -855,26 +855,26 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
       </div>
 
       {/* Recommended Actions */}
-      <div className="bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm mb-8">
+      <div className="bg-white dark:bg-[#111827] rounded-[20px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm mb-8">
         <div className="flex items-center gap-2 mb-4">
           <span className="text-emerald-500 text-[18px]">★</span>
-          <h3 className="font-bold text-[16px] text-slate-800">Recommended Actions</h3>
+          <h3 className="font-bold text-[16px] text-slate-800 dark:text-slate-100">Recommended Actions</h3>
           <span className="text-[12px] text-slate-400 font-medium ml-2">Based on AI analysis & best practices</span>
         </div>
 
         <div className="flex flex-col gap-3">
           {[
-            { step: "1", title: "Conduct focus groups with Engineering and Operations teams", desc: "Understand the root causes behind low satisfaction and gather specific improvement ideas.", priority: "High Priority", priorityColor: "text-red-600 bg-red-50", owner: "People Ops" },
-            { step: "2", title: "Review and customize policy impact assessment", desc: "Evaluate flexibility for different roles and shifts. Consider department-wide adjustments.", priority: "Medium Priority", priorityColor: "text-amber-600 bg-amber-50", owner: "HR Analytics" },
-            { step: "3", title: "Pilot flexible scheduling program in high-risk departments", desc: "Initiate a 3-month flexible scheduling pilot with measureable outcomes.", priority: "High Priority", priorityColor: "text-red-600 bg-red-50", owner: "Ops + HR" }
+            { step: "1", title: "Conduct focus groups with Engineering and Operations teams", desc: "Understand the root causes behind low satisfaction and gather specific improvement ideas.", priority: "High Priority", priorityColor: "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40", owner: "People Ops" },
+            { step: "2", title: "Review and customize policy impact assessment", desc: "Evaluate flexibility for different roles and shifts. Consider department-wide adjustments.", priority: "Medium Priority", priorityColor: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40", owner: "HR Analytics" },
+            { step: "3", title: "Pilot flexible scheduling program in high-risk departments", desc: "Initiate a 3-month flexible scheduling pilot with measureable outcomes.", priority: "High Priority", priorityColor: "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40", owner: "Ops + HR" }
           ].map((item) => (
-            <div key={item.step} className="flex items-center justify-between p-4 border border-slate-100 rounded-xl hover:bg-slate-50/50 transition-colors">
+            <div key={item.step} className="flex items-center justify-between p-4 border border-slate-100 dark:border-slate-800 rounded-xl hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
               <div className="flex items-start gap-4">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-[#059669] font-bold text-[13px] shrink-0 mt-0.5">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-[#059669] dark:text-emerald-400 font-bold text-[13px] shrink-0 mt-0.5">
                   {item.step}
                 </span>
                 <div className="flex flex-col">
-                  <h4 className="text-[14px] font-bold text-slate-800 leading-tight">{item.title}</h4>
+                  <h4 className="text-[14px] font-bold text-slate-800 dark:text-slate-100 leading-tight">{item.title}</h4>
                   <p className="text-[12px] text-slate-400 font-medium mt-1">{item.desc}</p>
                 </div>
               </div>
@@ -885,7 +885,7 @@ function QuestionAnalysis({ onBack }: { onBack: () => void }) {
                 </span>
                 <div className="flex flex-col items-end">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Owner</span>
-                  <span className="text-[12px] font-semibold text-slate-600">{item.owner}</span>
+                  <span className="text-[12px] font-semibold text-slate-600 dark:text-slate-300">{item.owner}</span>
                 </div>
               </div>
             </div>
@@ -1066,20 +1066,20 @@ export default function Questions() {
       {/* Top Header Section */}
       <div className="mb-6 flex items-center justify-between mt-2">
         <div>
-          <h1 className="text-[26px] font-bold text-slate-900 mb-1">Question Explorer</h1>
-          <p className="text-[14px] text-slate-500 font-medium">
+          <h1 className="text-[26px] font-bold text-slate-900 dark:text-white mb-1">Question Explorer</h1>
+          <p className="text-[14px] text-slate-500 dark:text-slate-400 font-medium">
             {filteredQuestions.length} questions • {totalResponsesSum} responses
           </p>
         </div>
         
         {/* Compact / Detailed View Toggle */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200 shadow-sm">
+        <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
           <button 
             onClick={() => setViewMode("compact")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all cursor-pointer ${
               viewMode === "compact"
-                ? "bg-white text-slate-800 shadow-sm"
-                : "text-slate-500 hover:text-slate-800"
+                ? "bg-white dark:bg-[#111827] text-slate-800 dark:text-slate-100 shadow-sm"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -1091,8 +1091,8 @@ export default function Questions() {
             onClick={() => setViewMode("detailed")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all cursor-pointer ${
               viewMode === "detailed"
-                ? "bg-[#e8f7f0] text-[#059669] font-semibold border border-[#a7f3d0]/30 shadow-sm"
-                : "text-slate-500 hover:text-slate-800"
+                ? "bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 font-semibold border border-[#a7f3d0]/30 dark:border-emerald-800/40 shadow-sm"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -1105,14 +1105,14 @@ export default function Questions() {
 
       {/* Search and Filters dropdown row */}
       <div className="flex items-center gap-3 mb-5 w-full relative z-20" ref={dropdownRef}>
-        <div className="flex-1 flex items-center gap-2 pl-4 py-2.5 bg-white rounded-xl border border-slate-200 shadow-sm">
+        <div className="flex-1 flex items-center gap-2 pl-4 py-2.5 bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
           <IconSearch />
           <input 
             type="text" 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search questions, topics, or insights..." 
-            className="w-full text-[14px] bg-transparent outline-none text-slate-800 placeholder:text-slate-400"
+            className="w-full text-[14px] bg-transparent outline-none text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500"
           />
         </div>
         
@@ -1126,8 +1126,8 @@ export default function Questions() {
           <div key={filter.name} className="relative">
             <button 
               onClick={() => setOpenDropdown(openDropdown === filter.name ? null : filter.name)}
-              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border bg-white text-[13px] font-semibold hover:bg-slate-50 transition-colors shadow-sm cursor-pointer ${
-                filter.value !== "All" ? "border-[#059669] text-[#059669]" : "border-slate-200 text-slate-700"
+              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border bg-white dark:bg-[#111827] text-[13px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm cursor-pointer ${
+                filter.value !== "All" ? "border-[#059669] dark:border-emerald-600 text-[#059669] dark:text-emerald-400" : "border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200"
               }`}
             >
               {filter.name}: {filter.value}
@@ -1135,7 +1135,7 @@ export default function Questions() {
             </button>
             
             {openDropdown === filter.name && (
-              <div className="absolute right-0 mt-2 w-[220px] rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg z-50 flex flex-col gap-0.5">
+              <div className="absolute right-0 mt-2 w-[220px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] p-1.5 shadow-lg z-50 flex flex-col gap-0.5">
                 {filter.options.map((opt) => (
                   <button
                     key={opt}
@@ -1145,8 +1145,8 @@ export default function Questions() {
                     }}
                     className={`w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium transition-all cursor-pointer ${
                       filter.value === opt 
-                        ? "bg-[#e8f7f0] text-[#059669]" 
-                        : "text-slate-700 hover:bg-slate-50"
+                        ? "bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400" 
+                        : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
                     }`}
                   >
                     {opt}
@@ -1231,15 +1231,15 @@ export default function Questions() {
       )}
 
       {/* Info Stats Banner */}
-      <div className="flex items-center justify-between p-4 bg-white rounded-2xl border border-slate-100 shadow-sm mb-6 w-full">
+      <div className="flex items-center justify-between p-4 bg-white dark:bg-[#111827] rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm mb-6 w-full">
         <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#e8f7f0] text-[#059669]">
+          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#e8f7f0] dark:bg-emerald-950/40 text-[#059669] dark:text-emerald-400">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
             </svg>
           </div>
           <div>
-            <h4 className="text-[14px] font-bold text-slate-800 leading-snug">Showing questions</h4>
+            <h4 className="text-[14px] font-bold text-slate-800 dark:text-slate-100 leading-snug">Showing questions</h4>
             <p className="text-[12px] text-slate-400 font-medium">
               {filteredQuestions.length} of {ALL_QUESTIONS_DATA.length} questions
             </p>
@@ -1254,7 +1254,7 @@ export default function Questions() {
             </svg>
           </div>
           <div>
-            <p className="text-[14px] font-bold text-slate-800 leading-tight">{totalResponsesSum}</p>
+            <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100 leading-tight">{totalResponsesSum}</p>
             <p className="text-[12px] text-slate-400 font-medium">Total Responses</p>
           </div>
         </div>
@@ -1268,7 +1268,7 @@ export default function Questions() {
             </svg>
           </div>
           <div>
-            <p className="text-[14px] font-bold text-slate-800 leading-tight">{avgCompletion}</p>
+            <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100 leading-tight">{avgCompletion}</p>
             <p className="text-[12px] text-slate-400 font-medium">Avg. Completion</p>
           </div>
         </div>
@@ -1278,14 +1278,14 @@ export default function Questions() {
           <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Sort by</span>
           <button 
             onClick={() => setOpenDropdown(openDropdown === "sort" ? null : "sort")}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-[12px] font-semibold text-[#0f172a] hover:bg-slate-50 shadow-sm cursor-pointer"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#111827] text-[12px] font-semibold text-[#0f172a] dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm cursor-pointer"
           >
             {sortBy}
             <IconChevronDown />
           </button>
           
           {openDropdown === "sort" && (
-            <div className="absolute right-0 mt-[55px] w-[200px] rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg z-50 flex flex-col gap-0.5">
+            <div className="absolute right-0 mt-[55px] w-[200px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] p-1.5 shadow-lg z-50 flex flex-col gap-0.5">
               {["Priority: High to Low", "Priority: Low to High", "Completion Rate", "Responses"].map((opt) => (
                 <button
                   key={opt}
@@ -1295,8 +1295,8 @@ export default function Questions() {
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-[12px] font-medium transition-all cursor-pointer ${
                     sortBy === opt 
-                      ? "bg-[#e8f7f0] text-[#059669]" 
-                      : "text-slate-700 hover:bg-slate-50"
+                      ? "bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400" 
+                      : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   }`}
                 >
                   {opt}
@@ -1322,10 +1322,10 @@ export default function Questions() {
           const catAvg = sec.questions.length > 0 ? `${(catSum / sec.questions.length).toFixed(1)}%` : "N/A";
 
           return (
-            <div key={sec.key} className="border border-slate-200/80 bg-[#f8fafc]/50 rounded-[20px] overflow-hidden shadow-sm">
+            <div key={sec.key} className="border border-slate-200/80 dark:border-slate-800 bg-[#f8fafc]/50 dark:bg-[#090d16]/50 rounded-[20px] overflow-hidden shadow-sm">
               <button 
                 onClick={() => toggleSection(sec.key as keyof typeof sectionsOpen)}
-                className="flex items-center justify-between w-full p-4 bg-white border-b border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer"
+                className="flex items-center justify-between w-full p-4 bg-white dark:bg-[#111827] border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-3">
                   <div className="text-slate-400 shrink-0">
@@ -1333,42 +1333,42 @@ export default function Questions() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                   </div>
-                  <span className="font-['Inter',sans-serif] font-bold text-[16px] text-slate-800">{sec.label}</span>
-                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f7f0] text-[#059669]">
+                  <span className="font-['Inter',sans-serif] font-bold text-[16px] text-slate-800 dark:text-slate-100">{sec.label}</span>
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f7f0] dark:bg-emerald-950/50 text-[#059669] dark:text-emerald-400">
                     {sec.questions.length} questions
                   </span>
                 </div>
                 
-                <div className="flex items-center gap-4 text-[13px] font-medium text-slate-500">
-                  <span>Avg. Completion: <strong className="text-slate-800 font-bold">{catAvg}</strong></span>
+                <div className="flex items-center gap-4 text-[13px] font-medium text-slate-500 dark:text-slate-400">
+                  <span>Avg. Completion: <strong className="text-slate-800 dark:text-slate-200 font-bold">{catAvg}</strong></span>
                   {isSectionOpen ? <IconChevronUp /> : <IconChevronDown />}
                 </div>
               </button>
 
               {isSectionOpen && (
-                <div className="p-6 bg-[#f8fafc]/60">
+                <div className="p-6 bg-[#f8fafc]/60 dark:bg-[#090d16]/30">
                   {!hasQuestions ? (
                     <p className="text-slate-400 text-[13px] text-center py-4 font-medium">No matching questions in this category.</p>
                   ) : viewMode === "detailed" ? (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       {sec.questions.map((q) => (
-                        <div key={q.id} className="bg-white rounded-[16px] p-6 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div key={q.id} className="bg-white dark:bg-[#111827] rounded-[16px] p-6 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                           <div>
                             <div className="flex items-center justify-between mb-4">
                               <div className="flex items-center gap-2">
                                 <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-md uppercase ${
-                                  q.type === "Single Choice" ? "text-[#059669] bg-[#e8f7f0]" :
-                                  q.type === "Multiple Choice" ? "text-blue-600 bg-blue-50" :
-                                  q.type === "Ranking" ? "text-teal-600 bg-teal-50" : "text-amber-600 bg-amber-50"
+                                  q.type === "Single Choice" ? "text-[#059669] dark:text-emerald-400 bg-[#e8f7f0] dark:bg-emerald-950/40" :
+                                  q.type === "Multiple Choice" ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40" :
+                                  q.type === "Ranking" ? "text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/40" : "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40"
                                 }`}>
                                   {q.type}
                                 </span>
                                 <span className="text-[12px] font-semibold text-slate-400">{q.id}</span>
                               </div>
-                              <span className="text-[12px] font-bold text-[#059669]">{q.completion}% Complete</span>
+                              <span className="text-[12px] font-bold text-[#059669] dark:text-emerald-400">{q.completion}% Complete</span>
                             </div>
 
-                            <h3 className="text-[15px] font-bold text-slate-800 leading-snug mb-1">
+                            <h3 className="text-[15px] font-bold text-slate-800 dark:text-slate-100 leading-snug mb-1">
                               {q.text}
                             </h3>
                             <p className="text-[12px] text-slate-400 font-medium mb-5">{q.responses.toLocaleString()} responses</p>
@@ -1396,32 +1396,32 @@ export default function Questions() {
                               {q.chartType === "nps" && (
                                 <div className="flex items-center gap-8 px-2 py-4">
                                   <div className="relative w-24 h-12 overflow-hidden shrink-0">
-                                    <div className="absolute w-24 h-24 border-[8px] border-slate-100 rounded-full border-b-transparent border-l-transparent transform -rotate-45"></div>
+                                    <div className="absolute w-24 h-24 border-[8px] border-slate-100 dark:border-slate-800 rounded-full border-b-transparent border-l-transparent transform -rotate-45"></div>
                                     <div className="absolute w-24 h-24 border-[8px] border-[#10b981] rounded-full border-b-transparent border-l-transparent transform -rotate-45" style={{clipPath: "polygon(0 0, 100% 0, 100% 50%, 0 50%)"}}></div>
                                     <div className="absolute bottom-0 left-0 w-full flex items-end justify-center pb-1">
-                                      <span className="text-[20px] font-bold text-slate-800">+47</span>
+                                      <span className="text-[20px] font-bold text-slate-800 dark:text-slate-100">+47</span>
                                     </div>
                                   </div>
                                   <div className="flex flex-col gap-1.5">
                                     <div className="flex items-center justify-between w-full min-w-[100px]">
-                                      <span className="text-[11px] text-slate-500 font-medium">Promoters</span>
+                                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Promoters</span>
                                       <span className="text-[11px] font-bold text-[#10b981]">67%</span>
                                     </div>
                                     <div className="flex items-center justify-between w-full min-w-[100px]">
-                                      <span className="text-[11px] text-slate-500 font-medium">Passives</span>
+                                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Passives</span>
                                       <span className="text-[11px] font-bold text-[#f59e0b]">20%</span>
                                     </div>
                                     <div className="flex items-center justify-between w-full min-w-[100px]">
-                                      <span className="text-[11px] text-slate-500 font-medium">Detractors</span>
+                                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Detractors</span>
                                       <span className="text-[11px] font-bold text-[#ef4444]">13%</span>
                                     </div>
                                   </div>
                                 </div>
                               )}
                               {q.chartType === "text" && (
-                                <div className="bg-[#f8fafc] rounded-xl p-4 border border-slate-100 relative">
+                                <div className="bg-[#f8fafc] dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700 relative">
                                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 block">Emerging Frustration Signal</span>
-                                  <p className="text-[13px] text-slate-600 italic font-medium leading-relaxed">
+                                  <p className="text-[13px] text-slate-600 dark:text-slate-300 italic font-medium leading-relaxed">
                                     "...reimbursement takes more than 4 weeks on average, causing significant out-of-pocket stress..."
                                   </p>
                                 </div>
@@ -1441,7 +1441,7 @@ export default function Questions() {
                                     ].map((item, i) => (
                                       <div key={i} className="flex flex-col items-center gap-2 flex-1">
                                         <div className="w-full bg-[#34d399] rounded-t-sm hover:bg-[#10b981] transition-colors" style={{ height: `${item.value}px` }}></div>
-                                        <span className="text-[10px] font-medium text-slate-500">{item.year}</span>
+                                        <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400">{item.year}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -1451,22 +1451,22 @@ export default function Questions() {
 
                             {/* AI Insight banner */}
                             {q.insight && (
-                              <div className="bg-[#f5f3ff] border border-[#ddd6fe]/50 rounded-xl p-4 mb-4 flex flex-col gap-1.5 relative overflow-hidden">
-                                <div className="flex items-center gap-1.5 text-[#7c3aed]">
+                              <div className="bg-[#f5f3ff] dark:bg-indigo-950/30 border border-[#ddd6fe]/50 dark:border-indigo-900/40 rounded-xl p-4 mb-4 flex flex-col gap-1.5 relative overflow-hidden">
+                                <div className="flex items-center gap-1.5 text-[#7c3aed] dark:text-indigo-400">
                                   <IconSparkles />
                                   <span className="text-[11px] font-bold uppercase tracking-wider">AI Insight</span>
                                 </div>
-                                <p className="text-[13px] text-[#5b21b6] font-medium leading-relaxed">
+                                <p className="text-[13px] text-[#5b21b6] dark:text-indigo-300 font-medium leading-relaxed">
                                   {q.insight}
                                 </p>
                               </div>
                             )}
                           </div>
 
-                          <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
+                          <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
                             <div className="flex items-center gap-2">
                               {q.priority === "high" ? (
-                                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 text-[12px] font-bold">
+                                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-red-50 dark:bg-red-950/50 text-red-600 dark:text-red-400 text-[12px] font-bold">
                                   {q.priorityScore || 90}
                                 </div>
                               ) : (
@@ -1474,8 +1474,8 @@ export default function Questions() {
                               )}
                               <div className="flex flex-col">
                                 <span className={`text-[10px] font-bold uppercase tracking-wide ${
-                                  q.priority === "high" ? "text-red-500" :
-                                  q.priority === "medium" ? "text-[#f59e0b]" : "text-slate-400"
+                                  q.priority === "high" ? "text-red-500 dark:text-red-400" :
+                                  q.priority === "medium" ? "text-[#f59e0b] dark:text-amber-400" : "text-slate-400"
                                 }`}>
                                   {q.priority === "high" ? "High Priority" : q.priority === "medium" ? "Medium Priority" : "Low Priority"}
                                 </span>
@@ -1484,7 +1484,7 @@ export default function Questions() {
                             </div>
                             <button 
                               onClick={() => setSelectedQuestionId(q.id)}
-                              className="flex items-center gap-1.5 text-[12px] font-bold text-[#059669] hover:text-[#047857] transition-all cursor-pointer"
+                              className="flex items-center gap-1.5 text-[12px] font-bold text-[#059669] dark:text-emerald-400 hover:text-[#047857] dark:hover:text-emerald-300 transition-all cursor-pointer"
                             >
                               {q.actionText || "View Details"}
                               <IconChevronRight />
@@ -1495,10 +1495,10 @@ export default function Questions() {
                     </div>
                   ) : (
                     // Compact Table/List View
-                    <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                    <div className="bg-white dark:bg-[#111827] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">
                       <table className="w-full text-left border-collapse">
                         <thead>
-                          <tr className="bg-slate-50/75 border-b border-slate-200 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
+                          <tr className="bg-slate-50/75 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-400 text-[11px] font-bold uppercase tracking-wider">
                             <th className="py-3 px-4">ID</th>
                             <th className="py-3 px-4">Type</th>
                             <th className="py-3 px-4">Question Text</th>
@@ -1510,24 +1510,24 @@ export default function Questions() {
                         </thead>
                         <tbody>
                           {sec.questions.map((q) => (
-                            <tr key={q.id} className="border-b border-slate-100 hover:bg-slate-50/50 transition-colors text-[13px] text-slate-700">
-                              <td className="py-3 px-4 font-bold text-slate-500">{q.id}</td>
+                            <tr key={q.id} className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition-colors text-[13px] text-slate-700 dark:text-slate-300">
+                              <td className="py-3 px-4 font-bold text-slate-500 dark:text-slate-400">{q.id}</td>
                               <td className="py-3 px-4">
                                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase ${
-                                  q.type === "Single Choice" ? "text-[#059669] bg-[#e8f7f0]" :
-                                  q.type === "Multiple Choice" ? "text-blue-600 bg-blue-50" :
-                                  q.type === "Ranking" ? "text-teal-600 bg-teal-50" : "text-amber-600 bg-amber-50"
+                                  q.type === "Single Choice" ? "text-[#059669] dark:text-emerald-400 bg-[#e8f7f0] dark:bg-emerald-950/40" :
+                                  q.type === "Multiple Choice" ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40" :
+                                  q.type === "Ranking" ? "text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/40" : "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40"
                                 }`}>
                                   {q.type}
                                 </span>
                               </td>
-                              <td className="py-3 px-4 font-semibold text-slate-800 max-w-[400px] truncate">{q.text}</td>
-                              <td className="py-3 px-4 text-right font-medium text-slate-500">{q.responses.toLocaleString()}</td>
-                              <td className="py-3 px-4 text-right font-bold text-emerald-600">{q.completion}%</td>
+                              <td className="py-3 px-4 font-semibold text-slate-800 dark:text-slate-100 max-w-[400px] truncate">{q.text}</td>
+                              <td className="py-3 px-4 text-right font-medium text-slate-500 dark:text-slate-400">{q.responses.toLocaleString()}</td>
+                              <td className="py-3 px-4 text-right font-bold text-emerald-600 dark:text-emerald-400">{q.completion}%</td>
                               <td className="py-3 px-4 text-center">
                                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase ${
-                                  q.priority === "high" ? "text-red-600 bg-red-50" :
-                                  q.priority === "medium" ? "text-amber-600 bg-amber-50" : "text-slate-500 bg-slate-100"
+                                  q.priority === "high" ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40" :
+                                  q.priority === "medium" ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40" : "text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800"
                                 }`}>
                                   {q.priority}
                                 </span>
@@ -1535,7 +1535,7 @@ export default function Questions() {
                               <td className="py-3 px-4 text-center">
                                 <button 
                                   onClick={() => setSelectedQuestionId(q.id)}
-                                  className="text-[#059669] hover:text-[#047857] font-bold text-[12px] transition-colors cursor-pointer"
+                                  className="text-[#059669] dark:text-emerald-400 hover:text-[#047857] dark:hover:text-emerald-300 font-bold text-[12px] transition-colors cursor-pointer"
                                 >
                                   View
                                 </button>
@@ -1555,7 +1555,7 @@ export default function Questions() {
 
       {/* Pagination Footer */}
       <div className="mt-10 flex items-center justify-between px-4 w-full">
-        <span className="text-[13px] font-medium text-slate-500">
+        <span className="text-[13px] font-medium text-slate-500 dark:text-slate-400">
           Showing 1 to {filteredQuestions.length} of {filteredQuestions.length} questions
         </span>
         
@@ -1563,7 +1563,7 @@ export default function Questions() {
           <button 
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-            className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -1577,7 +1577,7 @@ export default function Questions() {
           <button 
             disabled={currentPage * itemsPerPage >= filteredQuestions.length}
             onClick={() => setCurrentPage(prev => prev + 1)}
-            className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -1587,7 +1587,7 @@ export default function Questions() {
 
         <div className="flex items-center gap-2">
           <span className="text-[12px] font-medium text-slate-400 uppercase tracking-wide">Show per page</span>
-          <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-[13px] font-semibold text-slate-700 hover:bg-slate-50 shadow-sm cursor-pointer">
+          <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#111827] text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm cursor-pointer">
             {itemsPerPage}
             <IconChevronDown />
           </button>

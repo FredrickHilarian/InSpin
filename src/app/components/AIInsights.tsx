@@ -176,14 +176,7 @@ function MiniSparkline({ data, color }: { data: number[]; color: string }) {
 function GlassCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className={`rounded-2xl ${className}`}
-      style={{
-        background: "rgba(255, 255, 255, 0.85)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: "1px solid rgba(226, 232, 240, 0.8)",
-        boxShadow: "0 4px 20px rgba(15, 23, 42, 0.04)",
-      }}
+      className={`rounded-2xl bg-white/85 dark:bg-[#111827]/85 border border-slate-200/80 dark:border-slate-800 shadow-xs backdrop-blur-md ${className}`}
     >
       {children}
     </div>
@@ -303,22 +296,22 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
           <div className="flex items-start justify-between w-full gap-4">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="bg-[#dcfce7] text-[#16a34a] font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-[#dcfce7] dark:bg-emerald-950/60 text-[#16a34a] dark:text-emerald-400 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">
                   Analysis Complete
                 </span>
-                <span className="text-[11px] text-[#64748b] font-medium">
+                <span className="text-[11px] text-[#64748b] dark:text-slate-400 font-medium">
                   • Updated Today at 09:42 AM
                 </span>
               </div>
-              <h1 className="font-bold text-[#0f172a] text-[28px] tracking-tight mt-0.5">AI Insights</h1>
-              <p className="text-[#64748b] text-[13px]">AI-powered discoveries from 2,847 responses</p>
+              <h1 className="font-bold text-[#0f172a] dark:text-white text-[28px] tracking-tight mt-0.5">AI Insights</h1>
+              <p className="text-[#64748b] dark:text-slate-400 text-[13px]">AI-powered discoveries from 2,847 responses</p>
             </div>
             <div className="flex items-center gap-2 shrink-0 pt-1">
               <button
                 type="button"
                 onClick={handleGenerate}
                 disabled={generating}
-                className="flex items-center gap-2 bg-[#15803d] hover:bg-[#166534] active:scale-95 text-white font-semibold text-[13px] px-4 py-2 rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                className="flex items-center gap-2 bg-[#15803d] hover:bg-[#166534] dark:bg-emerald-700 dark:hover:bg-emerald-600 active:scale-95 text-white font-semibold text-[13px] px-4 py-2 rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
               >
                 <Sparkles className={`size-3.5 ${generating ? "animate-spin" : ""}`} />
                 {generating ? "Generating Report..." : "Generate Report"}
@@ -326,7 +319,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
               <button
                 type="button"
                 aria-label="Add insight"
-                className="flex items-center justify-center size-9 rounded-xl bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 transition-all shadow-sm cursor-pointer"
+                className="flex items-center justify-center size-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
               >
                 <Plus className="size-4" />
               </button>
@@ -336,20 +329,14 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
           {/* ── Hero Row ──────────────────────────────── */}
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 w-full">
 
-            {/* Main narrative hero card — light background */}
+            {/* Main narrative hero card */}
             <div
-              className="xl:col-span-2 rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%)",
-                border: "1px solid rgba(226,232,240,0.9)",
-                boxShadow: "0 4px 20px rgba(15,23,42,0.05)",
-              }}
+              className="xl:col-span-2 rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden bg-gradient-to-br from-white/95 to-slate-50/90 dark:from-[#111827]/95 dark:to-[#0f172a]/95 border border-slate-200/90 dark:border-slate-800 shadow-sm dark:shadow-black/40"
             >
               {/* AI badge */}
               <div className="flex items-center gap-1.5">
                 <span
-                  className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
-                  style={{ background: "#ede9fe", color: "#7c3aed" }}
+                  className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-[#ede9fe] dark:bg-indigo-950/60 text-[#7c3aed] dark:text-indigo-400"
                 >
                   ✦ AI NARRATIVE CONSENSUS
                 </span>
@@ -359,10 +346,10 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
               <div className="flex gap-5 items-start">
                 {/* Left: text content */}
                 <div className="flex flex-col gap-3 flex-1 min-w-0">
-                  <h2 className="font-bold text-[#0f172a] text-[22px] leading-tight">
+                  <h2 className="font-bold text-[#0f172a] dark:text-white text-[22px] leading-tight">
                     Scheduling frustration is driving satisfaction down.
                   </h2>
-                  <p className="text-[#475569] text-[12px] leading-relaxed">
+                  <p className="text-[#475569] dark:text-slate-300 text-[12px] leading-relaxed">
                     Our AI analysis found that scheduling issues are the #1 driver of dissatisfaction, impacting multiple operational areas and creating a ripple effect on overall experience.
                   </p>
 
@@ -376,7 +363,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                     ].map((s) => (
                       <div key={s.label} className="flex flex-col gap-0.5">
                         <span className="font-bold text-[17px]" style={{ color: s.color }}>{s.val}</span>
-                        <span className="text-[10px] text-[#94a3b8]">{s.label}</span>
+                        <span className="text-[10px] text-[#94a3b8] dark:text-slate-500">{s.label}</span>
                       </div>
                     ))}
                   </div>
@@ -391,8 +378,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                     ].map((a) => (
                       <button
                         key={a.label}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all hover:bg-slate-50"
-                        style={{ color: "#334155", borderColor: "#e2e8f0", background: "white" }}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[#334155] dark:text-slate-200 transition-all hover:bg-slate-50 dark:hover:bg-slate-700 cursor-pointer"
                       >
                         <span className="text-[11px]">{a.icon}</span>
                         {a.label}
@@ -411,15 +397,15 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
             {/* Recent Discoveries panel */}
             <GlassCard className="p-5 flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-[#0f172a] text-[13px]">Recent Discoveries</span>
-                <button className="text-[11px] text-[#15803d] font-semibold hover:underline flex items-center gap-0.5">
+                <span className="font-semibold text-[#0f172a] dark:text-white text-[13px]">Recent Discoveries</span>
+                <button className="text-[11px] text-[#15803d] dark:text-emerald-400 font-semibold hover:underline flex items-center gap-0.5 cursor-pointer">
                   View all <ChevronRight className="size-3" />
                 </button>
               </div>
 
               <div className="flex flex-col gap-0">
                 {discoveries.map((d, i) => (
-                  <div key={i} className={`flex flex-col gap-1.5 py-3 ${i < discoveries.length - 1 ? "border-b border-slate-100" : ""}`}>
+                  <div key={i} className={`flex flex-col gap-1.5 py-3 ${i < discoveries.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>
                     <div className="flex items-center justify-between gap-2">
                       <span
                         className="text-[9px] font-bold px-2 py-0.5 rounded-full"
@@ -427,12 +413,12 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                       >
                         {d.tag}
                       </span>
-                      <span className="text-[10px] text-slate-400">{d.time}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500">{d.time}</span>
                     </div>
-                    <p className="text-[12px] font-semibold text-[#0f172a] leading-snug">{d.title}</p>
-                    <p className="text-[11px] text-[#64748b] leading-relaxed">{d.body}</p>
+                    <p className="text-[12px] font-semibold text-[#0f172a] dark:text-slate-100 leading-snug">{d.title}</p>
+                    <p className="text-[11px] text-[#64748b] dark:text-slate-400 leading-relaxed">{d.body}</p>
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[10px] text-[#94a3b8]">Confidence: {d.confidence}%</span>
+                      <span className="text-[10px] text-[#94a3b8] dark:text-slate-500">Confidence: {d.confidence}%</span>
                       <div className="w-14 h-5">
                         <MiniSparkline
                           data={d.trendDown ? [42, 40, 37, 34, 31, 28] : [30, 33, 30, 28, 30, 27]}
@@ -450,10 +436,10 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-[#0f172a] text-[14px]">Key Research Themes</span>
-                <Info className="size-3.5 text-[#94a3b8]" />
+                <span className="font-bold text-[#0f172a] dark:text-white text-[14px]">Key Research Themes</span>
+                <Info className="size-3.5 text-[#94a3b8] dark:text-slate-500" />
               </div>
-              <button className="text-[11px] text-[#15803d] font-semibold hover:underline flex items-center gap-0.5">
+              <button className="text-[11px] text-[#15803d] dark:text-emerald-400 font-semibold hover:underline flex items-center gap-0.5 cursor-pointer">
                 Explore all themes <ChevronRight className="size-3" />
               </button>
             </div>
@@ -464,16 +450,16 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                   {/* Header row */}
                   <div className="flex items-center justify-between gap-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold text-[#94a3b8]">{t.rank}</span>
-                      <span className="font-bold text-[#0f172a] text-[13px]">{t.name}</span>
+                      <span className="text-[11px] font-bold text-[#94a3b8] dark:text-slate-500">{t.rank}</span>
+                      <span className="font-bold text-[#0f172a] dark:text-slate-100 text-[13px]">{t.name}</span>
                     </div>
-                    <span className="text-[10px] text-[#94a3b8] shrink-0">{t.mentions.toLocaleString()} Mentions</span>
+                    <span className="text-[10px] text-[#94a3b8] dark:text-slate-400 shrink-0">{t.mentions.toLocaleString()} Mentions</span>
                   </div>
 
                   {/* Sentiment row */}
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-[#64748b]">Sentiment Balance</span>
+                      <span className="text-[10px] text-[#64748b] dark:text-slate-400">Sentiment Balance</span>
                       <span
                         className="text-[10px] font-bold px-2 py-0.5 rounded-full"
                         style={{
@@ -485,7 +471,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                       </span>
                     </div>
                     {/* Sentiment bar */}
-                    <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
                         className="h-full rounded-full"
                         style={{
@@ -497,14 +483,14 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                   </div>
 
                   {/* Quote */}
-                  <p className="text-[11px] text-[#64748b] leading-relaxed italic border-l-2 border-slate-200 pl-2 flex-1">
+                  <p className="text-[11px] text-[#64748b] dark:text-slate-400 leading-relaxed italic border-l-2 border-slate-200 dark:border-slate-700 pl-2 flex-1">
                     "{t.quote}"
                   </p>
 
                   {/* Confidence + sparkline */}
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-[#94a3b8]">
-                      Confidence <span className="font-bold text-[#334155]">{t.confidence}%</span>
+                    <span className="text-[10px] text-[#94a3b8] dark:text-slate-400">
+                      Confidence <span className="font-bold text-[#334155] dark:text-slate-200">{t.confidence}%</span>
                     </span>
                     <div className="w-16 h-8">
                       <MiniSparkline data={t.trendData} color={t.trendColor} />
@@ -512,9 +498,9 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-3 pt-2 border-t border-slate-100">
+                  <div className="flex gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
                     {["Explain", "Evidence", "Compare"].map((a) => (
-                      <button key={a} className="text-[10px] font-semibold text-[#15803d] hover:underline">
+                      <button key={a} className="text-[10px] font-semibold text-[#15803d] dark:text-emerald-400 hover:underline cursor-pointer">
                         {a}
                       </button>
                     ))}
@@ -530,8 +516,8 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
             {/* Emerging Narrative Trends chart */}
             <GlassCard className="xl:col-span-2 p-5 flex flex-col gap-3">
               <div className="flex flex-col gap-0.5">
-                <span className="font-bold text-[#0f172a] text-[13px]">Emerging Narrative Trends</span>
-                <span className="text-[11px] text-[#94a3b8]">Tracking key employee sentiment over 6-month research timeline</span>
+                <span className="font-bold text-[#0f172a] dark:text-white text-[13px]">Emerging Narrative Trends</span>
+                <span className="text-[11px] text-[#94a3b8] dark:text-slate-400">Tracking key employee sentiment over 6-month research timeline</span>
               </div>
 
               {/* Legend */}
@@ -543,7 +529,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                 ].map((l) => (
                   <div key={l.label} className="flex items-center gap-1.5">
                     <div className="size-2 rounded-full" style={{ background: l.color }} />
-                    <span className="text-[10px] text-[#64748b]">{l.label}</span>
+                    <span className="text-[10px] text-[#64748b] dark:text-slate-400">{l.label}</span>
                   </div>
                 ))}
               </div>
@@ -554,7 +540,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                     <XAxis dataKey="month" tick={{ fontSize: 9, fill: "#94a3b8" }} tickLine={false} axisLine={false} />
                     <YAxis tick={{ fontSize: 9, fill: "#94a3b8" }} tickLine={false} axisLine={false} />
                     <Tooltip
-                      contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e2e8f0", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+                      contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #334155", background: "#0f172a", color: "#f8fafc" }}
                     />
                     <Line type="monotone" dataKey="Scheduling" stroke="#10b981" strokeWidth={2} dot={false} />
                     <Line type="monotone" dataKey="Communication" stroke="#60a5fa" strokeWidth={2} dot={false} />
@@ -568,8 +554,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                   style={{ bottom: 36, left: "46%" }}
                 >
                   <div
-                    className="text-white text-[8.5px] px-2 py-1 rounded-lg leading-snug"
-                    style={{ background: "rgba(30,41,59,0.9)", maxWidth: 130, boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}
+                    className="text-white text-[8.5px] px-2 py-1 rounded-lg leading-snug bg-slate-800/90 dark:bg-slate-950/90 max-w-[130px] shadow-md border border-slate-700/60"
                   >
                     Jan 2026: Scheduling complaints has surpassed communication for the first time.
                   </div>
@@ -583,16 +568,16 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
               {/* AI Recommended Focus */}
               <GlassCard className="p-4 flex flex-col gap-3 flex-1">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="size-3.5 text-[#15803d]" />
-                  <span className="font-bold text-[#0f172a] text-[12px]">AI Recommended Focus</span>
+                  <Sparkles className="size-3.5 text-[#15803d] dark:text-emerald-400" />
+                  <span className="font-bold text-[#0f172a] dark:text-white text-[12px]">AI Recommended Focus</span>
                 </div>
                 <div className="flex flex-col gap-2.5">
                   {aiRecommended.map((r) => (
                     <div key={r.rank} className="flex items-center gap-2">
-                      <span className="font-bold text-[#94a3b8] text-[11px] w-3 shrink-0">{r.rank}</span>
+                      <span className="font-bold text-[#94a3b8] dark:text-slate-500 text-[11px] w-3 shrink-0">{r.rank}</span>
                       <div className="flex flex-col flex-1 min-w-0">
-                        <span className="text-[11px] font-semibold text-[#334155] truncate">{r.label}</span>
-                        <span className="text-[9.5px] text-[#94a3b8]">{r.sub}</span>
+                        <span className="text-[11px] font-semibold text-[#334155] dark:text-slate-200 truncate">{r.label}</span>
+                        <span className="text-[9.5px] text-[#94a3b8] dark:text-slate-500">{r.sub}</span>
                       </div>
                       <span
                         className="text-[8.5px] font-bold px-2 py-0.5 rounded-full text-white shrink-0"
@@ -608,8 +593,8 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
               {/* AI Confidence & Data Quality */}
               <GlassCard className="p-4 flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#0f172a] text-[12px]">AI Confidence & Data Quality</span>
-                  <Info className="size-3.5 text-[#94a3b8]" />
+                  <span className="font-bold text-[#0f172a] dark:text-white text-[12px]">AI Confidence & Data Quality</span>
+                  <Info className="size-3.5 text-[#94a3b8] dark:text-slate-500" />
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -619,7 +604,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                     style={{ width: 56, height: 56 }}
                   >
                     <svg width="56" height="56" viewBox="0 0 56 56">
-                      <circle cx="28" cy="28" r="22" fill="none" stroke="#e2e8f0" strokeWidth="6" />
+                      <circle cx="28" cy="28" r="22" fill="none" stroke="#e2e8f0" className="dark:stroke-slate-700" strokeWidth="6" />
                       <circle
                         cx="28" cy="28" r="22"
                         fill="none"
@@ -630,15 +615,15 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                         transform="rotate(-90 28 28)"
                       />
                     </svg>
-                    <span className="absolute text-[11px] font-bold text-[#334155]">96%</span>
+                    <span className="absolute text-[11px] font-bold text-[#334155] dark:text-slate-200">96%</span>
                   </div>
-                  <span className="text-[10px] text-[#64748b] leading-relaxed">AI analysis<br />confidence</span>
+                  <span className="text-[10px] text-[#64748b] dark:text-slate-400 leading-relaxed">AI analysis<br />confidence</span>
                 </div>
 
                 <div className="flex flex-col gap-1.5">
                   {dataQualityItems.map((dq) => (
                     <div key={dq.label} className="flex items-center justify-between">
-                      <span className="text-[11px] text-[#64748b]">{dq.label}</span>
+                      <span className="text-[11px] text-[#64748b] dark:text-slate-400">{dq.label}</span>
                       <span className="text-[11px] font-semibold" style={{ color: dq.color }}>{dq.value}</span>
                     </div>
                   ))}
@@ -653,19 +638,18 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
             {/* Research Opportunities */}
             <GlassCard className="p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-[#0f172a] text-[13px]">Research Opportunities</span>
-                <Info className="size-3.5 text-[#94a3b8]" />
+                <span className="font-bold text-[#0f172a] dark:text-white text-[13px]">Research Opportunities</span>
+                <Info className="size-3.5 text-[#94a3b8] dark:text-slate-500" />
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {opportunities.map((op) => (
                   <div
                     key={op.title}
-                    className="flex flex-col gap-2 p-3 rounded-xl"
-                    style={{ background: "#f8fafc", border: "1px solid #f1f5f9" }}
+                    className="flex flex-col gap-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60"
                   >
-                    <p className="text-[11px] font-semibold text-[#0f172a]">{op.title}</p>
-                    <p className="text-[10.5px] text-[#64748b] leading-relaxed flex-1">{op.body}</p>
-                    <button className="text-[10.5px] text-[#15803d] font-semibold text-left hover:underline mt-auto">
+                    <p className="text-[11px] font-semibold text-[#0f172a] dark:text-slate-200">{op.title}</p>
+                    <p className="text-[10.5px] text-[#64748b] dark:text-slate-400 leading-relaxed flex-1">{op.body}</p>
+                    <button className="text-[10.5px] text-[#15803d] dark:text-emerald-400 font-semibold text-left hover:underline mt-auto cursor-pointer">
                       Investigate cohort →
                     </button>
                   </div>
@@ -676,15 +660,14 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
             {/* Critical Risks Identified */}
             <GlassCard className="p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-[#0f172a] text-[13px]">Critical Risks Identified</span>
-                <Info className="size-3.5 text-[#94a3b8]" />
+                <span className="font-bold text-[#0f172a] dark:text-white text-[13px]">Critical Risks Identified</span>
+                <Info className="size-3.5 text-[#94a3b8] dark:text-slate-500" />
               </div>
               <div className="flex flex-col gap-2.5">
                 {criticalRisks.map((r) => (
                   <div
                     key={r.title}
-                    className="flex items-start gap-3 p-3 rounded-xl"
-                    style={{ background: "#f8fafc", border: "1px solid #f1f5f9" }}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60"
                   >
                     <span
                       className="text-white text-[8px] font-bold px-2 py-1 rounded-md shrink-0 whitespace-nowrap"
@@ -693,10 +676,10 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
                       {r.severity}
                     </span>
                     <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                      <p className="text-[11px] font-semibold text-[#0f172a]">{r.title}</p>
-                      <p className="text-[10.5px] text-[#64748b]">{r.body}</p>
+                      <p className="text-[11px] font-semibold text-[#0f172a] dark:text-slate-200">{r.title}</p>
+                      <p className="text-[10.5px] text-[#64748b] dark:text-slate-400">{r.body}</p>
                     </div>
-                    <button className="text-[11px] text-[#15803d] font-semibold hover:underline shrink-0">
+                    <button className="text-[11px] text-[#15803d] dark:text-emerald-400 font-semibold hover:underline shrink-0 cursor-pointer">
                       Review
                     </button>
                   </div>
@@ -710,14 +693,9 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
 
       {/* ── Sticky Bottom Ask InSpin AI Bar ────────── */}
       <div
-        className="shrink-0 border-t border-slate-200/80 px-8 py-2.5 flex items-center gap-3 flex-wrap"
-        style={{
-          background: "rgba(255,255,255,0.95)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-        }}
+        className="shrink-0 border-t border-slate-200/80 dark:border-slate-800 px-8 py-2.5 flex items-center gap-3 flex-wrap bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-md"
       >
-        <div className="flex items-center gap-1.5 text-[#15803d] shrink-0">
+        <div className="flex items-center gap-1.5 text-[#15803d] dark:text-emerald-400 shrink-0">
           <Sparkles className="size-3.5" />
           <span className="font-bold text-[12px]">Ask InSpin AI</span>
         </div>
@@ -726,7 +704,7 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
           {quickQuestions.map((q) => (
             <button
               key={q}
-              className="text-[11px] font-medium text-[#334155] rounded-full px-3 py-1 border border-slate-200 bg-white hover:bg-[#dcfce7] hover:border-[#86efac] hover:text-[#15803d] transition-all"
+              className="text-[11px] font-medium text-[#334155] dark:text-slate-200 rounded-full px-3 py-1 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-[#dcfce7] dark:hover:bg-emerald-950/40 hover:border-[#86efac] dark:hover:border-emerald-800 hover:text-[#15803d] dark:hover:text-emerald-300 transition-all cursor-pointer"
             >
               {q}
             </button>
@@ -734,17 +712,16 @@ export default function AIInsights({ onGenerateReport }: AIInsightsProps) {
         </div>
 
         <div
-          className="flex items-center gap-2 rounded-xl px-3 py-1.5 shrink-0 w-52"
-          style={{ background: "white", border: "1px solid #e2e8f0" }}
+          className="flex items-center gap-2 rounded-xl px-3 py-1.5 shrink-0 w-52 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
         >
           <input
             type="text"
             placeholder="Ask a follow-up question..."
             value={askInput}
             onChange={(e) => setAskInput(e.target.value)}
-            className="flex-1 text-[11px] text-[#334155] bg-transparent outline-none placeholder-slate-400 min-w-0"
+            className="flex-1 text-[11px] text-[#334155] dark:text-slate-200 bg-transparent outline-none placeholder-slate-400 min-w-0"
           />
-          <button className="flex items-center justify-center size-5 rounded-full bg-[#15803d] text-white shrink-0">
+          <button className="flex items-center justify-center size-5 rounded-full bg-[#15803d] dark:bg-emerald-600 text-white shrink-0 cursor-pointer">
             <ChevronRight className="size-3.5" />
           </button>
         </div>

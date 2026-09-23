@@ -48,28 +48,22 @@ interface KpiCardProps {
 }
 
 // --- KPI Card Component ---
-function KpiCard({ icon, value, label, subtext, subtextColor = "text-slate-500", iconBg, iconColor }: KpiCardProps) {
+function KpiCard({ icon, value, label, subtext, subtextColor = "text-slate-500 dark:text-slate-400", iconBg, iconColor }: KpiCardProps) {
   return (
     <div
-      className="flex-1 min-w-[200px] rounded-[20px] p-[24px] transition-all duration-300 hover:shadow-md"
-      style={{
-        background: "rgba(255, 255, 255, 0.8)",
-        backdropFilter: "blur(12px)",
-        border: "1px solid rgba(226, 232, 240, 0.8)",
-        boxShadow: "0 4px 16px rgba(15, 23, 42, 0.02)",
-      }}
+      className="flex-1 min-w-[200px] rounded-[20px] p-[24px] transition-all duration-300 hover:shadow-md bg-white/80 dark:bg-[#111827]/80 border border-slate-200/80 dark:border-slate-800 shadow-xs backdrop-blur-md"
     >
       <div className="flex flex-col gap-[12px]">
         <div className="flex items-center gap-[10px]">
           <div className={`${iconBg} ${iconColor} flex items-center justify-center rounded-[10px] size-[36px] shrink-0`}>
             {icon}
           </div>
-          <span className="font-['Inter',sans-serif] font-semibold text-slate-500 text-[11px] uppercase tracking-wider">
+          <span className="font-['Inter',sans-serif] font-semibold text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider">
             {label}
           </span>
         </div>
         <div className="flex flex-col gap-[2px]">
-          <span className="font-['Inter',sans-serif] font-bold text-slate-900 text-[32px] leading-tight">
+          <span className="font-['Inter',sans-serif] font-bold text-slate-900 dark:text-white text-[32px] leading-tight">
             {value}
           </span>
           <span className={`font-['Inter',sans-serif] font-medium text-[12px] ${subtextColor}`}>
@@ -149,7 +143,7 @@ export default function Themes() {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-[12px]">
-            <button className="flex items-center gap-[8px] px-[16px] py-[10px] rounded-[12px] bg-white border border-[#e2e8f0] text-slate-700 font-semibold text-[13.5px] shadow-sm hover:bg-slate-50 transition-all cursor-pointer">
+            <button className="flex items-center gap-[8px] px-[16px] py-[10px] rounded-[12px] bg-white dark:bg-[#111827] border border-[#e2e8f0] dark:border-slate-800 text-slate-700 dark:text-slate-200 font-semibold text-[13.5px] shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer">
               <Bookmark className="size-[15px] text-slate-400" />
               <span>Save Finding</span>
             </button>
@@ -210,12 +204,7 @@ export default function Themes() {
 
         {/* --- AI Synthesis Narrative (Purple Gradient Banner) --- */}
         <div
-          className="relative rounded-[24px] p-[28px] w-full overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-[24px]"
-          style={{
-            background: "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)",
-            border: "1px solid rgba(224, 207, 252, 0.6)",
-            boxShadow: "0 10px 30px -10px rgba(139, 92, 246, 0.08)",
-          }}
+          className="relative rounded-[24px] p-[28px] w-full overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-[24px] bg-gradient-to-br from-[#f5f3ff] to-[#ede9fe] dark:from-[#1e1b4b]/60 dark:to-[#312e81]/40 border border-[#e0cffc]/60 dark:border-purple-800/40 shadow-[0_10px_30px_-10px_rgba(139,92,246,0.08)]"
         >
           {/* Sparkly Background Decorative elements */}
           <div className="absolute right-0 top-0 bottom-0 w-[300px] pointer-events-none opacity-20 flex items-center justify-end pr-8">
@@ -228,27 +217,27 @@ export default function Themes() {
 
           <div className="flex flex-col gap-[14px] max-w-[900px] relative z-10">
             <div className="flex items-center gap-[8px]">
-              <div className="bg-[#ddd6fe] text-[#6d28d9] p-[6px] rounded-[8px]">
+              <div className="bg-[#ddd6fe] dark:bg-purple-900/60 text-[#6d28d9] dark:text-purple-300 p-[6px] rounded-[8px]">
                 <Sparkles className="size-[15px]" />
               </div>
-              <h3 className="font-['Inter',sans-serif] font-bold text-[#4c1d95] text-[15px]">
+              <h3 className="font-['Inter',sans-serif] font-bold text-[#4c1d95] dark:text-purple-200 text-[15px]">
                 AI Synthesis Narrative
               </h3>
             </div>
-            <p className="font-['Inter',sans-serif] text-[13.5px] leading-relaxed text-[#5c3e91]">
+            <p className="font-['Inter',sans-serif] text-[13.5px] leading-relaxed text-[#5c3e91] dark:text-purple-300">
               Scheduling flexibility has emerged as the single most emotionally charged topic in this survey cycle. The data reveals a clear story: following the Q1 overtime policy update, employees with established scheduling autonomy experienced an acute sense of loss. The frustration is not uniformly distributed — it concentrates in Engineering (72% negative) and Operations (60% negative). Departments where on-site presence requirements collide directly with the reduced flexibility. Notably, the intensity of negative sentiment — measured by language strength and response length — exceeds the raw frequency, suggesting deep-seated frustration rather than casual dissatisfaction. New hires (under 1 year) show significantly lower frustration (31% negative), having no baseline comparison.
             </p>
             <div className="flex flex-wrap items-center gap-[8px] mt-[4px]">
-              <span className="px-[12px] py-[5px] rounded-[8px] bg-white border border-[#ddd6fe] text-[#6d28d9] font-semibold text-[11px] hover:bg-[#faf9ff] transition-all cursor-pointer shadow-sm">
+              <span className="px-[12px] py-[5px] rounded-[8px] bg-white dark:bg-purple-950/60 border border-[#ddd6fe] dark:border-purple-800/50 text-[#6d28d9] dark:text-purple-300 font-semibold text-[11px] hover:bg-[#faf9ff] dark:hover:bg-purple-900/40 transition-all cursor-pointer shadow-sm">
                 Policy-to-Action Change
               </span>
-              <span className="px-[12px] py-[5px] rounded-[8px] bg-white border border-[#ddd6fe] text-[#6d28d9] font-semibold text-[11px] hover:bg-[#faf9ff] transition-all cursor-pointer shadow-sm">
+              <span className="px-[12px] py-[5px] rounded-[8px] bg-white dark:bg-purple-950/60 border border-[#ddd6fe] dark:border-purple-800/50 text-[#6d28d9] dark:text-purple-300 font-semibold text-[11px] hover:bg-[#faf9ff] dark:hover:bg-purple-900/40 transition-all cursor-pointer shadow-sm">
                 Department Concentration
               </span>
-              <span className="px-[12px] py-[5px] rounded-[8px] bg-white border border-[#ddd6fe] text-[#6d28d9] font-semibold text-[11px] hover:bg-[#faf9ff] transition-all cursor-pointer shadow-sm">
+              <span className="px-[12px] py-[5px] rounded-[8px] bg-white dark:bg-purple-950/60 border border-[#ddd6fe] dark:border-purple-800/50 text-[#6d28d9] dark:text-purple-300 font-semibold text-[11px] hover:bg-[#faf9ff] dark:hover:bg-purple-900/40 transition-all cursor-pointer shadow-sm">
                 Tenure Correlation
               </span>
-              <button className="flex items-center gap-[4px] text-[12px] font-bold text-[#0d9488] ml-[8px] hover:text-[#0f766e] transition-colors">
+              <button className="flex items-center gap-[4px] text-[12px] font-bold text-[#0d9488] dark:text-teal-400 ml-[8px] hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
                 <span>View Details</span>
                 <ArrowRight className="size-[13px]" />
               </button>
@@ -260,23 +249,18 @@ export default function Themes() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] w-full">
           {/* Sentiment Timeline Chart Card */}
           <div
-            className="rounded-[24px] p-[28px] flex flex-col gap-[20px]"
-            style={{
-              background: "white",
-              border: "1px solid rgba(226, 232, 240, 0.8)",
-              boxShadow: "0 4px 16px rgba(15, 23, 42, 0.02)",
-            }}
+            className="rounded-[24px] p-[28px] flex flex-col gap-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.02)]"
           >
             <div className="flex items-center justify-between">
               <div className="flex flex-col gap-[2px]">
-                <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+                <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
                   Sentiment Timeline
                 </h3>
                 <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-400">
                   Satisfaction percentage trajectory (Jan – Jun 2025)
                 </p>
               </div>
-              <button className="flex items-center gap-[6px] px-[12px] py-[6px] rounded-[10px] bg-slate-50 border border-slate-200 text-slate-600 font-semibold text-[12px] hover:bg-slate-100 transition-all cursor-pointer">
+              <button className="flex items-center gap-[6px] px-[12px] py-[6px] rounded-[10px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold text-[12px] hover:bg-slate-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                 <span>Monthly</span>
                 <ChevronRight className="size-[12px] rotate-90" />
               </button>
@@ -353,9 +337,9 @@ export default function Themes() {
             </div>
 
             {/* Note text */}
-            <div className="flex items-start gap-[8px] bg-slate-50 border border-slate-100 rounded-[14px] p-[12px] mt-2">
+            <div className="flex items-start gap-[8px] bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-[14px] p-[12px] mt-2">
               <span className="text-[#0d9488] text-[14px] leading-none mt-0.5">ⓘ</span>
-              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 leading-normal">
+              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 dark:text-slate-300 leading-normal">
                 The March policy update introduced better 2-week shift view and swap options, leading to noticeable improvement in sentiment from April onwards.
               </p>
             </div>
@@ -363,15 +347,10 @@ export default function Themes() {
 
           {/* Sentiment Distribution Donut Card */}
           <div
-            className="rounded-[24px] p-[28px] flex flex-col gap-[20px]"
-            style={{
-              background: "white",
-              border: "1px solid rgba(226, 232, 240, 0.8)",
-              boxShadow: "0 4px 16px rgba(15, 23, 42, 0.02)",
-            }}
+            className="rounded-[24px] p-[28px] flex flex-col gap-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.02)]"
           >
             <div className="flex flex-col gap-[2px]">
-              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
                 Sentiment Distribution
               </h3>
               <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-400">
@@ -402,7 +381,7 @@ export default function Themes() {
                 </ResponsiveContainer>
                 {/* Center text */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[24px] leading-none">
+                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[24px] leading-none">
                     62%
                   </span>
                   <span className="font-['Inter',sans-serif] font-semibold text-slate-400 text-[11px] uppercase tracking-wider mt-1">
@@ -417,11 +396,11 @@ export default function Themes() {
                   <div key={idx} className="flex items-center justify-between w-full">
                     <div className="flex items-center gap-[8px]">
                       <div className="size-[8px] rounded-full shrink-0" style={{ backgroundColor: item.color }} />
-                      <span className="font-['Inter',sans-serif] font-medium text-slate-500 text-[12.5px]">
+                      <span className="font-['Inter',sans-serif] font-medium text-slate-500 dark:text-slate-400 text-[12.5px]">
                         {item.name}
                       </span>
                     </div>
-                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[12.5px]">
+                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-200 text-[12.5px]">
                       {item.value}%
                     </span>
                   </div>
@@ -430,8 +409,8 @@ export default function Themes() {
             </div>
 
             {/* Distribution analysis summary */}
-            <div className="flex items-start gap-[8px] bg-slate-50 border border-slate-100 rounded-[14px] p-[12px] mt-[10px]">
-              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 leading-normal">
+            <div className="flex items-start gap-[8px] bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-[14px] p-[12px] mt-[10px]">
+              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 dark:text-slate-300 leading-normal">
                 The distribution shows that while most employees lean negative, there's still a substantial 17% who feel positive about scheduling — a growth opportunity we should continue to nurture.
               </p>
             </div>
@@ -441,10 +420,10 @@ export default function Themes() {
         {/* --- Connected Questions Section --- */}
         <div className="flex flex-col gap-[16px] w-full mt-2">
           <div className="flex items-center justify-between w-full">
-            <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+            <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
               Connected Questions
             </h3>
-            <button className="flex items-center gap-[4px] text-[13px] font-bold text-[#0d9488] hover:text-[#0f766e] transition-colors">
+            <button className="flex items-center gap-[4px] text-[13px] font-bold text-[#0d9488] dark:text-teal-400 hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
               <span>View all questions</span>
               <ArrowRight className="size-[13px]" />
             </button>
@@ -453,11 +432,7 @@ export default function Themes() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px] w-full">
             {/* Card 1 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[230px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[230px]"
             >
               <div className="flex flex-col gap-[12px]">
                 <div className="flex items-center gap-[6px] text-[10px] font-bold text-slate-400 uppercase tracking-wider">
@@ -467,7 +442,7 @@ export default function Themes() {
                   <span>•</span>
                   <span>3,112 Responses</span>
                 </div>
-                <h4 className="font-['Inter',sans-serif] font-bold text-slate-800 text-[14px] leading-snug">
+                <h4 className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[14px] leading-snug">
                   How satisfied are you with your current work schedule flexibility?
                 </h4>
               </div>
@@ -481,9 +456,9 @@ export default function Themes() {
                   <div className="w-full bg-[#16a34a] h-[25%] rounded-[3px]" />
                   <div className="w-full bg-[#22c55e] h-[10%] rounded-[3px]" />
                 </div>
-                <div className="flex items-center justify-between border-t border-slate-50 pt-[12px]">
+                <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px]">
                   <span className="text-[11px] font-bold text-slate-400">3,112 RESPONSES</span>
-                  <button className="flex items-center gap-[4px] text-[11.5px] font-bold text-[#0d9488] hover:text-[#0f766e] transition-colors">
+                  <button className="flex items-center gap-[4px] text-[11.5px] font-bold text-[#0d9488] dark:text-teal-400 hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
                     <span>View Analysis</span>
                     <ArrowRight className="size-[12px]" />
                   </button>
@@ -493,11 +468,7 @@ export default function Themes() {
 
             {/* Card 2 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[230px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[230px]"
             >
               <div className="flex flex-col gap-[12px]">
                 <div className="flex items-center gap-[6px] text-[10px] font-bold text-slate-400 uppercase tracking-wider">
@@ -507,7 +478,7 @@ export default function Themes() {
                   <span>•</span>
                   <span>3,112 Responses</span>
                 </div>
-                <h4 className="font-['Inter',sans-serif] font-bold text-slate-800 text-[14px] leading-snug">
+                <h4 className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[14px] leading-snug">
                   Work-life balance is easy to maintain with my schedule.
                 </h4>
               </div>
@@ -521,9 +492,9 @@ export default function Themes() {
                   <div className="w-full bg-[#4ade80] h-[30%] rounded-[3px]" />
                   <div className="w-full bg-[#86efac] h-[15%] rounded-[3px]" />
                 </div>
-                <div className="flex items-center justify-between border-t border-slate-50 pt-[12px]">
+                <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px]">
                   <span className="text-[11px] font-bold text-slate-400">3,112 RESPONSES</span>
-                  <button className="flex items-center gap-[4px] text-[11.5px] font-bold text-[#0d9488] hover:text-[#0f766e] transition-colors">
+                  <button className="flex items-center gap-[4px] text-[11.5px] font-bold text-[#0d9488] dark:text-teal-400 hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
                     <span>View Analysis</span>
                     <ArrowRight className="size-[12px]" />
                   </button>
@@ -533,11 +504,7 @@ export default function Themes() {
 
             {/* Card 3 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[230px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[230px]"
             >
               <div className="flex flex-col gap-[12px]">
                 <div className="flex items-center gap-[6px] text-[10px] font-bold text-slate-400 uppercase tracking-wider">
@@ -547,7 +514,7 @@ export default function Themes() {
                   <span>•</span>
                   <span>1,042 Responses</span>
                 </div>
-                <h4 className="font-['Inter',sans-serif] font-bold text-slate-800 text-[14px] leading-snug">
+                <h4 className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[14px] leading-snug">
                   What changes would improve your scheduling experience?
                 </h4>
               </div>
@@ -561,9 +528,9 @@ export default function Themes() {
                   <div className="w-full bg-[#86efac] h-[20%] rounded-[3px]" />
                   <div className="w-full bg-[#bbf7d0] h-[10%] rounded-[3px]" />
                 </div>
-                <div className="flex items-center justify-between border-t border-slate-50 pt-[12px]">
+                <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px]">
                   <span className="text-[11px] font-bold text-slate-400">1,042 RESPONSES</span>
-                  <button className="flex items-center gap-[4px] text-[11.5px] font-bold text-[#0d9488] hover:text-[#0f766e] transition-colors">
+                  <button className="flex items-center gap-[4px] text-[11.5px] font-bold text-[#0d9488] dark:text-teal-400 hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
                     <span>View Analysis</span>
                     <ArrowRight className="size-[12px]" />
                   </button>
@@ -577,14 +544,10 @@ export default function Themes() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] w-full">
           {/* By Department Card */}
           <div
-            className="rounded-[24px] p-[28px] bg-white flex flex-col gap-[20px]"
-            style={{
-              border: "1px solid rgba(226, 232, 240, 0.8)",
-              boxShadow: "0 4px 16px rgba(15, 23, 42, 0.02)",
-            }}
+            className="rounded-[24px] p-[28px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.02)] flex flex-col gap-[20px]"
           >
             <div className="flex flex-col gap-[2px]">
-              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
                 By Department
               </h3>
               <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-400">
@@ -603,22 +566,22 @@ export default function Themes() {
                 { label: "Design", value: 52, color: "bg-[#0d9488]" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between w-full">
-                  <span className="w-[100px] shrink-0 font-['Inter',sans-serif] font-semibold text-slate-700 text-[13px]">
+                  <span className="w-[100px] shrink-0 font-['Inter',sans-serif] font-semibold text-slate-700 dark:text-slate-300 text-[13px]">
                     {item.label}
                   </span>
-                  <div className="flex-1 h-[8px] bg-slate-100 rounded-full mx-4 overflow-hidden relative">
+                  <div className="flex-1 h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full mx-4 overflow-hidden relative">
                     <div className={`h-full rounded-full ${item.color}`} style={{ width: `${item.value}%` }} />
                   </div>
-                  <span className="w-[32px] text-right font-['Inter',sans-serif] font-bold text-slate-800 text-[13px]">
+                  <span className="w-[32px] text-right font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[13px]">
                     {item.value}%
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="flex items-start gap-[8px] bg-slate-50 border border-slate-100 rounded-[14px] p-[12px] mt-2">
+            <div className="flex items-start gap-[8px] bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-[14px] p-[12px] mt-2">
               <span className="text-[#0d9488] text-[14px] leading-none mt-0.5">ⓘ</span>
-              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 leading-normal">
+              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 dark:text-slate-300 leading-normal">
                 Engineering shows the highest satisfaction with scheduling flexibility, while Marketing and Design teams indicate room for improvement.
               </p>
             </div>
@@ -626,14 +589,10 @@ export default function Themes() {
 
           {/* By Office Location Card */}
           <div
-            className="rounded-[24px] p-[28px] bg-white flex flex-col gap-[20px]"
-            style={{
-              border: "1px solid rgba(226, 232, 240, 0.8)",
-              boxShadow: "0 4px 16px rgba(15, 23, 42, 0.02)",
-            }}
+            className="rounded-[24px] p-[28px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.02)] flex flex-col gap-[20px]"
           >
             <div className="flex flex-col gap-[2px]">
-              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
                 By Office Location
               </h3>
               <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-400">
@@ -647,12 +606,12 @@ export default function Themes() {
               <div className="flex flex-col gap-[6px]">
                 <div className="flex items-center justify-between w-full">
                   <div className="flex flex-col">
-                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[13px]">HQ Campus</span>
+                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[13px]">HQ Campus</span>
                     <span className="font-['Inter',sans-serif] text-slate-400 text-[11px]">On-site employees in New York, NY</span>
                   </div>
                   <span className="font-['Inter',sans-serif] font-bold text-[#059669] text-[13.5px]">45% Satisfied</span>
                 </div>
-                <div className="w-full h-[8px] bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-[#059669] rounded-full" style={{ width: "45%" }} />
                 </div>
               </div>
@@ -661,12 +620,12 @@ export default function Themes() {
               <div className="flex flex-col gap-[6px]">
                 <div className="flex items-center justify-between w-full">
                   <div className="flex flex-col">
-                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[13px]">Remote</span>
+                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[13px]">Remote</span>
                     <span className="font-['Inter',sans-serif] text-slate-400 text-[11px]">Employees working remotely</span>
                   </div>
                   <span className="font-['Inter',sans-serif] font-bold text-[#059669] text-[13.5px]">72% Satisfied</span>
                 </div>
-                <div className="w-full h-[8px] bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-[#059669] rounded-full" style={{ width: "72%" }} />
                 </div>
               </div>
@@ -675,20 +634,20 @@ export default function Themes() {
               <div className="flex flex-col gap-[6px]">
                 <div className="flex items-center justify-between w-full">
                   <div className="flex flex-col">
-                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[13px]">Regional Office</span>
+                    <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[13px]">Regional Office</span>
                     <span className="font-['Inter',sans-serif] text-slate-400 text-[11px]">Employees from Toronto, London & Singapore</span>
                   </div>
                   <span className="font-['Inter',sans-serif] font-bold text-[#059669] text-[13.5px]">38% Satisfied</span>
                 </div>
-                <div className="w-full h-[8px] bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-[8px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-[#059669] rounded-full" style={{ width: "38%" }} />
                 </div>
               </div>
             </div>
 
-            <div className="flex items-start gap-[8px] bg-slate-50 border border-slate-100 rounded-[14px] p-[12px] mt-2">
+            <div className="flex items-start gap-[8px] bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-[14px] p-[12px] mt-2">
               <span className="text-[#059669] text-[14px] leading-none mt-0.5">ⓘ</span>
-              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 leading-normal">
+              <p className="font-['Inter',sans-serif] text-[12px] text-slate-500 dark:text-slate-300 leading-normal">
                 Remote employees report higher satisfaction, potentially due to increased autonomy and reduced commute time.
               </p>
             </div>
@@ -699,7 +658,7 @@ export default function Themes() {
         <div className="flex flex-col gap-[16px] w-full">
           <div className="flex items-center justify-between w-full">
             <div className="flex flex-col gap-[2px]">
-              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+              <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
                 Representative Voices
               </h3>
               <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-400">
@@ -708,16 +667,16 @@ export default function Themes() {
             </div>
 
             <div className="flex items-center gap-[12px]">
-              <button className="flex items-center gap-[4px] text-[13px] font-bold text-[#0d9488] hover:text-[#0f766e] transition-colors">
+              <button className="flex items-center gap-[4px] text-[13px] font-bold text-[#0d9488] dark:text-teal-400 hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
                 <span>View all feedback</span>
                 <ArrowRight className="size-[13px]" />
               </button>
               <div className="flex items-center gap-[6px]">
-                <button className="size-[32px] rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-50 transition-all cursor-pointer">
-                  <ChevronLeft className="size-[16px] text-slate-600" />
+                <button className="size-[32px] rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer">
+                  <ChevronLeft className="size-[16px] text-slate-600 dark:text-slate-300" />
                 </button>
-                <button className="size-[32px] rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-50 transition-all cursor-pointer">
-                  <ChevronRight className="size-[16px] text-slate-600" />
+                <button className="size-[32px] rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer">
+                  <ChevronRight className="size-[16px] text-slate-600 dark:text-slate-300" />
                 </button>
               </div>
             </div>
@@ -726,24 +685,20 @@ export default function Themes() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] w-full">
             {/* Quote 1 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[190px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[190px]"
             >
               <div className="flex flex-col gap-[10px]">
                 <span className="text-[20px] text-emerald-600 font-bold leading-none select-none">“</span>
-                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 leading-relaxed italic">
+                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed italic">
                   The new 2-week shift system makes it much easier to plan around family commitments.
                 </p>
               </div>
-              <div className="flex items-center justify-between border-t border-slate-50 pt-[12px] mt-2">
+              <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px] mt-2">
                 <div className="flex flex-col">
-                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[12px]">Sarah J.</span>
+                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[12px]">Sarah J.</span>
                   <span className="font-['Inter',sans-serif] text-slate-400 text-[10px]">Customer Support</span>
                 </div>
-                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-emerald-200 bg-emerald-50 text-emerald-700 uppercase">
+                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 uppercase">
                   Very Positive
                 </span>
               </div>
@@ -751,24 +706,20 @@ export default function Themes() {
 
             {/* Quote 2 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[190px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[190px]"
             >
               <div className="flex flex-col gap-[10px]">
                 <span className="text-[20px] text-rose-600 font-bold leading-none select-none">“</span>
-                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 leading-relaxed italic">
+                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed italic">
                   It's still difficult to swap shifts on short notice. The system feels outdated.
                 </p>
               </div>
-              <div className="flex items-center justify-between border-t border-slate-50 pt-[12px] mt-2">
+              <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px] mt-2">
                 <div className="flex flex-col">
-                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[12px]">Michael R.</span>
+                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[12px]">Michael R.</span>
                   <span className="font-['Inter',sans-serif] text-slate-400 text-[10px]">Operations</span>
                 </div>
-                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-rose-200 bg-rose-50 text-rose-700 uppercase">
+                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-400 uppercase">
                   Very Negative
                 </span>
               </div>
@@ -776,24 +727,20 @@ export default function Themes() {
 
             {/* Quote 3 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[190px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[190px]"
             >
               <div className="flex flex-col gap-[10px]">
                 <span className="text-[20px] text-amber-600 font-bold leading-none select-none">“</span>
-                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 leading-relaxed italic">
+                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed italic">
                   I need more control over my weekend shifts. It impacts my work-life balance.
                 </p>
               </div>
-              <div className="flex items-center justify-between border-t border-slate-50 pt-[12px] mt-2">
+              <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px] mt-2">
                 <div className="flex flex-col">
-                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[12px]">Priya K.</span>
+                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[12px]">Priya K.</span>
                   <span className="font-['Inter',sans-serif] text-slate-400 text-[10px]">Operations</span>
                 </div>
-                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-amber-200 bg-amber-50 text-amber-700 uppercase">
+                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400 uppercase">
                   Negative
                 </span>
               </div>
@@ -801,24 +748,20 @@ export default function Themes() {
 
             {/* Quote 4 */}
             <div
-              className="rounded-[20px] p-[20px] bg-white flex flex-col justify-between h-[190px]"
-              style={{
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                boxShadow: "0 4px 16px rgba(15, 23, 42, 0.01)",
-              }}
+              className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.01)] flex flex-col justify-between h-[190px]"
             >
               <div className="flex flex-col gap-[10px]">
                 <span className="text-[20px] text-emerald-600 font-bold leading-none select-none">“</span>
-                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 leading-relaxed italic">
+                <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed italic">
                   The flexibility has improved a lot compared to last year. Keep it up!
                 </p>
               </div>
-              <div className="flex items-center justify-between border-t border-slate-50 pt-[12px] mt-2">
+              <div className="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-[12px] mt-2">
                 <div className="flex flex-col">
-                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 text-[12px]">James L.</span>
+                  <span className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[12px]">James L.</span>
                   <span className="font-['Inter',sans-serif] text-slate-400 text-[10px]">Engineering</span>
                 </div>
-                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-[#a7f3d0] bg-[#ecfdf5] text-[#047857] uppercase">
+                <span className="px-[8px] py-[3px] rounded-full text-[9px] font-bold border border-[#a7f3d0] dark:border-emerald-800 bg-[#ecfdf5] dark:bg-emerald-950/50 text-[#047857] dark:text-emerald-400 uppercase">
                   Positive
                 </span>
               </div>
@@ -828,14 +771,10 @@ export default function Themes() {
 
         {/* --- Recommended Actions Section --- */}
         <div
-          className="rounded-[24px] p-[28px] bg-white flex flex-col gap-[20px] w-full"
-          style={{
-            border: "1px solid rgba(226, 232, 240, 0.8)",
-            boxShadow: "0 4px 16px rgba(15, 23, 42, 0.02)",
-          }}
+          className="rounded-[24px] p-[28px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.02)] flex flex-col gap-[20px] w-full"
         >
           <div className="flex flex-col gap-[2px]">
-            <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[16px]">
+            <h3 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
               Recommended Actions
             </h3>
             <p className="font-['Inter',sans-serif] text-[12.5px] text-slate-400">
@@ -850,7 +789,7 @@ export default function Themes() {
                 text: "Conduct targeted focus groups with Engineering and Operations",
                 details: "Owner: Sarah Jenkins, People Partner • Timeline: 2 weeks",
                 priority: "Critical",
-                priorityColor: "bg-rose-50 border border-rose-100 text-rose-700",
+                priorityColor: "bg-rose-50 dark:bg-rose-950/50 border border-rose-100 dark:border-rose-900/50 text-rose-700 dark:text-rose-400",
                 avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=64&h=64",
                 nameInitial: "SJ",
               },
@@ -859,7 +798,7 @@ export default function Themes() {
                 text: "Commission HR impact assessment of Q1 policy change",
                 details: "Owner: David Cox, HR Ops Lead • Timeline: 1 month",
                 priority: "High",
-                priorityColor: "bg-orange-50 border border-orange-100 text-orange-700",
+                priorityColor: "bg-orange-50 dark:bg-amber-950/50 border border-orange-100 dark:border-amber-900/50 text-orange-700 dark:text-amber-400",
                 avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=64&h=64",
                 nameInitial: "DC",
               },
@@ -868,7 +807,7 @@ export default function Themes() {
                 text: "Pilot flexible scheduling program in highest-dissatisfaction teams",
                 details: "Owner: Maria Alvarez, Engineering VP • Timeline: Next Quarter",
                 priority: "High",
-                priorityColor: "bg-orange-50 border border-orange-100 text-orange-700",
+                priorityColor: "bg-orange-50 dark:bg-amber-950/50 border border-orange-100 dark:border-amber-900/50 text-orange-700 dark:text-amber-400",
                 avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=64&h=64",
                 nameInitial: "MA",
               },
@@ -877,23 +816,23 @@ export default function Themes() {
                 text: "Benchmark scheduling policies against industry competitors",
                 details: "Owner: Elena Rostova, Research Director • Timeline: 6 weeks",
                 priority: "Medium",
-                priorityColor: "bg-amber-50 border border-amber-100 text-amber-600",
+                priorityColor: "bg-amber-50 dark:bg-amber-950/50 border border-amber-100 dark:border-amber-900/50 text-amber-600 dark:text-amber-400",
                 avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=64&h=64",
                 nameInitial: "ER",
               },
             ].map((action, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-between p-[14px] rounded-[16px] border border-slate-100 bg-[#fafbfa] hover:bg-slate-50 hover:shadow-sm transition-all"
+                className="flex items-center justify-between p-[14px] rounded-[16px] border border-slate-100 dark:border-slate-800 bg-[#fafbfa] dark:bg-slate-800/40 hover:bg-slate-50 dark:hover:bg-slate-800/70 hover:shadow-sm transition-all"
               >
                 <div className="flex items-center gap-[14px] flex-1 min-w-px">
                   {/* Number bubble */}
-                  <div className="size-[28px] rounded-full border-2 border-[#15803d]/30 text-[#15803d] font-bold flex items-center justify-center text-[12px] shrink-0">
+                  <div className="size-[28px] rounded-full border-2 border-[#15803d]/30 text-[#15803d] dark:text-emerald-400 font-bold flex items-center justify-center text-[12px] shrink-0">
                     {action.num}
                   </div>
                   {/* Text Details */}
                   <div className="flex flex-col gap-[3px] min-w-px">
-                    <p className="font-['Inter',sans-serif] font-bold text-slate-800 text-[13.5px] leading-snug truncate">
+                    <p className="font-['Inter',sans-serif] font-bold text-slate-800 dark:text-slate-100 text-[13.5px] leading-snug truncate">
                       {action.text}
                     </p>
                     <span className="font-['Inter',sans-serif] text-slate-400 text-[11.5px]">
@@ -908,7 +847,7 @@ export default function Themes() {
                     {action.priority}
                   </span>
                   {/* Avatar image */}
-                  <div className="relative size-[30px] rounded-full overflow-hidden border border-slate-200">
+                  <div className="relative size-[30px] rounded-full overflow-hidden border border-slate-200 dark:border-slate-700">
                     <img
                       src={action.avatar}
                       alt=""
@@ -918,7 +857,7 @@ export default function Themes() {
                         (e.target as HTMLElement).style.display = "none";
                       }}
                     />
-                    <div className="absolute inset-0 bg-[#e8f7f0] text-[#059669] font-bold text-[10px] flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 font-bold text-[10px] flex items-center justify-center">
                       {action.nameInitial}
                     </div>
                   </div>
@@ -927,8 +866,8 @@ export default function Themes() {
             ))}
           </div>
 
-          <div className="flex justify-center border-t border-slate-50 pt-[16px] mt-2">
-            <button className="flex items-center gap-[6px] text-[13px] font-bold text-[#0d9488] hover:text-[#0f766e] transition-colors">
+          <div className="flex justify-center border-t border-slate-50 dark:border-slate-800 pt-[16px] mt-2">
+            <button className="flex items-center gap-[6px] text-[13px] font-bold text-[#0d9488] dark:text-teal-400 hover:text-[#0f766e] dark:hover:text-teal-300 transition-colors">
               <span>View All Actions</span>
               <ArrowRight className="size-[14px]" />
             </button>

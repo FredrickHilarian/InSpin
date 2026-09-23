@@ -102,12 +102,12 @@ export default function Notifications() {
         
         {/* Header */}
         <div className="flex items-center justify-between w-full">
-          <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] text-[32px] leading-tight">
+          <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] dark:text-white text-[32px] leading-tight">
             Notifications
           </h1>
           <button
             onClick={handleMarkAllRead}
-            className="text-[#059669] font-medium text-[14px] hover:underline cursor-pointer"
+            className="text-[#059669] dark:text-emerald-400 font-medium text-[14px] hover:underline cursor-pointer"
           >
             Mark all as read
           </button>
@@ -120,7 +120,7 @@ export default function Notifications() {
             className={`px-[16px] py-[8px] rounded-full text-[13px] font-semibold transition-all ${
               activeFilter === "all"
                 ? "bg-[#059669] text-white"
-                : "bg-white border border-[#e2e8f0] text-slate-600 hover:bg-slate-50"
+                : "bg-white dark:bg-[#111827] border border-[#e2e8f0] dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
             }`}
           >
             All ({notifications.length})
@@ -130,7 +130,7 @@ export default function Notifications() {
             className={`px-[16px] py-[8px] rounded-full text-[13px] font-semibold transition-all border ${
               activeFilter === "unread"
                 ? "bg-[#059669] text-white border-transparent"
-                : "bg-white border-[#e2e8f0] text-[#059669] hover:bg-slate-50"
+                : "bg-white dark:bg-[#111827] border-[#e2e8f0] dark:border-slate-800 text-[#059669] dark:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800"
             }`}
           >
             Unread ({unreadCount})
@@ -140,7 +140,7 @@ export default function Notifications() {
             className={`px-[16px] py-[8px] rounded-full text-[13px] font-semibold transition-all border ${
               activeFilter === "mentions"
                 ? "bg-[#059669] text-white border-transparent"
-                : "bg-white border-[#e2e8f0] text-slate-600 hover:bg-slate-50"
+                : "bg-white dark:bg-[#111827] border-[#e2e8f0] dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
             }`}
           >
             Mentions ({mentionsCount})
@@ -150,7 +150,7 @@ export default function Notifications() {
             className={`px-[16px] py-[8px] rounded-full text-[13px] font-semibold transition-all border ${
               activeFilter === "ai"
                 ? "bg-[#059669] text-white border-transparent"
-                : "bg-white border-[#e2e8f0] text-slate-600 hover:bg-slate-50"
+                : "bg-white dark:bg-[#111827] border-[#e2e8f0] dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
             }`}
           >
             AI Insights ({aiCount})
@@ -162,7 +162,7 @@ export default function Notifications() {
           {filteredNotifications.map((notif) => (
             <div
               key={notif.id}
-              className={`flex items-center justify-between p-[20px] rounded-[16px] bg-white border border-slate-100 shadow-sm transition-all hover:shadow-md relative pl-[32px]`}
+              className={`flex items-center justify-between p-[20px] rounded-[16px] bg-white dark:bg-[#111827] border border-slate-100 dark:border-slate-800 shadow-sm transition-all hover:shadow-md relative pl-[32px]`}
             >
               {/* Colored side indicator dot */}
               <div
@@ -171,16 +171,16 @@ export default function Notifications() {
               />
 
               <div className="flex flex-col gap-[4px] items-start pr-[24px] flex-1">
-                <p className="font-['Inter',sans-serif] text-[14px] text-slate-800 font-medium leading-relaxed">
+                <p className="font-['Inter',sans-serif] text-[14px] text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
                   {notif.content}
                 </p>
-                <p className="font-['Inter',sans-serif] text-[12px] text-slate-400">
+                <p className="font-['Inter',sans-serif] text-[12px] text-slate-400 dark:text-slate-500">
                   {notif.time}
                 </p>
               </div>
 
               <button
-                className="px-[16px] py-[8px] rounded-[10px] bg-white border border-slate-200 text-slate-700 text-[13px] font-semibold hover:bg-slate-50 transition-all shrink-0 cursor-pointer shadow-sm"
+                className="px-[16px] py-[8px] rounded-[10px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[13px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shrink-0 cursor-pointer shadow-sm"
               >
                 {notif.actionLabel}
               </button>
@@ -188,7 +188,7 @@ export default function Notifications() {
           ))}
 
           {filteredNotifications.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-[64px] text-slate-400">
+            <div className="flex flex-col items-center justify-center py-[64px] text-slate-400 dark:text-slate-500">
               <p className="text-[14px]">No notifications found in this filter.</p>
             </div>
           )}

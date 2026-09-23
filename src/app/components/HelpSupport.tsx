@@ -35,11 +35,11 @@ export default function HelpSupport() {
   );
 
   return (
-    <div className="flex-1 flex flex-col h-[calc(100vh-120px)] relative overflow-y-auto">
+    <div className="flex-1 flex flex-col h-[calc(100vh-120px)] relative overflow-y-auto bg-[#f4f7f6] dark:bg-[#090d16] transition-colors">
       <div className="flex flex-col gap-[28px] p-[40px] w-full max-w-[1200px] mx-auto pb-32">
         
         {/* Header Hero banner */}
-        <div className="bg-gradient-to-r from-emerald-800 to-emerald-950 rounded-[24px] p-8 text-white relative overflow-hidden shadow-lg shadow-emerald-950/10">
+        <div className="bg-gradient-to-r from-emerald-800 to-emerald-950 dark:from-emerald-950 dark:to-slate-900 border dark:border-emerald-800/40 rounded-[24px] p-8 text-white relative overflow-hidden shadow-lg shadow-emerald-950/10 transition-colors">
           <div className="absolute top-[-50px] right-[-50px] size-48 rounded-full bg-white/5 blur-3xl pointer-events-none" />
           
           <div className="flex flex-col gap-2 relative z-10 max-w-[600px]">
@@ -62,7 +62,7 @@ export default function HelpSupport() {
                 placeholder="Search tutorials, articles, or FAQs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-white text-slate-800 border-none outline-none rounded-xl text-[13.5px] font-medium shadow-xl shadow-emerald-950/20"
+                className="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-transparent dark:border-slate-700 outline-none rounded-xl text-[13.5px] font-medium shadow-xl shadow-emerald-950/20"
               />
             </div>
           </div>
@@ -76,23 +76,23 @@ export default function HelpSupport() {
             
             {/* Documentation Quick Links */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-[14px] font-bold text-slate-800 uppercase tracking-wider block">
+              <h3 className="text-[14px] font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider block">
                 Quick Start Guides
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { title: "Getting Started Guide", desc: "Learn the fundamentals of importing and preparing survey sheets.", icon: Compass, color: "text-blue-500 bg-blue-50 border-blue-100" },
-                  { title: "Survey Analysis", desc: "Discover how to interpret demographics, ranking metrics, and NPS charts.", icon: BookOpen, color: "text-emerald-500 bg-emerald-50 border-emerald-100" },
-                  { title: "Sharing & Collaboration", desc: "Detailed breakdown of collaborator roles, external guest options, and access logs.", icon: MessageSquare, color: "text-purple-500 bg-purple-50 border-purple-100" },
-                  { title: "Security & SSO", desc: "Guide on configuring secure password links and link expiration controls.", icon: ShieldAlert, color: "text-amber-500 bg-amber-50 border-amber-100" }
+                  { title: "Getting Started Guide", desc: "Learn the fundamentals of importing and preparing survey sheets.", icon: Compass, color: "text-blue-500 bg-blue-50 dark:bg-blue-950/40 border-blue-100 dark:border-blue-900/50" },
+                  { title: "Survey Analysis", desc: "Discover how to interpret demographics, ranking metrics, and NPS charts.", icon: BookOpen, color: "text-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-100 dark:border-emerald-900/50" },
+                  { title: "Sharing & Collaboration", desc: "Detailed breakdown of collaborator roles, external guest options, and access logs.", icon: MessageSquare, color: "text-purple-500 bg-purple-50 dark:bg-purple-950/40 border-purple-100 dark:border-purple-900/50" },
+                  { title: "Security & SSO", desc: "Guide on configuring secure password links and link expiration controls.", icon: ShieldAlert, color: "text-amber-500 bg-amber-50 dark:bg-amber-950/40 border-amber-100 dark:border-amber-900/50" }
                 ].map((card) => (
-                  <div key={card.title} className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4">
+                  <div key={card.title} className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-100 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4">
                     <div className={`size-10 rounded-xl flex items-center justify-center shrink-0 border ${card.color}`}>
                       <card.icon className="size-5" />
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-[13.5px] font-bold text-slate-800">{card.title}</span>
-                      <span className="text-[11px] text-slate-400 font-medium leading-relaxed">{card.desc}</span>
+                      <span className="text-[13.5px] font-bold text-slate-800 dark:text-slate-100">{card.title}</span>
+                      <span className="text-[11px] text-slate-400 dark:text-slate-400 font-medium leading-relaxed">{card.desc}</span>
                     </div>
                   </div>
                 ))}
@@ -101,19 +101,19 @@ export default function HelpSupport() {
 
             {/* Frequently Asked Questions Accordion */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-[14px] font-bold text-slate-800 uppercase tracking-wider block">
+              <h3 className="text-[14px] font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider block">
                 Frequently Asked Questions
               </h3>
               
-              <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm flex flex-col gap-3.5">
+              <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-100 dark:border-slate-800 p-6 shadow-sm flex flex-col gap-3.5 transition-colors">
                 {filteredFaqs.length > 0 ? (
                   filteredFaqs.map((faq, i) => {
                     const isExpanded = expandedFaq === i;
                     return (
-                      <div key={i} className="border-b border-slate-100 last:border-none pb-3.5 last:pb-0">
+                      <div key={i} className="border-b border-slate-100 dark:border-slate-800 last:border-none pb-3.5 last:pb-0">
                         <button
                           onClick={() => setExpandedFaq(isExpanded ? null : i)}
-                          className="w-full flex justify-between items-center text-left text-[13.5px] font-bold text-slate-700 hover:text-[#059669] transition-colors cursor-pointer"
+                          className="w-full flex justify-between items-center text-left text-[13.5px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#059669] dark:hover:text-emerald-400 transition-colors cursor-pointer"
                         >
                           <span className="pr-4 flex items-center gap-2">
                             <HelpCircle className="size-4.5 text-slate-400 shrink-0" />
@@ -123,7 +123,7 @@ export default function HelpSupport() {
                         </button>
                         
                         {isExpanded && (
-                          <div className="mt-2 text-[12.5px] text-slate-500 font-medium leading-relaxed pl-6 animate-in slide-in-from-top-1 duration-150">
+                          <div className="mt-2 text-[12.5px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed pl-6 animate-in slide-in-from-top-1 duration-150">
                             {faq.a}
                           </div>
                         )}
@@ -144,12 +144,12 @@ export default function HelpSupport() {
           <div className="lg:col-span-1 flex flex-col gap-6">
             
             {/* Support Desk Card */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm flex flex-col gap-4">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+            <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-100 dark:border-slate-800 p-6 shadow-sm flex flex-col gap-4 transition-colors">
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                 Support Center
               </span>
               
-              <div className="flex flex-col gap-3 text-[12.5px] font-medium text-slate-500 leading-relaxed">
+              <div className="flex flex-col gap-3 text-[12.5px] font-medium text-slate-500 dark:text-slate-400 leading-relaxed">
                 <p>
                   Have custom design integration questions? Our project team is here to assist with brand elements, UX guidelines, or technical review queries.
                 </p>
@@ -158,18 +158,18 @@ export default function HelpSupport() {
                 </p>
               </div>
 
-              <div className="border-t border-slate-100 pt-4 flex flex-col gap-3">
+              <div className="border-t border-slate-100 dark:border-slate-800 pt-4 flex flex-col gap-3">
                 {[
                   { name: "Chirag (InSpin Support)", email: "chirag@heymarvin.com" },
                   { name: "Bonnie (Research Lead)", email: "bonnie@heymarvin.com" }
                 ].map((item) => (
-                  <div key={item.email} className="bg-slate-50 border border-slate-100 rounded-xl p-3.5 flex items-center gap-3">
-                    <div className="size-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 shrink-0">
+                  <div key={item.email} className="bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 rounded-xl p-3.5 flex items-center gap-3">
+                    <div className="size-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 shrink-0">
                       <Mail className="size-4" />
                     </div>
                     <div className="flex flex-col truncate">
-                      <span className="text-[12px] font-bold text-slate-700 truncate leading-snug">{item.name}</span>
-                      <a href={`mailto:${item.email}`} className="text-[11.5px] text-[#059669] hover:underline truncate">
+                      <span className="text-[12px] font-bold text-slate-700 dark:text-slate-200 truncate leading-snug">{item.name}</span>
+                      <a href={`mailto:${item.email}`} className="text-[11.5px] text-[#059669] dark:text-emerald-400 hover:underline truncate">
                         {item.email}
                       </a>
                     </div>
@@ -179,11 +179,11 @@ export default function HelpSupport() {
             </div>
 
             {/* Quick Attributions Info */}
-            <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 flex flex-col gap-2">
-              <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800 rounded-2xl p-5 flex flex-col gap-2 transition-colors">
+              <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                 Project Attributions
               </span>
-              <p className="text-[10.5px] text-slate-400 font-medium leading-relaxed">
+              <p className="text-[10.5px] text-slate-400 dark:text-slate-500 font-medium leading-relaxed">
                 This dashboard prototype is developed for the InSpin research assignment. Built using Vite, React, Tailwind, and Vercel Analytics components.
               </p>
             </div>

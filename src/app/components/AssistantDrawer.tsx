@@ -110,31 +110,31 @@ export default function AssistantDrawer({ onClose, workspaceName }: AssistantDra
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-slate-900/30 backdrop-blur-[2px] z-[100] transition-opacity animate-in fade-in duration-200"
+        className="fixed inset-0 bg-slate-900/30 dark:bg-black/70 backdrop-blur-[2px] z-[100] transition-opacity animate-in fade-in duration-200"
         onClick={onClose}
       />
       
       {/* Drawer Container */}
       <div 
-        className="fixed inset-y-0 right-0 w-[420px] max-w-full bg-white border-l border-slate-200 shadow-2xl z-[100] flex flex-col transition-transform transform duration-300 ease-out animate-in slide-in-from-right"
+        className="fixed inset-y-0 right-0 w-[420px] max-w-full bg-white dark:bg-[#111827] border-l border-slate-200 dark:border-slate-800 shadow-2xl dark:shadow-black/70 z-[100] flex flex-col transition-transform transform duration-300 ease-out animate-in slide-in-from-right"
         style={{
           boxShadow: "-10px 0 30px -10px rgba(15, 23, 42, 0.15)"
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-[#f8fafc]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-[#f8fafc] dark:bg-slate-900/60">
           <div className="flex items-center gap-2">
-            <div className="bg-emerald-50 text-emerald-700 p-1.5 rounded-lg border border-emerald-100">
+            <div className="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 p-1.5 rounded-lg border border-emerald-100 dark:border-emerald-800/60">
               <Sparkles className="size-[16px] animate-pulse" />
             </div>
             <div>
-              <h2 className="text-[15px] font-bold text-slate-800">Ask Assistant</h2>
-              <p className="text-[11px] text-slate-400 font-medium">Active: {workspaceName}</p>
+              <h2 className="text-[15px] font-bold text-slate-800 dark:text-slate-100">Ask Assistant</h2>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">Active: {workspaceName}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors"
           >
             <X className="size-[18px]" />
           </button>
@@ -152,8 +152,8 @@ export default function AssistantDrawer({ onClose, workspaceName }: AssistantDra
               <div 
                 className={`size-8 rounded-full flex items-center justify-center shrink-0 border ${
                   msg.sender === "user" 
-                    ? "bg-slate-100 text-slate-600 border-slate-200" 
-                    : "bg-emerald-50 text-emerald-700 border-emerald-100"
+                    ? "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700" 
+                    : "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800/60"
                 }`}
               >
                 {msg.sender === "user" ? <User className="size-4" /> : <Bot className="size-4" />}
@@ -162,7 +162,7 @@ export default function AssistantDrawer({ onClose, workspaceName }: AssistantDra
                 className={`rounded-[16px] p-3.5 text-[13px] leading-relaxed ${
                   msg.sender === "user"
                     ? "bg-[#059669] text-white rounded-tr-none font-medium"
-                    : "bg-slate-50 text-slate-800 rounded-tl-none border border-slate-100 whitespace-pre-wrap"
+                    : "bg-slate-50 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 rounded-tl-none border border-slate-100 dark:border-slate-700 whitespace-pre-wrap"
                 }`}
               >
                 {msg.text}
@@ -171,13 +171,13 @@ export default function AssistantDrawer({ onClose, workspaceName }: AssistantDra
           ))}
           {isTyping && (
             <div className="flex gap-3 self-start max-w-[85%]">
-              <div className="size-8 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center shrink-0">
+              <div className="size-8 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/60 flex items-center justify-center shrink-0">
                 <Bot className="size-4" />
               </div>
-              <div className="bg-slate-50 border border-slate-100 rounded-[16px] rounded-tl-none p-3.5 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></span>
-                <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></span>
-                <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></span>
+              <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700 rounded-[16px] rounded-tl-none p-3.5 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></span>
+                <span className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></span>
+                <span className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></span>
               </div>
             </div>
           )}
@@ -185,20 +185,20 @@ export default function AssistantDrawer({ onClose, workspaceName }: AssistantDra
         </div>
 
         {/* Preset suggestions & Input area */}
-        <div className="p-4 border-t border-slate-100 bg-[#f8fafc]">
+        <div className="p-4 border-t border-slate-100 dark:border-slate-800 bg-[#f8fafc] dark:bg-slate-900/60">
           {/* Quick chips if history has only welcome message */}
           {messages.length === 1 && (
             <div className="flex flex-col gap-1.5 mb-4">
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">SUGGESTED QUESTIONS</p>
+              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">SUGGESTED QUESTIONS</p>
               <div className="flex flex-col gap-1.5">
                 {suggestions.map((item, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSend(item)}
-                    className="w-full text-left bg-white hover:bg-emerald-50 hover:border-emerald-200 border border-slate-200/80 rounded-xl p-2.5 text-[12px] font-semibold text-slate-700 transition-all cursor-pointer flex items-center justify-between group"
+                    className="w-full text-left bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:border-emerald-200 dark:hover:border-emerald-800 border border-slate-200/80 dark:border-slate-700 rounded-xl p-2.5 text-[12px] font-semibold text-slate-700 dark:text-slate-200 transition-all cursor-pointer flex items-center justify-between group"
                   >
                     <span>{item}</span>
-                    <ArrowRight className="size-3.5 text-slate-400 group-hover:text-emerald-600 transition-colors shrink-0" />
+                    <ArrowRight className="size-3.5 text-slate-400 dark:text-slate-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors shrink-0" />
                   </button>
                 ))}
               </div>
@@ -206,19 +206,19 @@ export default function AssistantDrawer({ onClose, workspaceName }: AssistantDra
           )}
 
           {/* Text Input */}
-          <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-[16px] p-1.5 shadow-sm focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-100 transition-all">
+          <div className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-[16px] p-1.5 shadow-sm focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-100 dark:focus-within:ring-emerald-950 transition-all">
             <input
               type="text"
               placeholder="Ask anything about the research..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend(input)}
-              className="flex-1 bg-transparent text-[13px] font-medium text-slate-800 placeholder-slate-400 focus:outline-none px-2.5"
+              className="flex-1 bg-transparent text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none px-2.5"
             />
             <button
               onClick={() => handleSend(input)}
               disabled={!input.trim()}
-              className="bg-emerald-700 hover:bg-emerald-800 disabled:bg-slate-200 disabled:text-slate-400 text-white rounded-[12px] p-2 flex items-center justify-center cursor-pointer transition-colors shrink-0"
+              className="bg-emerald-700 hover:bg-emerald-800 disabled:bg-slate-200 dark:disabled:bg-slate-700 disabled:text-slate-400 dark:disabled:text-slate-500 text-white rounded-[12px] p-2 flex items-center justify-center cursor-pointer transition-colors shrink-0"
             >
               <Send className="size-[15px]" />
             </button>

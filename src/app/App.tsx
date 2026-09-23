@@ -50,6 +50,7 @@ import SharingSettings from "./components/SharingSettings";
 import AuthScreen from "./components/AuthScreen";
 import HelpSupport from "./components/HelpSupport";
 import AssistantDrawer from "./components/AssistantDrawer";
+import ThemeToggle from "./components/ThemeToggle";
 import { useSurveyData, WorkspaceItem } from "./context/SurveyDataContext";
 
 // ─── Sidebar Nav Items ───────────────────────────────────────────────────────
@@ -72,8 +73,8 @@ function NavItem({
       aria-current={active ? "page" : undefined}
       className={`relative rounded-[12px] shrink-0 w-full text-left cursor-pointer transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#059669] focus-visible:ring-offset-2 ${
         active
-          ? "bg-[#e8f7f0] text-[#059669] font-semibold"
-          : "bg-transparent text-[#64748b] hover:bg-[#f8fafc] hover:text-[#334155]"
+          ? "bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 font-semibold border border-transparent dark:border-emerald-800/40"
+          : "bg-transparent text-[#64748b] dark:text-slate-400 hover:bg-[#f8fafc] dark:hover:bg-slate-800/60 hover:text-[#334155] dark:hover:text-slate-200"
       }`}
     >
       <div className="flex flex-row items-center size-full">
@@ -102,14 +103,7 @@ function Sidebar({
   const [showUserMenu, setShowUserMenu] = useState(false);
   return (
     <div
-      className="flex flex-col gap-[28px] h-full items-start px-[18px] py-[28px] relative rounded-[24px] shrink-0 w-[260px]"
-      style={{
-        background: "rgba(255,255,255,0.75)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        border: "1px solid rgba(226, 232, 240, 0.8)",
-        boxShadow: "0 4px 24px rgba(15, 23, 42, 0.04)",
-      }}
+      className="flex flex-col gap-[28px] h-full items-start px-[18px] py-[28px] relative rounded-[24px] shrink-0 w-[260px] bg-white/75 dark:bg-[#111827]/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_24px_rgba(15,23,42,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-colors"
     >
       <InspinLogo />
 
@@ -134,14 +128,14 @@ function Sidebar({
       <div className="flex flex-col gap-[12px] w-full shrink-0 relative">
         {/* User Popover Menu */}
         {showUserMenu && (
-          <div className="absolute bottom-[66px] left-0 right-0 bg-white border border-slate-200/80 rounded-2xl shadow-xl p-2.5 z-50 flex flex-col gap-1.5 animate-in slide-in-from-bottom-2 duration-200">
+          <div className="absolute bottom-[66px] left-0 right-0 bg-white dark:bg-[#1e293b] border border-slate-200/80 dark:border-slate-700 rounded-2xl shadow-xl p-2.5 z-50 flex flex-col gap-1.5 animate-in slide-in-from-bottom-2 duration-200">
             <button
               type="button"
               onClick={() => {
                 setActiveTab("Profile");
                 setShowUserMenu(false);
               }}
-              className="flex items-center gap-2 px-3 py-2 hover:bg-slate-50 rounded-xl text-[12px] font-bold text-slate-700 w-full text-left cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="flex items-center gap-2 px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl text-[12px] font-bold text-slate-700 dark:text-slate-200 w-full text-left cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <UserIcon className="size-4 text-slate-400" />
               <span>View Profile</span>
@@ -152,7 +146,7 @@ function Sidebar({
                 onLogout();
                 setShowUserMenu(false);
               }}
-              className="flex items-center gap-2 px-3 py-2 hover:bg-rose-50 rounded-xl text-[12px] font-bold text-rose-600 w-full text-left cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
+              className="flex items-center gap-2 px-3 py-2 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-xl text-[12px] font-bold text-rose-600 dark:text-rose-400 w-full text-left cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
             >
               <LogOut className="size-4 text-rose-400" />
               <span>Sign Out</span>
@@ -166,14 +160,14 @@ function Sidebar({
           onClick={() => setShowUserMenu(!showUserMenu)}
           aria-expanded={showUserMenu}
           aria-label="User account menu"
-          className="flex gap-[12px] items-center p-3 rounded-[16px] border border-slate-100 bg-white/80 w-full text-left cursor-pointer hover:bg-slate-50 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex gap-[12px] items-center p-3 rounded-[16px] border border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-800/60 w-full text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
           <div className="relative rounded-full shrink-0 size-[36px] overflow-hidden">
             <img alt="Dr. Aria Thorne" className="absolute inset-0 object-cover size-full" src={imgRectangle} />
           </div>
           <div className="flex flex-[1_0_0] flex-col gap-[1px] items-start min-w-px">
-            <p className="font-['Inter',sans-serif] font-semibold text-[#0f172a] text-[13px] leading-tight whitespace-nowrap">Dr. Aria Thorne</p>
-            <p className="font-['Inter',sans-serif] font-normal text-[#64748b] text-[11px] leading-tight">Lead Researcher</p>
+            <p className="font-['Inter',sans-serif] font-semibold text-[#0f172a] dark:text-slate-100 text-[13px] leading-tight whitespace-nowrap">Dr. Aria Thorne</p>
+            <p className="font-['Inter',sans-serif] font-normal text-[#64748b] dark:text-slate-400 text-[11px] leading-tight">Lead Researcher</p>
           </div>
           <ChevronDown className="size-3.5 text-slate-400 shrink-0" />
         </button>
@@ -182,9 +176,9 @@ function Sidebar({
         <button 
           type="button"
           onClick={onHelpSupport}
-          className="flex gap-[10px] items-center px-4 py-3 rounded-[16px] border border-slate-100 bg-white/50 w-full text-left cursor-pointer hover:bg-slate-50 transition-all text-slate-600 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex gap-[10px] items-center px-4 py-3 rounded-[16px] border border-slate-100 dark:border-slate-800 bg-white/50 dark:bg-slate-800/40 w-full text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-300 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
-          <HelpCircle className="size-4 text-slate-500 shrink-0" />
+          <HelpCircle className="size-4 text-slate-500 dark:text-slate-400 shrink-0" />
           <span className="font-['Inter',sans-serif] font-semibold text-[13px]">Help & Support</span>
         </button>
       </div>
@@ -229,15 +223,7 @@ function TopNavBar({
 
   return (
     <div 
-      className="flex items-center justify-between gap-2 lg:gap-3 h-14 sm:h-16 px-3 sm:px-5 rounded-[20px] sm:rounded-[24px] w-full shrink-0 relative"
-      style={{
-        background: "rgba(255,255,255,0.80)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        border: "1px solid rgba(226,232,240,0.7)",
-        boxShadow: "0 4px 16px rgba(15,23,42,0.04)",
-        zIndex: 50,
-      }}
+      className="flex items-center justify-between gap-2 lg:gap-3 h-14 sm:h-16 px-3 sm:px-5 rounded-[20px] sm:rounded-[24px] w-full shrink-0 relative bg-white/80 dark:bg-[#111827]/85 backdrop-blur-xl border border-slate-200/70 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.04)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] z-50 transition-colors"
     >
       {/* Project Selector Wrapper */}
       <div className="relative shrink-0">
@@ -245,10 +231,10 @@ function TopNavBar({
           type="button"
           onClick={() => setDropdownOpen(!dropdownOpen)}
           aria-expanded={dropdownOpen}
-          className="flex gap-1.5 sm:gap-2 items-center px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-[#f4f7f6] border border-[#e2e8f0] shrink-0 hover:bg-[#eaeaea] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex gap-1.5 sm:gap-2 items-center px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-[#f4f7f6] dark:bg-slate-800/80 border border-[#e2e8f0] dark:border-slate-700 shrink-0 hover:bg-[#eaeaea] dark:hover:bg-slate-700 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
-          <Folder className="size-3.5 sm:size-4 text-[#15803d] shrink-0" />
-          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#0f172a] text-[12px] sm:text-[13px] leading-normal truncate max-w-[90px] sm:max-w-[130px] md:max-w-[160px] lg:max-w-[180px] xl:max-w-[220px]">
+          <Folder className="size-3.5 sm:size-4 text-[#15803d] dark:text-emerald-400 shrink-0" />
+          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#0f172a] dark:text-slate-100 text-[12px] sm:text-[13px] leading-normal truncate max-w-[90px] sm:max-w-[130px] md:max-w-[160px] lg:max-w-[180px] xl:max-w-[220px]">
             {activeWorkspace.name}
           </p>
           <ChevronDown className="size-3.5 text-slate-400 shrink-0" />
@@ -261,7 +247,7 @@ function TopNavBar({
             
             {/* Dropdown Menu */}
             <div 
-              className="absolute left-0 mt-2 w-[260px] sm:w-[300px] rounded-xl border border-slate-200/80 bg-white/95 backdrop-blur-md p-1.5 shadow-lg z-50 flex flex-col gap-0.5"
+              className="absolute left-0 mt-2 w-[260px] sm:w-[300px] rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md p-1.5 shadow-lg z-50 flex flex-col gap-0.5"
               style={{
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
               }}
@@ -276,12 +262,12 @@ function TopNavBar({
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium transition-all cursor-pointer flex justify-between items-center ${
                     activeWorkspace.id === ws.id 
-                      ? "bg-[#dcfce7] text-[#15803d]" 
-                      : "text-slate-700 hover:bg-slate-50"
+                      ? "bg-[#dcfce7] dark:bg-emerald-950/60 text-[#15803d] dark:text-emerald-400" 
+                      : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60"
                   }`}
                 >
                   <span className="truncate max-w-[180px]">{ws.name}</span>
-                  <span className="text-[10px] text-slate-400 font-normal">{ws.dataset.totalRespondents} resp</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 font-normal">{ws.dataset.totalRespondents} resp</span>
                 </button>
               ))}
             </div>
@@ -294,10 +280,10 @@ function TopNavBar({
         <button 
           type="button"
           onClick={onFocusSearch}
-          className="flex gap-2 h-9 sm:h-10 items-center px-3 sm:px-3.5 rounded-full bg-[#f4f7f6] border border-[#e2e8f0] w-full text-left cursor-pointer hover:bg-[#eaeaea] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 overflow-hidden min-w-0"
+          className="flex gap-2 h-9 sm:h-10 items-center px-3 sm:px-3.5 rounded-full bg-[#f4f7f6] dark:bg-slate-800/80 border border-[#e2e8f0] dark:border-slate-700 w-full text-left cursor-pointer hover:bg-[#eaeaea] dark:hover:bg-slate-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 overflow-hidden min-w-0"
         >
           <Search className="size-3.5 sm:size-4 text-slate-400 shrink-0" />
-          <p className="font-['Inter:Regular',sans-serif] font-normal text-[#94a3b8] text-[12px] sm:text-[13px] truncate flex-1 min-w-0">
+          <p className="font-['Inter:Regular',sans-serif] font-normal text-[#94a3b8] dark:text-slate-400 text-[12px] sm:text-[13px] truncate flex-1 min-w-0">
             {searchVal ? (
               searchVal
             ) : (
@@ -325,7 +311,7 @@ function TopNavBar({
       </div>
 
       {/* Right controls - Balanced on Right */}
-      <div className="flex gap-1.5 sm:gap-2.5 items-center shrink-0">
+      <div className="flex gap-1.5 sm:gap-2 items-center shrink-0">
         {/* Share Button */}
         <button
           type="button"
@@ -339,26 +325,29 @@ function TopNavBar({
         <button
           type="button"
           onClick={onClickAskAssistant}
-          className="flex gap-1.5 items-center px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-[#dcfce7] border border-[#15803d]/40 shrink-0 hover:bg-[#bbf7d0] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-95"
+          className="flex gap-1.5 items-center px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-[#dcfce7] dark:bg-emerald-950/60 border border-[#15803d]/40 dark:border-emerald-600/40 shrink-0 hover:bg-[#bbf7d0] dark:hover:bg-emerald-900/60 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-95"
         >
-          <Sparkles className="size-3.5 sm:size-4 text-[#15803d] shrink-0" />
-          <span className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#14532d] text-[12px] sm:text-[13px] whitespace-nowrap">
+          <Sparkles className="size-3.5 sm:size-4 text-[#15803d] dark:text-emerald-400 shrink-0" />
+          <span className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#14532d] dark:text-emerald-300 text-[12px] sm:text-[13px] whitespace-nowrap">
             <span className="hidden xl:inline">Ask Assistant</span>
             <span className="hidden md:inline xl:hidden">Assistant</span>
             <span className="md:hidden">AI</span>
           </span>
         </button>
 
+        {/* Theme Toggle Button */}
+        <ThemeToggle />
+
         {/* Notification Bell */}
         <button 
           type="button"
           onClick={onClickNotifications}
           aria-label="View notifications"
-          className="relative flex items-center justify-center rounded-xl size-8 sm:size-9 bg-[#f4f7f6] border border-slate-200/60 cursor-pointer hover:bg-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 shrink-0"
+          className="relative flex items-center justify-center rounded-xl size-8 sm:size-9 bg-[#f4f7f6] dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/80 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 shrink-0"
         >
-          <Bell className="size-3.5 sm:size-4 text-slate-600 shrink-0" />
+          <Bell className="size-3.5 sm:size-4 text-slate-600 dark:text-slate-300 shrink-0" />
           {unreadNotificationsCount !== undefined && unreadNotificationsCount > 0 && (
-            <div className="absolute -right-1 -top-1 bg-[#ef4444] text-white text-[9px] font-bold rounded-full size-4 sm:size-[17px] flex items-center justify-center border-2 border-white">
+            <div className="absolute -right-1 -top-1 bg-[#ef4444] text-white text-[9px] font-bold rounded-full size-4 sm:size-[17px] flex items-center justify-center border-2 border-white dark:border-slate-900">
               {unreadNotificationsCount}
             </div>
           )}
@@ -373,14 +362,7 @@ function TopNavBar({
 function GlassCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className={`relative rounded-[20px] ${className}`}
-      style={{
-        background: "rgba(255,255,255,0.80)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: "1px solid rgba(226,232,240,0.8)",
-        boxShadow: "0 4px 16px rgba(15,23,42,0.04)",
-      }}
+      className={`relative rounded-[20px] bg-white/80 dark:bg-[#111827]/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_16px_rgba(15,23,42,0.04)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-colors ${className}`}
     >
       {children}
     </div>
@@ -711,7 +693,7 @@ export default function App() {
   }
 
   return (
-    <div className="bg-[#f4f7f6] flex items-start relative min-h-screen w-full overflow-hidden">
+    <div className="bg-[#f4f7f6] dark:bg-[#090d16] text-[#0f172a] dark:text-[#f8fafc] flex items-start relative min-h-screen w-full overflow-hidden transition-colors duration-200">
 
       {/* Search Results Modal */}
       {showSearchResults && (

@@ -8,10 +8,23 @@
       <title>InSpin • Customer Intelligence & Scheduling Platform</title>
       <meta name="description" content="InSpin bridges customer research analytics, qualitative feedback discovery, and timezone-aware interview scheduling." />
       <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2315803d'/><path d='M9 16c0-3.866 3.134-7 7-7s7 3.134 7 7-3.134 7-7 7' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' fill='none'/><circle cx='16' cy='16' r='2.5' fill='%234ade80'/></svg>" />
+      <script>
+        (function() {
+          try {
+            const stored = localStorage.getItem('inspin-theme');
+            const isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDark) {
+              document.documentElement.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+            }
+          } catch (_) {}
+        })();
+      </script>
       <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
       
-      <script type="module" crossorigin src="/assets/index-D-S1qe3W.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-DeSabvj3.css">
+      <script type="module" crossorigin src="/assets/index-sdZ6ibi2.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-BI27kUre.css">
     </head>
 
     <body>

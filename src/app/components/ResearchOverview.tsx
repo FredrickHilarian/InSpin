@@ -54,7 +54,7 @@ const signalFeed = [
     time: "10m ago",
     desc: "14.2% of users encountered gateway timeouts at page billing.",
     color: "border-red-500",
-    bgColor: "bg-red-50"
+    bgColor: "bg-red-50 dark:bg-rose-950/30"
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ const signalFeed = [
     time: "1h ago",
     desc: "Calming music and pre-arrival videos received 92% direct satisfaction points.",
     color: "border-emerald-500",
-    bgColor: "bg-emerald-50"
+    bgColor: "bg-emerald-50 dark:bg-emerald-950/30"
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const signalFeed = [
     time: "3h ago",
     desc: "Scheduling alerts praised. Patients requested equivalent text summarization updates.",
     color: "border-blue-500",
-    bgColor: "bg-blue-50"
+    bgColor: "bg-blue-50 dark:bg-sky-950/30"
   },
   {
     id: 4,
@@ -78,29 +78,22 @@ const signalFeed = [
     time: "1d ago",
     desc: "Critical path analysis outlines post-visit reports lagging 4.2 days behind core SLA.",
     color: "border-amber-500",
-    bgColor: "bg-amber-50"
+    bgColor: "bg-amber-50 dark:bg-amber-950/30"
   }
 ];
 
 const teamActivities = [
-  { name: "Sarah K.", initial: "SK", action: "Viewed communication deep dive report", time: "5m ago", color: "bg-indigo-100 text-indigo-700" },
-  { name: "John De.", initial: "JD", action: "Saved SMS follow-up recommendations", time: "42m ago", color: "bg-emerald-100 text-emerald-700" },
-  { name: "Marcus L.", initial: "ML", action: "Generated full survey executive deck", time: "2h ago", color: "bg-amber-100 text-amber-700" },
-  { name: "Esther W.", initial: "EW", action: "Isolated the dissatisfied payments cohort", time: "5h ago", color: "bg-rose-100 text-rose-700" }
+  { name: "Sarah K.", initial: "SK", action: "Viewed communication deep dive report", time: "5m ago", color: "bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300" },
+  { name: "John De.", initial: "JD", action: "Saved SMS follow-up recommendations", time: "42m ago", color: "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300" },
+  { name: "Marcus L.", initial: "ML", action: "Generated full survey executive deck", time: "2h ago", color: "bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300" },
+  { name: "Esther W.", initial: "EW", action: "Isolated the dissatisfied payments cohort", time: "5h ago", color: "bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300" }
 ];
 
 // GlassCard container wrapper
 function GlassCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className={`relative rounded-[20px] overflow-hidden ${className}`}
-      style={{
-        background: "rgba(255,255,255,0.85)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: "1px solid rgba(226,232,240,0.8)",
-        boxShadow: "0 4px 20px rgba(15,23,42,0.04)"
-      }}
+      className={`relative rounded-[20px] overflow-hidden bg-white/85 dark:bg-[#111827]/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_20px_rgba(15,23,42,0.04)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-colors ${className}`}
     >
       {children}
     </div>
@@ -138,17 +131,17 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 w-full">
           <div className="flex flex-col gap-1.5 items-start">
             <div className="flex items-center gap-2">
-              <span className="bg-[#dcfce7] text-[#16a34a] font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">
+              <span className="bg-[#dcfce7] dark:bg-emerald-950/60 text-[#16a34a] dark:text-emerald-400 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">
                 Analysis Complete
               </span>
-              <span className="text-[11px] text-[#64748b] font-medium">
+              <span className="text-[11px] text-[#64748b] dark:text-slate-400 font-medium">
                 • {dataset.uploadedAt}
               </span>
             </div>
-            <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] text-3xl tracking-tight">
+            <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-3xl tracking-tight">
               {dataset.fileName}
             </h1>
-            <p className="font-['Inter:Regular',sans-serif] font-normal text-[#64748b] text-[13px]">
+            <p className="font-['Inter:Regular',sans-serif] font-normal text-[#64748b] dark:text-slate-400 text-[13px]">
               {dataset.totalRespondents} Verified Responses <span className="mx-1.5">•</span> NPS +{dataset.npsScore} <span className="mx-1.5">•</span> {dataset.positiveSentimentPct}% Positive Sentiment
             </p>
           </div>
@@ -166,22 +159,18 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
         {/* Executive Summary & KPI Row */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 w-full">
           {/* Executive Summary Box (2/3 width) */}
-          <div className="xl:col-span-2 relative rounded-3xl p-6 border border-purple-200 shadow-sm flex flex-col gap-6"
-            style={{
-              background: "linear-gradient(135deg, rgba(250, 245, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%)",
-              backdropFilter: "blur(12px)"
-            }}>
+          <div className="xl:col-span-2 relative rounded-3xl p-6 border border-purple-200 dark:border-purple-900/50 shadow-sm flex flex-col gap-6 bg-gradient-to-br from-purple-50/90 to-white dark:from-purple-950/20 dark:to-[#111827] backdrop-blur-xl transition-colors">
             {/* Header */}
             <div className="flex justify-between items-center w-full">
               <div className="flex items-center gap-2">
-                <div className="bg-purple-100 text-purple-700 flex items-center justify-center rounded-lg size-8 shrink-0">
-                  <Sparkle className="size-4.5 fill-purple-700" />
+                <div className="bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 flex items-center justify-center rounded-lg size-8 shrink-0">
+                  <Sparkle className="size-4.5 fill-purple-700 dark:fill-purple-400" />
                 </div>
-                <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] text-[16px]">
+                <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-[16px]">
                   Executive Summary
                 </h3>
               </div>
-              <span className="bg-purple-100/70 border border-purple-200 text-purple-700 font-bold text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+              <span className="bg-purple-100/70 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider">
                 AI Engine V4.2
               </span>
             </div>
@@ -189,18 +178,18 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
             {/* Content Body split in 2 columns: Text/Details and Graphical Card */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
               <div className="lg:col-span-2 flex flex-col gap-5">
-                <p className="text-[#334155] text-[13px] leading-relaxed">
-                  The Q3 survey reveals high overall satisfaction driven by significant process improvements in <strong className="text-emerald-800 font-semibold">Scheduling</strong> and on-site support. However, ongoing friction in mobile <strong className="text-rose-800 font-semibold">App checkout</strong> throws intermittent gateway timeouts and localized <strong className="text-amber-800 font-semibold">Travel</strong> times remain crucial bottlenecks that impact retention goals.
+                <p className="text-[#334155] dark:text-slate-300 text-[13px] leading-relaxed">
+                  The Q3 survey reveals high overall satisfaction driven by significant process improvements in <strong className="text-emerald-800 dark:text-emerald-400 font-semibold">Scheduling</strong> and on-site support. However, ongoing friction in mobile <strong className="text-rose-800 dark:text-rose-400 font-semibold">App checkout</strong> throws intermittent gateway timeouts and localized <strong className="text-amber-800 dark:text-amber-400 font-semibold">Travel</strong> times remain crucial bottlenecks that impact retention goals.
                 </p>
 
                 {/* Positive and Pain points */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Drivers */}
-                  <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-4 flex flex-col gap-2">
-                    <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
+                  <div className="bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 rounded-2xl p-4 flex flex-col gap-2">
+                    <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 uppercase tracking-wider">
                       Key Positive Drivers
                     </span>
-                    <ul className="text-emerald-950 text-[11px] leading-relaxed flex flex-col gap-1.5">
+                    <ul className="text-emerald-950 dark:text-emerald-200 text-[11px] leading-relaxed flex flex-col gap-1.5">
                       <li className="flex items-start gap-1">
                         <span className="text-emerald-600 select-none">•</span>
                         <span>Calming techniques successfully reduced clinical stress scores</span>
@@ -213,11 +202,11 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
                   </div>
 
                   {/* Pain Points */}
-                  <div className="bg-amber-50/50 border border-amber-100 rounded-2xl p-4 flex flex-col gap-2">
-                    <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider">
+                  <div className="bg-amber-50/50 dark:bg-amber-950/30 border border-amber-100 dark:border-amber-900/50 rounded-2xl p-4 flex flex-col gap-2">
+                    <span className="text-[10px] font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">
                       Critical Pain Points
                     </span>
-                    <ul className="text-amber-950 text-[11px] leading-relaxed flex flex-col gap-1.5">
+                    <ul className="text-amber-950 dark:text-amber-200 text-[11px] leading-relaxed flex flex-col gap-1.5">
                       <li className="flex items-start gap-1">
                         <span className="text-amber-600 select-none">•</span>
                         <span>Mobile app checkout throws intermittent gateway timeouts</span>
@@ -268,20 +257,20 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
             </div>
 
             {/* Recommendations Footer */}
-            <div className="border-t border-purple-100 pt-4 flex flex-col gap-2.5 bg-purple-50/20 rounded-b-3xl -mx-6 -mb-6 p-6">
-              <span className="text-[10px] font-bold text-purple-700 uppercase tracking-wider">
+            <div className="border-t border-purple-100 dark:border-purple-900/40 pt-4 flex flex-col gap-2.5 bg-purple-50/20 dark:bg-purple-950/20 rounded-b-3xl -mx-6 -mb-6 p-6">
+              <span className="text-[10px] font-bold text-purple-700 dark:text-purple-400 uppercase tracking-wider">
                 Strategic Recommendations
               </span>
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1 flex gap-2">
-                  <span className="font-bold text-purple-600 text-[12px]">1.</span>
-                  <p className="text-[11.5px] text-slate-700 leading-normal">
+                  <span className="font-bold text-purple-600 dark:text-purple-400 text-[12px]">1.</span>
+                  <p className="text-[11.5px] text-slate-700 dark:text-slate-300 leading-normal">
                     Deploy the unified checkout gateway patch to eliminate intermittent iOS app checkout crashes.
                   </p>
                 </div>
                 <div className="flex-1 flex gap-2">
-                  <span className="font-bold text-purple-600 text-[12px]">2.</span>
-                  <p className="text-[11.5px] text-slate-700 leading-normal">
+                  <span className="font-bold text-purple-600 dark:text-purple-400 text-[12px]">2.</span>
+                  <p className="text-[11.5px] text-slate-700 dark:text-slate-300 leading-normal">
                     Establish real-time SMS triggers to satisfy patients demanding immediate cost summaries.
                   </p>
                 </div>
@@ -294,16 +283,16 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
 
             {/* Card 1: Response Completion */}
             <GlassCard className="p-4 flex flex-col gap-1.5">
-              <span className="text-[9px] font-bold text-[#64748b] uppercase tracking-wider">
+              <span className="text-[9px] font-bold text-[#64748b] dark:text-slate-400 uppercase tracking-wider">
                 Response Completion
               </span>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold text-[#0f172a]">94.2%</span>
-                <span className="text-[11px] font-semibold text-emerald-600 flex items-center">
+                <span className="text-2xl font-bold text-[#0f172a] dark:text-slate-100">94.2%</span>
+                <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center">
                   ↑ +3.1%
                 </span>
               </div>
-              <p className="text-[11px] text-[#64748b]">
+              <p className="text-[11px] text-[#64748b] dark:text-slate-400">
                 Compared to average industry benchmark (88%)
               </p>
             </GlassCard>
@@ -311,16 +300,16 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
             {/* Card 2: Average Satisfaction */}
             <GlassCard className="p-4 flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-[9px] font-bold text-[#64748b] uppercase tracking-wider">
+                <span className="text-[9px] font-bold text-[#64748b] dark:text-slate-400 uppercase tracking-wider">
                   Average Satisfaction
                 </span>
-                <span className="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full">
+                <span className="bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-[9px] font-bold px-2 py-0.5 rounded-full">
                   Excellent
                 </span>
               </div>
-              <span className="text-2xl font-bold text-[#0f172a]">4.2/5.0</span>
+              <span className="text-2xl font-bold text-[#0f172a] dark:text-slate-100">4.2/5.0</span>
               {/* Custom sleek progress bar */}
-              <div className="w-full bg-slate-100 rounded-full h-2 mt-1 overflow-hidden">
+              <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 mt-1 overflow-hidden">
                 <div className="bg-gradient-to-r from-emerald-400 to-emerald-600 h-full rounded-full" style={{ width: "84%" }} />
               </div>
             </GlassCard>
@@ -328,14 +317,14 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
             {/* Card 3: NPS Score */}
             <GlassCard className="p-4 flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-[9px] font-bold text-[#64748b] uppercase tracking-wider">
+                <span className="text-[9px] font-bold text-[#64748b] dark:text-slate-400 uppercase tracking-wider">
                   NPS Score
                 </span>
-                <span className="text-[#64748b] text-[10px] font-medium">
+                <span className="text-[#64748b] dark:text-slate-400 text-[10px] font-medium">
                   62% Promoters
                 </span>
               </div>
-              <span className="text-2xl font-bold text-[#0f172a]">+47</span>
+              <span className="text-2xl font-bold text-[#0f172a] dark:text-slate-100">+47</span>
               {/* Segmented bar */}
               <div className="w-full flex h-2 rounded-full overflow-hidden mt-1 gap-[2px]">
                 <div className="bg-emerald-500 h-full" style={{ width: "62%" }} />
@@ -347,15 +336,15 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
             {/* Card 4: Overall Sentiment */}
             <GlassCard className="p-4 flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-[9px] font-bold text-[#64748b] uppercase tracking-wider">
+                <span className="text-[9px] font-bold text-[#64748b] dark:text-slate-400 uppercase tracking-wider">
                   Overall Sentiment
                 </span>
-                <span className="text-emerald-600 text-[10px] font-semibold">
+                <span className="text-emerald-600 dark:text-emerald-400 text-[10px] font-semibold">
                   72% Ratio
                 </span>
               </div>
-              <span className="text-2xl font-bold text-[#0f172a]">Positive</span>
-              <p className="text-[11px] text-[#64748b]">
+              <span className="text-2xl font-bold text-[#0f172a] dark:text-slate-100">Positive</span>
+              <p className="text-[11px] text-[#64748b] dark:text-slate-400">
                 Based on 1,842 open-ended feedback rows parsed
               </p>
             </GlassCard>
@@ -366,13 +355,13 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
         {/* Top Insights Grid */}
         <div className="flex flex-col gap-4 w-full mt-2">
           <div className="flex justify-between items-center w-full">
-            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] text-lg">
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-lg">
               Top Insights
             </h2>
             <button
               type="button"
               onClick={() => onNavigate?.("Themes")}
-              className="text-emerald-700 hover:text-emerald-800 font-semibold text-[12px] flex items-center gap-0.5 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded-lg px-1.5 py-0.5"
+              className="text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-semibold text-[12px] flex items-center gap-0.5 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded-lg px-1.5 py-0.5"
             >
               <span>Explore All Themes</span>
               <ChevronRight className="size-3.5" />
@@ -386,23 +375,23 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-emerald-500" />
-                  <span className="font-semibold text-slate-800 text-[13px]">Scheduling</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[13px]">Scheduling</span>
                 </div>
                 <span className="text-[11px] text-slate-400 font-medium">842 Mentions</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wide">Trend</span>
-                  <span className="text-[14px] font-bold text-emerald-600">+14.2% Growth</span>
+                  <span className="text-[14px] font-bold text-emerald-600 dark:text-emerald-400">+14.2% Growth</span>
                 </div>
-                <span className="bg-emerald-50 text-emerald-700 font-semibold text-[9px] px-2 py-0.5 rounded-full">
+                <span className="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-semibold text-[9px] px-2 py-0.5 rounded-full">
                   94% Confidence
                 </span>
               </div>
-              <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+              <div className="flex justify-between items-center mt-1 border-t border-slate-100 dark:border-slate-800 pt-3">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400">Sentiment</span>
-                  <span className="text-[12px] font-semibold text-emerald-600">Highly Positive</span>
+                  <span className="text-[12px] font-semibold text-emerald-600 dark:text-emerald-400">Highly Positive</span>
                 </div>
                 {/* Custom Sparkline */}
                 <svg className="w-24 h-8 text-emerald-500" fill="none" viewBox="0 0 100 30">
@@ -416,23 +405,23 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-emerald-500" />
-                  <span className="font-semibold text-slate-800 text-[13px]">Communication</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[13px]">Communication</span>
                 </div>
                 <span className="text-[11px] text-slate-400 font-medium">711 Mentions</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wide">Trend</span>
-                  <span className="text-[14px] font-bold text-emerald-600">+8.6% Stable</span>
+                  <span className="text-[14px] font-bold text-emerald-600 dark:text-emerald-400">+8.6% Stable</span>
                 </div>
-                <span className="bg-emerald-50 text-emerald-700 font-semibold text-[9px] px-2 py-0.5 rounded-full">
+                <span className="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-semibold text-[9px] px-2 py-0.5 rounded-full">
                   94% Confidence
                 </span>
               </div>
-              <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+              <div className="flex justify-between items-center mt-1 border-t border-slate-100 dark:border-slate-800 pt-3">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400">Sentiment</span>
-                  <span className="text-[12px] font-semibold text-emerald-600">Positive</span>
+                  <span className="text-[12px] font-semibold text-emerald-600 dark:text-emerald-400">Positive</span>
                 </div>
                 {/* Custom Sparkline */}
                 <svg className="w-24 h-8 text-emerald-400" fill="none" viewBox="0 0 100 30">
@@ -446,23 +435,23 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-indigo-500" />
-                  <span className="font-semibold text-slate-800 text-[13px]">Payments</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[13px]">Payments</span>
                 </div>
                 <span className="text-[11px] text-slate-400 font-medium">428 Mentions</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wide">Trend</span>
-                  <span className="text-[14px] font-bold text-indigo-600">-4.1% Dip</span>
+                  <span className="text-[14px] font-bold text-indigo-600 dark:text-indigo-400">-4.1% Dip</span>
                 </div>
-                <span className="bg-indigo-50 text-indigo-700 font-semibold text-[9px] px-2 py-0.5 rounded-full">
+                <span className="bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-semibold text-[9px] px-2 py-0.5 rounded-full">
                   94% Confidence
                 </span>
               </div>
-              <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+              <div className="flex justify-between items-center mt-1 border-t border-slate-100 dark:border-slate-800 pt-3">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400">Sentiment</span>
-                  <span className="text-[12px] font-semibold text-indigo-500">Frustrated</span>
+                  <span className="text-[12px] font-semibold text-indigo-500 dark:text-indigo-400">Frustrated</span>
                 </div>
                 {/* Custom Sparkline */}
                 <svg className="w-24 h-8 text-indigo-400" fill="none" viewBox="0 0 100 30">
@@ -476,23 +465,23 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-amber-500" />
-                  <span className="font-semibold text-slate-800 text-[13px]">Travel / Logistics</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[13px]">Travel / Logistics</span>
                 </div>
                 <span className="text-[11px] text-slate-400 font-medium">315 Mentions</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wide">Trend</span>
-                  <span className="text-[14px] font-bold text-amber-600">+12% Spiking</span>
+                  <span className="text-[14px] font-bold text-amber-600 dark:text-amber-400">+12% Spiking</span>
                 </div>
-                <span className="bg-amber-50 text-amber-700 font-semibold text-[9px] px-2 py-0.5 rounded-full">
+                <span className="bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-semibold text-[9px] px-2 py-0.5 rounded-full">
                   94% Confidence
                 </span>
               </div>
-              <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+              <div className="flex justify-between items-center mt-1 border-t border-slate-100 dark:border-slate-800 pt-3">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400">Sentiment</span>
-                  <span className="text-[12px] font-semibold text-amber-600">Neutral</span>
+                  <span className="text-[12px] font-semibold text-amber-600 dark:text-amber-400">Neutral</span>
                 </div>
                 {/* Custom Sparkline */}
                 <svg className="w-24 h-8 text-amber-500" fill="none" viewBox="0 0 100 30">
@@ -506,23 +495,23 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-sky-500" />
-                  <span className="font-semibold text-slate-800 text-[13px]">Equipment</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[13px]">Equipment</span>
                 </div>
                 <span className="text-[11px] text-slate-400 font-medium">290 Mentions</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wide">Trend</span>
-                  <span className="text-[14px] font-bold text-sky-600">Flat</span>
+                  <span className="text-[14px] font-bold text-sky-600 dark:text-sky-400">Flat</span>
                 </div>
-                <span className="bg-sky-50 text-sky-700 font-semibold text-[9px] px-2 py-0.5 rounded-full">
+                <span className="bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-semibold text-[9px] px-2 py-0.5 rounded-full">
                   94% Confidence
                 </span>
               </div>
-              <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+              <div className="flex justify-between items-center mt-1 border-t border-slate-100 dark:border-slate-800 pt-3">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400">Sentiment</span>
-                  <span className="text-[12px] font-semibold text-sky-600">Positive</span>
+                  <span className="text-[12px] font-semibold text-sky-600 dark:text-sky-400">Positive</span>
                 </div>
                 {/* Custom Sparkline */}
                 <svg className="w-24 h-8 text-sky-400" fill="none" viewBox="0 0 100 30">
@@ -536,23 +525,23 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-slate-400" />
-                  <span className="font-semibold text-slate-800 text-[13px]">Work Orders</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[13px]">Work Orders</span>
                 </div>
                 <span className="text-[11px] text-slate-400 font-medium">180 Mentions</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wide">Trend</span>
-                  <span className="text-[14px] font-bold text-slate-600">+2.4% Slow</span>
+                  <span className="text-[14px] font-bold text-slate-600 dark:text-slate-300">+2.4% Slow</span>
                 </div>
-                <span className="bg-slate-50 text-slate-700 font-semibold text-[9px] px-2 py-0.5 rounded-full">
+                <span className="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-[9px] px-2 py-0.5 rounded-full">
                   94% Confidence
                 </span>
               </div>
-              <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+              <div className="flex justify-between items-center mt-1 border-t border-slate-100 dark:border-slate-800 pt-3">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400">Sentiment</span>
-                  <span className="text-[12px] font-semibold text-slate-500">Frustrated</span>
+                  <span className="text-[12px] font-semibold text-slate-500 dark:text-slate-400">Frustrated</span>
                 </div>
                 {/* Custom Sparkline */}
                 <svg className="w-24 h-8 text-slate-400" fill="none" viewBox="0 0 100 30">
@@ -569,17 +558,17 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
 
           {/* Chart 1: Response Categories */}
           <GlassCard className="p-5 flex flex-col gap-5">
-            <h3 className="font-semibold text-slate-800 text-[14px]">
+            <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-[14px]">
               Response Categories
             </h3>
             <div className="flex flex-col gap-4 flex-1 justify-center">
               {responseCategories.map((item) => (
                 <div key={item.name} className="flex flex-col gap-1">
-                  <div className="flex justify-between text-[11.5px] text-slate-700">
+                  <div className="flex justify-between text-[11.5px] text-slate-700 dark:text-slate-300">
                     <span className="font-medium">{item.name}</span>
                     <span className="font-bold">{item.count}</span>
                   </div>
-                  <div className="w-full bg-slate-100 h-6 rounded-[4px] relative overflow-hidden">
+                  <div className="w-full bg-slate-100 dark:bg-slate-800 h-6 rounded-[4px] relative overflow-hidden">
                     <div
                       className="h-full rounded-[4px] transition-all"
                       style={{
@@ -595,7 +584,7 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
 
           {/* Chart 2: NPS Breakdown */}
           <GlassCard className="p-5 flex flex-col gap-4 items-center">
-            <h3 className="font-semibold text-slate-800 text-[14px] self-start">
+            <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-[14px] self-start">
               NPS Breakdown
             </h3>
 
@@ -619,7 +608,7 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
                 </PieChart>
               </ResponsiveContainer>
               <div className="absolute flex flex-col items-center justify-center">
-                <span className="text-2xl font-black text-slate-800 leading-none">+47</span>
+                <span className="text-2xl font-black text-slate-800 dark:text-slate-100 leading-none">+47</span>
                 <span className="text-[10px] text-slate-400 font-bold uppercase mt-1">NPS Score</span>
               </div>
             </div>
@@ -627,7 +616,7 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
             {/* Custom Legend */}
             <div className="flex justify-center gap-4 mt-2">
               {npsData.map((item) => (
-                <div key={item.name} className="flex items-center gap-1.5 text-[11px] text-slate-600 font-medium">
+                <div key={item.name} className="flex items-center gap-1.5 text-[11px] text-slate-600 dark:text-slate-400 font-medium">
                   <span className="size-2 rounded-full" style={{ backgroundColor: item.color }} />
                   <span>{item.name} ({item.value}%)</span>
                 </div>
@@ -638,13 +627,13 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
           {/* Chart 3: Sentiment Trend */}
           <GlassCard className="p-5 flex flex-col gap-4">
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-slate-800 text-[14px]">
+              <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-[14px]">
                 Sentiment Trend
               </h3>
               <button
                 type="button"
                 onClick={() => onNavigate?.("AI Insights")}
-                className="text-emerald-700 hover:text-emerald-800 font-semibold text-[11px] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1"
+                className="text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-semibold text-[11px] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1"
               >
                 Explore sentiment →
               </button>
@@ -662,7 +651,7 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
                   </defs>
                   <XAxis dataKey="date" tick={{ fontSize: 9, fill: "#64748b" }} tickLine={false} axisLine={false} />
                   <YAxis tick={{ fontSize: 9, fill: "#64748b" }} tickLine={false} axisLine={false} />
-                  <Tooltip contentStyle={{ fontSize: "11px", borderRadius: "8px", border: "1px solid #e2e8f0" }} />
+                  <Tooltip contentStyle={{ fontSize: "11px", borderRadius: "8px", border: "1px solid rgba(226,232,240,0.8)", backgroundColor: "rgba(17,24,39,0.95)", color: "#f8fafc" }} />
                   <Area type="monotone" dataKey="sentiment" stroke="#10b981" strokeWidth={2.5} fillOpacity={1} fill="url(#colorSentiment)" />
                 </AreaChart>
               </ResponsiveContainer>
@@ -678,15 +667,15 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
           <div className="lg:col-span-2 flex flex-col gap-4">
             <div className="flex justify-between items-center w-full">
               <div className="flex items-center gap-1.5">
-                <Bell className="size-4.5 text-[#16a34a]" />
-                <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] text-lg">
+                <Bell className="size-4.5 text-[#16a34a] dark:text-emerald-400" />
+                <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-lg">
                   AI Signal Feed
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={() => onNavigate?.("Settings")}
-                className="text-purple-700 hover:text-purple-800 font-semibold text-[12px] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-500 rounded px-1.5 py-0.5"
+                className="text-purple-700 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-semibold text-[12px] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-500 rounded px-1.5 py-0.5"
               >
                 Configure Feed Alerts
               </button>
@@ -699,13 +688,13 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
                   className={`border-l-4 ${item.color} ${item.bgColor} p-4 rounded-r-xl flex flex-col gap-1 shadow-sm transition-all hover:translate-x-1`}
                 >
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-[12.5px] text-slate-800">{item.title}</span>
-                    <span className="text-[10px] text-slate-400 flex items-center gap-1">
+                    <span className="font-bold text-[12.5px] text-slate-800 dark:text-slate-100">{item.title}</span>
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1">
                       <Clock className="size-3" />
                       {item.time}
                     </span>
                   </div>
-                  <p className="text-[11.5px] text-slate-600 leading-normal">
+                  <p className="text-[11.5px] text-slate-600 dark:text-slate-300 leading-normal">
                     {item.desc}
                   </p>
                 </div>
@@ -715,22 +704,22 @@ export default function ResearchOverview({ onGenerateReport, onNavigate }: Resea
 
           {/* Right Column: Team Activity (1/3 width) */}
           <div className="flex flex-col gap-4">
-            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] text-lg">
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[#0f172a] dark:text-slate-100 text-lg">
               Team Activity
             </h2>
 
             <GlassCard className="p-4 flex flex-col gap-4">
               {teamActivities.map((act, i) => (
-                <div key={act.name} className={`flex items-start gap-3 ${i !== teamActivities.length - 1 ? 'border-b border-slate-100 pb-3.5' : ''}`}>
+                <div key={act.name} className={`flex items-start gap-3 ${i !== teamActivities.length - 1 ? 'border-b border-slate-100 dark:border-slate-800 pb-3.5' : ''}`}>
                   <div className={`size-8 rounded-full flex items-center justify-center font-bold text-[11px] shrink-0 ${act.color}`}>
                     {act.initial}
                   </div>
                   <div className="flex flex-col flex-1 gap-0.5">
                     <div className="flex justify-between items-baseline">
-                      <span className="font-semibold text-slate-800 text-[12px]">{act.name}</span>
-                      <span className="text-[9.5px] text-slate-400">{act.time}</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-200 text-[12px]">{act.name}</span>
+                      <span className="text-[9.5px] text-slate-400 dark:text-slate-500">{act.time}</span>
                     </div>
-                    <p className="text-[11px] text-slate-500 leading-normal">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
                       {act.action}
                     </p>
                   </div>

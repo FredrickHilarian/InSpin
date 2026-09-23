@@ -141,32 +141,32 @@ export default function ScheduleInterviewModal({
       {isBooked ? (
         /* Booking Confirmation Screen */
         <div className="flex flex-col items-center justify-center py-6 text-center gap-4 animate-in fade-in-50 duration-200">
-          <div className="size-16 rounded-3xl bg-emerald-50 border border-emerald-200/80 text-[#059669] flex items-center justify-center shadow-sm shadow-emerald-500/10">
+          <div className="size-16 rounded-3xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800 text-[#059669] dark:text-emerald-400 flex items-center justify-center shadow-sm shadow-emerald-500/10">
             <CheckCircle2 className="size-8" />
           </div>
 
           <div className="flex flex-col gap-1 max-w-[420px]">
-            <h3 className="text-[20px] font-bold text-slate-800">
+            <h3 className="text-[20px] font-bold text-slate-800 dark:text-slate-100">
               Interview Confirmed!
             </h3>
-            <p className="text-[13px] text-slate-500 font-medium">
-              A calendar invite and Cal Video link have been dispatched to{" "}
-              <strong className="text-slate-700">{respondentEmail}</strong>.
+            <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium">
+              A calendar invite and InSpin Video link have been dispatched to{" "}
+              <strong className="text-slate-700 dark:text-slate-200">{respondentEmail}</strong>.
             </p>
           </div>
 
           {/* Booking Summary Ticket */}
-          <div className="w-full max-w-[460px] bg-slate-50 border border-slate-200/80 rounded-2xl p-4.5 text-left flex flex-col gap-3">
-            <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
+          <div className="w-full max-w-[460px] bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-2xl p-4.5 text-left flex flex-col gap-3">
+            <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-slate-700 pb-3">
               <div className="flex items-center gap-2.5">
                 <div className="size-8 rounded-full bg-emerald-600 text-white font-bold text-[12px] flex items-center justify-center">
                   {respondentName[0]}
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[13px] font-bold text-slate-800 leading-tight">
+                  <span className="text-[13px] font-bold text-slate-800 dark:text-slate-100 leading-tight">
                     {respondentName}
                   </span>
-                  <span className="text-[11px] text-slate-400 font-medium">
+                  <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
                     {respondentRole}
                   </span>
                 </div>
@@ -178,26 +178,26 @@ export default function ScheduleInterviewModal({
 
             <div className="grid grid-cols-2 gap-3 text-[12px]">
               <div>
-                <span className="text-slate-400 font-medium block">Date & Time</span>
-                <span className="font-semibold text-slate-700">
+                <span className="text-slate-400 dark:text-slate-500 font-medium block">Date & Time</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-200">
                   {formatFullDate(availableDates[selectedDateIndex])} at {selectedSlot}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 font-medium block">Duration & Location</span>
-                <span className="font-semibold text-slate-700 flex items-center gap-1.5 mt-0.5">
-                  <Video className="size-3.5 text-emerald-600" />
-                  {selectedDuration} mins (Cal Video)
+                <span className="text-slate-400 dark:text-slate-500 font-medium block">Duration & Location</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-1.5 mt-0.5">
+                  <Video className="size-3.5 text-emerald-600 dark:text-emerald-400" />
+                  {selectedDuration} mins (InSpin Video)
                 </span>
               </div>
             </div>
 
-            <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-500">
+            <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
               <span className="flex items-center gap-1">
                 <Globe className="size-3 text-slate-400" />
-                Timezone: <span className="font-semibold text-slate-700">{selectedTz}</span>
+                Timezone: <span className="font-semibold text-slate-700 dark:text-slate-200">{selectedTz}</span>
               </span>
-              <span className="font-mono text-[10px] text-slate-400">ID: CAL-RES-882</span>
+              <span className="font-mono text-[10px] text-slate-400">ID: INSPIN-RES-882</span>
             </div>
           </div>
 
@@ -221,14 +221,14 @@ export default function ScheduleInterviewModal({
         /* Slot Picker Form */
         <div className="flex flex-col gap-5">
           {/* Respondent Brief Banner */}
-          <div className="flex items-center justify-between p-3.5 bg-slate-50/80 rounded-2xl border border-slate-200/70">
+          <div className="flex items-center justify-between p-3.5 bg-slate-50/80 dark:bg-slate-800/60 rounded-2xl border border-slate-200/70 dark:border-slate-700">
             <div className="flex items-center gap-3">
-              <div className="size-10 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center font-bold text-slate-700 shadow-xs">
+              <div className="size-10 rounded-2xl bg-white dark:bg-slate-700 border border-slate-200/80 dark:border-slate-600 flex items-center justify-center font-bold text-slate-700 dark:text-slate-200 shadow-xs">
                 {respondentName[0]}
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
-                  <span className="text-[13.5px] font-bold text-slate-800">
+                  <span className="text-[13.5px] font-bold text-slate-800 dark:text-slate-100">
                     {respondentName}
                   </span>
                   {target?.sentiment && (
@@ -246,14 +246,14 @@ export default function ScheduleInterviewModal({
                     </Badge>
                   )}
                 </div>
-                <span className="text-[11.5px] text-slate-400 font-medium">
+                <span className="text-[11.5px] text-slate-400 dark:text-slate-500 font-medium">
                   {respondentRole} • {respondentEmail}
                 </span>
               </div>
             </div>
 
             {/* Duration Selector */}
-            <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200/80 shadow-xs">
+            <div className="flex items-center gap-1 bg-white dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200/80 dark:border-slate-700 shadow-xs">
               {[15, 30, 45].map((mins) => (
                 <button
                   key={mins}
@@ -261,8 +261,8 @@ export default function ScheduleInterviewModal({
                   onClick={() => setSelectedDuration(mins)}
                   className={`px-2.5 py-1 rounded-lg text-[11.5px] font-bold transition-all cursor-pointer ${
                     selectedDuration === mins
-                      ? "bg-slate-800 text-white shadow-xs"
-                      : "text-slate-500 hover:text-slate-800"
+                      ? "bg-slate-800 dark:bg-emerald-600 text-white shadow-xs"
+                      : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
                   }`}
                 >
                   {mins}m
@@ -272,15 +272,15 @@ export default function ScheduleInterviewModal({
           </div>
 
           {/* Timezone Switcher */}
-          <div className="flex items-center justify-between text-[12px] bg-emerald-50/60 p-2.5 px-3.5 rounded-xl border border-emerald-100/80">
-            <div className="flex items-center gap-2 text-emerald-900 font-semibold">
-              <Globe className="size-4 text-[#059669]" />
+          <div className="flex items-center justify-between text-[12px] bg-emerald-50/60 dark:bg-emerald-950/40 p-2.5 px-3.5 rounded-xl border border-emerald-100/80 dark:border-emerald-800/60">
+            <div className="flex items-center gap-2 text-emerald-900 dark:text-emerald-300 font-semibold">
+              <Globe className="size-4 text-[#059669] dark:text-emerald-400" />
               <span>Timezone:</span>
             </div>
             <select
               value={selectedTz}
               onChange={(e) => setSelectedTz(e.target.value)}
-              className="bg-white border border-emerald-200/90 text-emerald-950 font-medium rounded-lg px-2.5 py-1 text-[11.5px] outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer max-w-[320px]"
+              className="bg-white dark:bg-slate-800 border border-emerald-200/90 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-medium rounded-lg px-2.5 py-1 text-[11.5px] outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer max-w-[320px]"
             >
               {COMMON_TIMEZONES.map((tz) => (
                 <option key={tz.value} value={tz.value}>
@@ -313,14 +313,14 @@ export default function ScheduleInterviewModal({
                       className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-[12.5px] font-semibold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                         isSelected
                           ? "bg-[#059669] text-white border-[#059669] shadow-sm shadow-emerald-900/10 font-bold"
-                          : "bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                          : "bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700"
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <CalendarIcon className={`size-3.5 ${isSelected ? "text-emerald-200" : "text-slate-400"}`} />
                         <span>{formatDateLabel(date)}</span>
                       </div>
-                      <span className={`text-[11px] ${isSelected ? "text-emerald-100" : "text-slate-400"}`}>
+                      <span className={`text-[11px] ${isSelected ? "text-emerald-100" : "text-slate-400 dark:text-slate-500"}`}>
                         {idx === 0 ? "Tomorrow" : `${10} slots`}
                       </span>
                     </button>
@@ -355,8 +355,8 @@ export default function ScheduleInterviewModal({
                         onClick={() => setSelectedSlot(slot)}
                         className={`py-2 px-3 rounded-xl border text-[12px] font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                           isSelected
-                            ? "bg-slate-900 text-white border-slate-900 shadow-sm font-bold scale-[1.02]"
-                            : "bg-white text-slate-700 border-slate-200 hover:border-emerald-500 hover:text-emerald-700"
+                            ? "bg-slate-900 dark:bg-emerald-600 text-white border-slate-900 dark:border-emerald-600 shadow-sm font-bold scale-[1.02]"
+                            : "bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-700 dark:hover:text-emerald-300"
                         }`}
                       >
                         <Clock className="size-3.5 opacity-60" />
@@ -382,8 +382,8 @@ export default function ScheduleInterviewModal({
                         onClick={() => setSelectedSlot(slot)}
                         className={`py-2 px-3 rounded-xl border text-[12px] font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                           isSelected
-                            ? "bg-slate-900 text-white border-slate-900 shadow-sm font-bold scale-[1.02]"
-                            : "bg-white text-slate-700 border-slate-200 hover:border-emerald-500 hover:text-emerald-700"
+                            ? "bg-slate-900 dark:bg-emerald-600 text-white border-slate-900 dark:border-emerald-600 shadow-sm font-bold scale-[1.02]"
+                            : "bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-700 dark:hover:text-emerald-300"
                         }`}
                       >
                         <Clock className="size-3.5 opacity-60" />
@@ -398,7 +398,7 @@ export default function ScheduleInterviewModal({
 
           {/* Optional Research Focus Note */}
           <div className="flex flex-col gap-1.5 mt-1">
-            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+            <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Research Objective / Interview Context (Optional)
             </label>
             <input
@@ -406,16 +406,16 @@ export default function ScheduleInterviewModal({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. Inquire about embedding performance and onboarding friction..."
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 outline-none rounded-xl text-[12.5px] font-medium text-slate-800"
+              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-800 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 outline-none rounded-xl text-[12.5px] font-medium text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
             />
           </div>
 
           {/* Footer Actions */}
-          <div className="flex items-center justify-between pt-3 border-t border-slate-100">
-            <span className="text-[12px] text-slate-400 font-medium">
+          <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+            <span className="text-[12px] text-slate-400 dark:text-slate-400 font-medium">
               {selectedSlot ? (
                 <span>
-                  Booking: <strong className="text-slate-700">{formatDateLabel(availableDates[selectedDateIndex])} at {selectedSlot}</strong> ({selectedTz})
+                  Booking: <strong className="text-slate-700 dark:text-slate-200">{formatDateLabel(availableDates[selectedDateIndex])} at {selectedSlot}</strong> ({selectedTz})
                 </span>
               ) : (
                 "Please choose a time slot"

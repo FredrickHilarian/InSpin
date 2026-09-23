@@ -271,19 +271,19 @@ export default function Respondents() {
           {/* Header Row */}
           <div className="flex justify-between items-end w-full">
             <div className="flex flex-col gap-[2px]">
-              <span className="font-['Inter',sans-serif] font-semibold text-[#059669] text-[11px] uppercase tracking-widest">
+              <span className="font-['Inter',sans-serif] font-semibold text-[#059669] dark:text-emerald-400 text-[11px] uppercase tracking-widest">
                 UX DEMOGRAPHICS
               </span>
               <div className="flex items-baseline gap-[12px]">
-                <h1 className="font-['Inter',sans-serif] font-bold text-[#0f172a] text-[32px] leading-tight">
+                <h1 className="font-['Inter',sans-serif] font-bold text-[#0f172a] dark:text-white text-[32px] leading-tight">
                   Respondents
                 </h1>
-                <span className="font-['Inter',sans-serif] text-slate-500 text-[14px]">
+                <span className="font-['Inter',sans-serif] text-slate-500 dark:text-slate-400 text-[14px]">
                   2,847 total respondents tracked
                 </span>
               </div>
             </div>
-            <button className="p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 transition-colors text-slate-600 shadow-sm cursor-pointer">
+            <button className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300 shadow-sm cursor-pointer">
               <RefreshCw className="size-[16px]" />
             </button>
           </div>
@@ -291,80 +291,80 @@ export default function Respondents() {
           {/* KPI Cards */}
           <div className="grid grid-cols-4 gap-[16px] w-full">
             {/* KPI 1 */}
-            <div className="rounded-[20px] p-[20px] bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between h-[150px]">
+            <div className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between h-[150px]">
               <div className="flex justify-between items-start">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                   SURVEY COMPLETED
                 </span>
-                <div className="bg-[#e8f7f0] text-[#059669] p-1.5 rounded-lg">
+                <div className="bg-[#e8f7f0] dark:bg-emerald-950/50 text-[#059669] dark:text-emerald-400 p-1.5 rounded-lg">
                   <CheckSquare className="size-[14px]" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[26px] font-extrabold text-slate-900 leading-tight">
+                <span className="text-[26px] font-extrabold text-slate-900 dark:text-white leading-tight">
                   2,482
                 </span>
-                <span className="text-[11px] font-semibold text-[#059669] mt-0.5">
+                <span className="text-[11px] font-semibold text-[#059669] dark:text-emerald-400 mt-0.5">
                   ↑ 12% vs last week
                 </span>
               </div>
             </div>
 
             {/* KPI 2 */}
-            <div className="rounded-[20px] p-[20px] bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between h-[150px]">
+            <div className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between h-[150px]">
               <div className="flex justify-between items-start">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                   AVERAGE SENTIMENT
                 </span>
-                <div className="bg-indigo-50 text-indigo-600 p-1.5 rounded-lg text-center">
+                <div className="bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 p-1.5 rounded-lg text-center">
                   <Smile className="size-[14px] mx-auto" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[26px] font-extrabold text-slate-900 leading-tight">
+                <span className="text-[26px] font-extrabold text-slate-900 dark:text-white leading-tight">
                   76
                 </span>
-                <span className="text-[11px] font-semibold text-indigo-600 mt-0.5">
+                <span className="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 mt-0.5">
                   Highly Positive overall
                 </span>
               </div>
             </div>
 
             {/* KPI 3 */}
-            <div className="rounded-[20px] p-[20px] bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between h-[150px]">
+            <div className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between h-[150px]">
               <div className="flex justify-between items-start">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                   RESPONSE RATE
                 </span>
-                <div className="bg-amber-50 text-amber-600 p-1.5 rounded-lg">
+                <div className="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 p-1.5 rounded-lg">
                   <Zap className="size-[14px]" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[26px] font-extrabold text-slate-900 leading-tight">
+                <span className="text-[26px] font-extrabold text-slate-900 dark:text-white leading-tight">
                   94.2%
                 </span>
-                <span className="text-[11px] font-semibold text-amber-600 mt-0.5">
+                <span className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 mt-0.5">
                   1.5 min avg completion
                 </span>
               </div>
             </div>
 
             {/* KPI 4 */}
-            <div className="rounded-[20px] p-[20px] bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between h-[150px]">
+            <div className="rounded-[20px] p-[20px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between h-[150px]">
               <div className="flex justify-between items-start">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                   DETRACTORS RESOLVED
                 </span>
-                <div className="bg-rose-50 text-rose-600 p-1.5 rounded-lg">
+                <div className="bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 p-1.5 rounded-lg">
                   <Shield className="size-[14px]" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[26px] font-extrabold text-slate-900 leading-tight">
+                <span className="text-[26px] font-extrabold text-slate-900 dark:text-white leading-tight">
                   184
                 </span>
-                <span className="text-[11px] font-semibold text-rose-600 mt-0.5">
+                <span className="text-[11px] font-semibold text-rose-600 dark:text-rose-400 mt-0.5">
                   34 queued for follow-up
                 </span>
               </div>
@@ -379,7 +379,7 @@ export default function Respondents() {
                 <select
                   value={selectedDept}
                   onChange={(e) => setSelectedDept(e.target.value)}
-                  className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 bg-white text-[13px] font-semibold text-slate-700 shadow-sm outline-none focus:border-[#059669] cursor-pointer"
+                  className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] text-[13px] font-semibold text-slate-700 dark:text-slate-200 shadow-sm outline-none focus:border-[#059669] cursor-pointer"
                 >
                   <option>All Departments</option>
                   <option>Engineering</option>
@@ -395,7 +395,7 @@ export default function Respondents() {
                 <select
                   value={selectedRole}
                   onChange={(e) => setSelectedRole(e.target.value)}
-                  className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 bg-white text-[13px] font-semibold text-slate-700 shadow-sm outline-none focus:border-[#059669] cursor-pointer"
+                  className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] text-[13px] font-semibold text-slate-700 dark:text-slate-200 shadow-sm outline-none focus:border-[#059669] cursor-pointer"
                 >
                   <option>Seniors & Leads</option>
                   <option>Managers</option>
@@ -409,7 +409,7 @@ export default function Respondents() {
                 <select
                   value={selectedSentiment}
                   onChange={(e) => setSelectedSentiment(e.target.value)}
-                  className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 bg-white text-[13px] font-semibold text-slate-700 shadow-sm outline-none focus:border-[#059669] cursor-pointer"
+                  className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] text-[13px] font-semibold text-slate-700 dark:text-slate-200 shadow-sm outline-none focus:border-[#059669] cursor-pointer"
                 >
                   <option>All Scores</option>
                   <option>Promoters (70-100)</option>
@@ -427,7 +427,7 @@ export default function Respondents() {
                   placeholder="Filter by name or topic..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-white text-[13px] text-slate-700 placeholder-slate-400 shadow-sm outline-none focus:border-[#059669] focus:ring-1 focus:ring-[#059669]"
+                  className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] text-[13px] text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 shadow-sm outline-none focus:border-[#059669] focus:ring-1 focus:ring-[#059669]"
                 />
               </div>
             </div>
@@ -437,8 +437,8 @@ export default function Respondents() {
               <button
                 onClick={() => setActiveSegmentPill("All")}
                 className={`px-3 py-1.5 rounded-full text-[12px] font-bold border transition-all cursor-pointer ${activeSegmentPill === "All"
-                    ? "bg-[#e8f7f0] border-[#059669] text-[#059669]"
-                    : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                    ? "bg-[#e8f7f0] dark:bg-emerald-950/60 border-[#059669] dark:border-emerald-600 text-[#059669] dark:text-emerald-300"
+                    : "bg-white dark:bg-[#111827] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   }`}
               >
                 All Respondents <span className="ml-1 opacity-70">2847</span>
@@ -446,8 +446,8 @@ export default function Respondents() {
               <button
                 onClick={() => setActiveSegmentPill("Promoters")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-bold border transition-all cursor-pointer ${activeSegmentPill === "Promoters"
-                    ? "bg-emerald-50 border-emerald-600 text-emerald-700"
-                    : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                    ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-600 dark:border-emerald-600 text-emerald-700 dark:text-emerald-300"
+                    : "bg-white dark:bg-[#111827] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   }`}
               >
                 <span className="size-[6px] rounded-full bg-emerald-500" />
@@ -456,8 +456,8 @@ export default function Respondents() {
               <button
                 onClick={() => setActiveSegmentPill("Passives")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-bold border transition-all cursor-pointer ${activeSegmentPill === "Passives"
-                    ? "bg-slate-50 border-slate-400 text-slate-600"
-                    : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                    ? "bg-slate-100 dark:bg-slate-800 border-slate-400 dark:border-slate-600 text-slate-700 dark:text-slate-200"
+                    : "bg-white dark:bg-[#111827] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   }`}
               >
                 <span className="size-[6px] rounded-full bg-slate-400" />
@@ -466,8 +466,8 @@ export default function Respondents() {
               <button
                 onClick={() => setActiveSegmentPill("Detractors")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-bold border transition-all cursor-pointer ${activeSegmentPill === "Detractors"
-                    ? "bg-rose-50 border-rose-500 text-rose-700"
-                    : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                    ? "bg-rose-50 dark:bg-rose-950/60 border-rose-500 dark:border-rose-600 text-rose-700 dark:text-rose-300"
+                    : "bg-white dark:bg-[#111827] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   }`}
               >
                 <span className="size-[6px] rounded-full bg-rose-500" />
@@ -480,15 +480,15 @@ export default function Respondents() {
           <div className="flex flex-col gap-[16px] w-full">
             <div className="flex justify-between items-center w-full">
               <div className="flex items-center gap-[8px]">
-                <Sparkles className="size-[16px] text-indigo-600" />
-                <span className="text-[12px] font-extrabold text-[#0f172a] uppercase tracking-wider">
+                <Sparkles className="size-[16px] text-indigo-600 dark:text-indigo-400" />
+                <span className="text-[12px] font-extrabold text-[#0f172a] dark:text-white uppercase tracking-wider">
                   AI IDENTIFIED RESPONDENT PERSONAS
                 </span>
-                <span className="text-[11px] text-slate-400">
+                <span className="text-[11px] text-slate-400 dark:text-slate-500">
                   AI groups respondents by shared sentiment, role and themes.
                 </span>
               </div>
-              <button className="text-[12px] font-bold text-[#059669] hover:underline flex items-center gap-1 cursor-pointer">
+              <button className="text-[12px] font-bold text-[#059669] dark:text-emerald-400 hover:underline flex items-center gap-1 cursor-pointer">
                 View all personas <ArrowRight className="size-[12px]" />
               </button>
             </div>
@@ -498,49 +498,49 @@ export default function Respondents() {
               {PERSONAS.map((persona, index) => (
                 <div
                   key={index}
-                  className="rounded-[20px] p-[16px] bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[200px]"
+                  className="rounded-[20px] p-[16px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[200px]"
                 >
                   <div className="flex flex-col gap-[10px]">
                     {/* User profile */}
                     <div className="flex gap-[10px] items-center">
-                      <div className="rounded-full size-[36px] overflow-hidden border border-slate-100 bg-slate-50">
+                      <div className="rounded-full size-[36px] overflow-hidden border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
                         <img src={persona.avatar} alt="" className="size-full object-cover" />
                       </div>
                       <div className="flex flex-col leading-none">
-                        <span className="text-[13px] font-bold text-slate-800">
+                        <span className="text-[13px] font-bold text-slate-800 dark:text-slate-100">
                           {persona.title}
                         </span>
-                        <span className="text-[11px] text-slate-400 mt-0.5">
+                        <span className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
                           {persona.count} respondents
                         </span>
                       </div>
                     </div>
 
                     {/* Badge */}
-                    <span className={`px-2 py-0.5 border rounded-full text-[10px] font-bold self-start ${persona.sentimentColor}`}>
+                    <span className={`px-2 py-0.5 border rounded-full text-[10px] font-bold self-start ${persona.sentimentColor} dark:bg-slate-800 dark:border-slate-700`}>
                       {persona.sentiment}
                     </span>
                   </div>
 
-                  <div className="flex flex-col gap-[8px] border-t border-slate-50 pt-[12px]">
+                  <div className="flex flex-col gap-[8px] border-t border-slate-50 dark:border-slate-800/80 pt-[12px]">
                     <div className="flex flex-col leading-none">
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                      <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                         TOP ISSUE
                       </span>
-                      <span className="text-[12.5px] font-bold text-slate-700 mt-1">
+                      <span className="text-[12.5px] font-bold text-slate-700 dark:text-slate-200 mt-1">
                         {persona.topIssue}
                       </span>
                     </div>
 
                     {/* Similarity Bar */}
                     <div className="flex items-center justify-between gap-[8px]">
-                      <div className="flex-1 h-[6px] bg-slate-100 rounded-full overflow-hidden">
+                      <div className="flex-1 h-[6px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-emerald-500 rounded-full"
                           style={{ width: `${persona.similarity}%` }}
                         />
                       </div>
-                      <span className="text-[11px] font-bold text-emerald-600">
+                      <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
                         {persona.similarity}%
                       </span>
                     </div>
@@ -553,19 +553,19 @@ export default function Respondents() {
           {/* Sentiment Heatmap & Topics Row */}
           <div className="grid grid-cols-2 gap-[24px] w-full">
             {/* Sentiment Heatmap Card */}
-            <div className="rounded-[24px] p-[24px] bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between min-h-[300px]">
-              <div className="flex justify-between items-center border-b border-slate-100 pb-3">
-                <span className="text-[12px] font-bold text-slate-800 tracking-wider uppercase">
+            <div className="rounded-[24px] p-[24px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between min-h-[300px]">
+              <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+                <span className="text-[12px] font-bold text-slate-800 dark:text-slate-200 tracking-wider uppercase">
                   SENTIMENT HEATMAP
                 </span>
-                <button className="text-slate-400 hover:text-slate-600">
+                <button className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                   <Plus className="size-[16px]" />
                 </button>
               </div>
 
               {/* Heatmap Table */}
               <div className="w-full mt-2">
-                <div className="grid grid-cols-5 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-50 pb-2 mb-2">
+                <div className="grid grid-cols-5 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider border-b border-slate-50 dark:border-slate-800 pb-2 mb-2">
                   <div className="col-span-1">Department</div>
                   <div className="text-center">Promoters</div>
                   <div className="text-center">Passives</div>
@@ -575,18 +575,18 @@ export default function Respondents() {
 
                 <div className="flex flex-col gap-2.5">
                   {HEATMAP_DATA.map((row, i) => (
-                    <div key={i} className="grid grid-cols-5 text-[12.5px] font-medium text-slate-600 items-center">
-                      <div className="font-bold text-slate-800">{row.dept}</div>
-                      <div className="text-center bg-emerald-50 text-emerald-800 py-1.5 rounded-lg border border-emerald-100/50 font-bold mx-1">
+                    <div key={i} className="grid grid-cols-5 text-[12.5px] font-medium text-slate-600 dark:text-slate-300 items-center">
+                      <div className="font-bold text-slate-800 dark:text-slate-200">{row.dept}</div>
+                      <div className="text-center bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 py-1.5 rounded-lg border border-emerald-100/50 dark:border-emerald-900/40 font-bold mx-1">
                         {row.promoters}%
                       </div>
-                      <div className="text-center bg-slate-50 text-slate-600 py-1.5 rounded-lg border border-slate-100 font-bold mx-1">
+                      <div className="text-center bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 py-1.5 rounded-lg border border-slate-100 dark:border-slate-700 font-bold mx-1">
                         {row.passives}%
                       </div>
-                      <div className="text-center bg-rose-50/70 text-rose-700 py-1.5 rounded-lg border border-rose-100/50 font-bold mx-1">
+                      <div className="text-center bg-rose-50/70 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 py-1.5 rounded-lg border border-rose-100/50 dark:border-rose-900/40 font-bold mx-1">
                         {row.detractors}%
                       </div>
-                      <div className={`text-right font-extrabold ${row.avg >= 75 ? "text-emerald-600" : "text-rose-500"}`}>
+                      <div className={`text-right font-extrabold ${row.avg >= 75 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-500 dark:text-rose-400"}`}>
                         {row.avg}
                       </div>
                     </div>
@@ -595,7 +595,7 @@ export default function Respondents() {
               </div>
 
               {/* Color Gradient Key */}
-              <div className="flex items-center justify-between text-[10px] font-semibold text-slate-400 border-t border-slate-50 pt-3 mt-4">
+              <div className="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500 border-t border-slate-50 dark:border-slate-800 pt-3 mt-4">
                 <span>More Positive</span>
                 <div className="flex-1 mx-[12px] h-[5px] rounded-full bg-gradient-to-r from-emerald-500 via-amber-400 to-rose-500" />
                 <span>More Negative</span>
@@ -603,12 +603,12 @@ export default function Respondents() {
             </div>
 
             {/* Top Discovered Topics Card */}
-            <div className="rounded-[24px] p-[24px] bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between min-h-[300px]">
-              <div className="flex justify-between items-center border-b border-slate-100 pb-3">
-                <span className="text-[12px] font-bold text-slate-800 tracking-wider uppercase">
+            <div className="rounded-[24px] p-[24px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between min-h-[300px]">
+              <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+                <span className="text-[12px] font-bold text-slate-800 dark:text-slate-200 tracking-wider uppercase">
                   TOP DISCOVERED TOPICS
                 </span>
-                <button className="text-slate-400 hover:text-slate-600">
+                <button className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                   <Plus className="size-[16px]" />
                 </button>
               </div>
@@ -618,17 +618,17 @@ export default function Respondents() {
                 {TOPICS_DATA.map((topic, i) => {
                   const Icon = topic.icon;
                   return (
-                    <div key={i} className="flex items-center justify-between py-1.5 border-b border-slate-50 last:border-0">
+                    <div key={i} className="flex items-center justify-between py-1.5 border-b border-slate-50 dark:border-slate-800/80 last:border-0">
                       <div className="flex items-center gap-[12px]">
-                        <div className="bg-[#f8fafc] text-slate-500 p-2.5 rounded-xl border border-slate-100">
+                        <div className="bg-[#f8fafc] dark:bg-slate-800 text-slate-500 dark:text-slate-400 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700">
                           <Icon className="size-[16px]" />
                         </div>
                         <div className="flex flex-col leading-none">
-                          <span className="text-[13px] font-bold text-slate-800">{topic.name}</span>
-                          <span className="text-[11px] text-slate-400 mt-1">{topic.mentions}</span>
+                          <span className="text-[13px] font-bold text-slate-800 dark:text-slate-200">{topic.name}</span>
+                          <span className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">{topic.mentions}</span>
                         </div>
                       </div>
-                      <span className={`text-[12.5px] font-extrabold ${topic.isPos ? "text-emerald-600" : "text-rose-500"}`}>
+                      <span className={`text-[12.5px] font-extrabold ${topic.isPos ? "text-emerald-600 dark:text-emerald-400" : "text-rose-500 dark:text-rose-400"}`}>
                         {topic.change}
                       </span>
                     </div>
@@ -636,19 +636,19 @@ export default function Respondents() {
                 })}
               </div>
 
-              <button className="text-[12px] font-bold text-[#059669] hover:underline text-left self-start mt-2 cursor-pointer">
+              <button className="text-[12px] font-bold text-[#059669] dark:text-emerald-400 hover:underline text-left self-start mt-2 cursor-pointer">
                 View all topics {"->"}
               </button>
             </div>
           </div>
 
           {/* All Respondents Table */}
-          <div className="rounded-[24px] bg-white border border-slate-200/80 shadow-sm overflow-hidden w-full flex flex-col">
-            <div className="p-[24px] border-b border-slate-100">
-              <h2 className="text-[16px] font-bold text-slate-800 leading-tight">
+          <div className="rounded-[24px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden w-full flex flex-col">
+            <div className="p-[24px] border-b border-slate-100 dark:border-slate-800">
+              <h2 className="text-[16px] font-bold text-slate-800 dark:text-slate-100 leading-tight">
                 ALL RESPONDENTS
               </h2>
-              <p className="text-[12px] text-slate-400 mt-1">
+              <p className="text-[12px] text-slate-400 dark:text-slate-500 mt-1">
                 Explore individual insights and sentiment drivers.
               </p>
             </div>
@@ -657,7 +657,7 @@ export default function Respondents() {
             <div className="w-full overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
+                  <tr className="bg-slate-50 dark:bg-slate-900/60 text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider border-b border-slate-100 dark:border-slate-800">
                     <th className="py-3 px-[24px]">Respondent</th>
                     <th className="py-3 px-4">Department</th>
                     <th className="py-3 px-4">Role/Level</th>
@@ -667,55 +667,55 @@ export default function Respondents() {
                     <th className="py-3 px-[24px] text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                   {filteredRespondents.map((item) => (
-                    <tr key={item.id} className="hover:bg-slate-50/50 transition-colors text-[13px] text-slate-600 font-medium">
+                    <tr key={item.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition-colors text-[13px] text-slate-600 dark:text-slate-300 font-medium">
                       {/* Name/Avatar */}
                       <td className="py-3.5 px-[24px] flex items-center gap-[12px]">
-                        <div className="rounded-full size-[32px] overflow-hidden bg-slate-100 border border-slate-100 shrink-0">
+                        <div className="rounded-full size-[32px] overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shrink-0">
                           <img src={item.avatar} alt="" className="size-full object-cover" />
                         </div>
                         <div className="flex flex-col leading-none">
-                          <span className="font-bold text-slate-800">{item.name}</span>
-                          <span className="text-[10px] text-slate-400 mt-1">{item.role}</span>
+                          <span className="font-bold text-slate-800 dark:text-slate-100">{item.name}</span>
+                          <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1">{item.role}</span>
                         </div>
                       </td>
 
                       {/* Department */}
-                      <td className="py-3.5 px-4 text-slate-700 font-semibold">{item.department}</td>
+                      <td className="py-3.5 px-4 text-slate-700 dark:text-slate-200 font-semibold">{item.department}</td>
 
                       {/* Role/Level */}
                       <td className="py-3.5 px-4">
-                        <span className="px-[8px] py-[3px] rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600">
+                        <span className="px-[8px] py-[3px] rounded-lg text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                           {item.experience}
                         </span>
                       </td>
 
                       {/* Last Active */}
-                      <td className="py-3.5 px-4 text-slate-400">{item.lastActive}</td>
+                      <td className="py-3.5 px-4 text-slate-400 dark:text-slate-500">{item.lastActive}</td>
 
                       {/* Sentiment score */}
                       <td className="py-3.5 px-4">
                         <span className={`text-[14px] font-extrabold ${item.sentiment >= 70
-                            ? "text-emerald-600"
+                            ? "text-emerald-600 dark:text-emerald-400"
                             : item.sentiment >= 50
-                              ? "text-amber-500"
-                              : "text-rose-500"
+                              ? "text-amber-500 dark:text-amber-400"
+                              : "text-rose-500 dark:text-rose-400"
                           }`}>
                           {item.sentiment}
                         </span>
-                        <span className="text-[10px] text-slate-400 block mt-0.5">
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500 block mt-0.5">
                           {item.sentiment >= 70 ? "Promoter" : item.sentiment >= 50 ? "Passive" : "Detractor"}
                         </span>
                       </td>
 
                       {/* Key Topics */}
                       <td className="py-3.5 px-4">
-                        <div className="flex items-center gap-[6px] text-slate-400">
+                        <div className="flex items-center gap-[6px] text-slate-400 dark:text-slate-500">
                           <Calendar className="size-[14px]" />
                           <MessageSquare className="size-[14px]" />
                           <Heart className="size-[14px]" />
-                          <span className="text-[11px] font-bold text-slate-300 ml-1">+2</span>
+                          <span className="text-[11px] font-bold text-slate-300 dark:text-slate-600 ml-1">+2</span>
                         </div>
                       </td>
 
@@ -725,14 +725,14 @@ export default function Respondents() {
                           <button
                             type="button"
                             onClick={() => handleOpenScheduler(item)}
-                            className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[#059669] font-bold text-[11px] flex items-center gap-1.5 transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            className="px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-800 text-[#059669] dark:text-emerald-400 font-bold text-[11px] flex items-center gap-1.5 transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                           >
                             <Calendar className="size-3.5" />
                             <span>Schedule Call</span>
                           </button>
                           <button
                             type="button"
-                            className="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all font-bold text-[11px] text-slate-600 cursor-pointer shadow-xs"
+                            className="px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all font-bold text-[11px] text-slate-600 dark:text-slate-300 cursor-pointer shadow-xs"
                           >
                             Profile
                           </button>
@@ -742,7 +742,7 @@ export default function Respondents() {
                   ))}
                   {filteredRespondents.length === 0 && (
                     <tr>
-                      <td colSpan={7} className="py-8 text-center text-slate-400 font-semibold">
+                      <td colSpan={7} className="py-8 text-center text-slate-400 dark:text-slate-500 font-semibold">
                         No respondents match the selected filter criteria.
                       </td>
                     </tr>
@@ -752,29 +752,29 @@ export default function Respondents() {
             </div>
 
             {/* Pagination Footer */}
-            <div className="flex justify-between items-center py-4 px-[24px] border-t border-slate-100 bg-slate-50/50">
-              <span className="text-[11.5px] font-semibold text-slate-400">
+            <div className="flex justify-between items-center py-4 px-[24px] border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40">
+              <span className="text-[11.5px] font-semibold text-slate-400 dark:text-slate-500">
                 Showing 1-{filteredRespondents.length} of 2,847
               </span>
 
               <div className="flex items-center gap-[4px]">
-                <button className="p-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-400 cursor-pointer">
+                <button className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-400 cursor-pointer">
                   <ChevronLeft className="size-[14px]" />
                 </button>
-                <button className="size-[28px] rounded-lg text-[11.5px] font-bold bg-[#e8f7f0] border border-[#059669] text-[#059669] flex items-center justify-center cursor-pointer">
+                <button className="size-[28px] rounded-lg text-[11.5px] font-bold bg-[#e8f7f0] dark:bg-emerald-950/60 border border-[#059669] dark:border-emerald-600 text-[#059669] dark:text-emerald-300 flex items-center justify-center cursor-pointer">
                   1
                 </button>
-                <button className="size-[28px] rounded-lg text-[11.5px] font-bold text-slate-600 hover:bg-slate-100 flex items-center justify-center cursor-pointer">
+                <button className="size-[28px] rounded-lg text-[11.5px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center cursor-pointer">
                   2
                 </button>
-                <button className="size-[28px] rounded-lg text-[11.5px] font-bold text-slate-600 hover:bg-slate-100 flex items-center justify-center cursor-pointer">
+                <button className="size-[28px] rounded-lg text-[11.5px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center cursor-pointer">
                   3
                 </button>
-                <span className="text-[11px] font-bold text-slate-300 px-1">...</span>
-                <button className="size-[28px] rounded-lg text-[11.5px] font-bold text-slate-600 hover:bg-slate-100 flex items-center justify-center cursor-pointer">
+                <span className="text-[11px] font-bold text-slate-300 dark:text-slate-600 px-1">...</span>
+                <button className="size-[28px] rounded-lg text-[11.5px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center cursor-pointer">
                   475
                 </button>
-                <button className="p-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-400 cursor-pointer">
+                <button className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-400 cursor-pointer">
                   <ChevronRight className="size-[14px]" />
                 </button>
               </div>
@@ -786,37 +786,37 @@ export default function Respondents() {
         {/* Right Sidebar */}
         <div className="w-[340px] shrink-0 flex flex-col gap-[24px] sticky top-0">
           {/* Research Assistant Card */}
-          <div className="rounded-[24px] p-[24px] bg-white border border-slate-200/80 shadow-sm flex flex-col gap-[20px]">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div className="rounded-[24px] p-[24px] bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col gap-[20px]">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
               <div className="flex items-center gap-[6px]">
-                <Sparkles className="size-[16px] text-emerald-600" />
-                <span className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+                <Sparkles className="size-[16px] text-emerald-600 dark:text-emerald-400" />
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 tracking-wider uppercase">
                   RESEARCH ASSISTANT
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="size-[6px] rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] font-bold text-emerald-600 tracking-wide uppercase">AI Active</span>
+                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 tracking-wide uppercase">AI Active</span>
               </div>
             </div>
 
             {/* AI Summary Block */}
             <div className="flex flex-col gap-[8px]">
-              <div className="flex gap-[6px] items-center text-[11.5px] font-bold text-slate-800">
+              <div className="flex gap-[6px] items-center text-[11.5px] font-bold text-slate-800 dark:text-slate-200">
                 <Sparkles className="size-[14px] text-indigo-500" />
                 <span>AI SUMMARY</span>
               </div>
-              <p className="text-[12.5px] text-slate-500 leading-relaxed">
+              <p className="text-[12.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
                 Scheduling is the top driver of frustration across Engineering and Operations teams. Communication gaps remain a close second, especially among Managers. Travel & Reimbursement concerns are rising in Sales and Operations.
               </p>
-              <button className="text-[12px] font-bold text-[#059669] hover:underline text-left mt-1 cursor-pointer flex items-center gap-1">
+              <button className="text-[12px] font-bold text-[#059669] dark:text-emerald-400 hover:underline text-left mt-1 cursor-pointer flex items-center gap-1">
                 View full summary <ArrowRight className="size-[12px]" />
               </button>
             </div>
 
             {/* Donut Chart section */}
-            <div className="border-t border-slate-50 pt-[16px] flex flex-col gap-[12px]">
-              <span className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+            <div className="border-t border-slate-50 dark:border-slate-800 pt-[16px] flex flex-col gap-[12px]">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 tracking-wider uppercase">
                 SENTIMENT DISTRIBUTION
               </span>
 
@@ -842,48 +842,48 @@ export default function Respondents() {
                   </ResponsiveContainer>
                   {/* Center Text */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center leading-none text-center">
-                    <span className="text-[13px] font-extrabold text-slate-800">76%</span>
-                    <span className="text-[8px] text-slate-400 font-semibold mt-0.5">Positive</span>
+                    <span className="text-[13px] font-extrabold text-slate-800 dark:text-slate-100">76%</span>
+                    <span className="text-[8px] text-slate-400 dark:text-slate-500 font-semibold mt-0.5">Positive</span>
                   </div>
                 </div>
 
                 {/* Legend list */}
-                <div className="flex-1 flex flex-col gap-1.5 text-[12px] font-medium text-slate-600">
+                <div className="flex-1 flex flex-col gap-1.5 text-[12px] font-medium text-slate-600 dark:text-slate-300">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                       <span className="size-[7px] rounded-full bg-[#10b981]" />
                       <span>Promoters</span>
                     </div>
-                    <span className="font-bold text-slate-800">64.7%</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-100">64.7%</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                       <span className="size-[7px] rounded-full bg-[#94a3b8]" />
                       <span>Passives</span>
                     </div>
-                    <span className="font-bold text-slate-800">21.8%</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-100">21.8%</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                       <span className="size-[7px] rounded-full bg-[#ef4444]" />
                       <span>Detractors</span>
                     </div>
-                    <span className="font-bold text-slate-800">13.5%</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-100">13.5%</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Recommended Actions */}
-            <div className="border-t border-slate-50 pt-[16px] flex flex-col gap-[12px]">
-              <span className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+            <div className="border-t border-slate-50 dark:border-slate-800 pt-[16px] flex flex-col gap-[12px]">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 tracking-wider uppercase">
                 RECOMMENDED ACTIONS
               </span>
               <div className="flex flex-col gap-[8px]">
                 <button
                   type="button"
                   onClick={() => handleAskAssistant("Show issues for Engineering detractors")}
-                  className="w-full text-left p-3 rounded-xl border border-slate-100 bg-[#f8fafc] hover:bg-slate-50 transition-colors flex justify-between items-center text-[12.5px] font-semibold text-slate-700 shadow-sm cursor-pointer"
+                  className="w-full text-left p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-[#f8fafc] dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex justify-between items-center text-[12.5px] font-semibold text-slate-700 dark:text-slate-200 shadow-sm cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <User className="size-[14px] text-indigo-500" />
@@ -895,7 +895,7 @@ export default function Respondents() {
                 <button
                   type="button"
                   onClick={() => handleAskAssistant("Who are the 34 queued respondents?")}
-                  className="w-full text-left p-3 rounded-xl border border-slate-100 bg-[#f8fafc] hover:bg-slate-50 transition-colors flex justify-between items-center text-[12.5px] font-semibold text-slate-700 shadow-sm cursor-pointer"
+                  className="w-full text-left p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-[#f8fafc] dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex justify-between items-center text-[12.5px] font-semibold text-slate-700 dark:text-slate-200 shadow-sm cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <MessageSquare className="size-[14px] text-emerald-500" />
@@ -907,7 +907,7 @@ export default function Respondents() {
                 <button
                   type="button"
                   onClick={() => handleAskAssistant("Deep dive scheduling concerns")}
-                  className="w-full text-left p-3 rounded-xl border border-slate-100 bg-[#f8fafc] hover:bg-slate-50 transition-colors flex justify-between items-center text-[12.5px] font-semibold text-slate-700 shadow-sm cursor-pointer"
+                  className="w-full text-left p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-[#f8fafc] dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex justify-between items-center text-[12.5px] font-semibold text-slate-700 dark:text-slate-200 shadow-sm cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <Zap className="size-[14px] text-amber-500" />
@@ -916,28 +916,28 @@ export default function Respondents() {
                   <ChevronRight className="size-[14px] text-slate-400 shrink-0" />
                 </button>
               </div>
-              <button className="text-[12px] font-bold text-[#059669] hover:underline text-left cursor-pointer flex items-center gap-1">
+              <button className="text-[12px] font-bold text-[#059669] dark:text-emerald-400 hover:underline text-left cursor-pointer flex items-center gap-1">
                 View all actions <ArrowRight className="size-[12px]" />
               </button>
             </div>
 
             {/* Ask Assistant Chat Box */}
-            <div className="border-t border-slate-100 pt-[16px] flex flex-col gap-[12px]">
-              <span className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-[16px] flex flex-col gap-[12px]">
+              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 tracking-wider uppercase">
                 ASK ASSISTANT
               </span>
-              <span className="text-[12px] text-slate-500 font-semibold leading-none">
+              <span className="text-[12px] text-slate-500 dark:text-slate-400 font-semibold leading-none">
                 What would you like to know?
               </span>
 
               {/* Chat Messages */}
-              <div className="h-[120px] overflow-y-auto rounded-xl bg-slate-50 border border-slate-100 p-2.5 flex flex-col gap-2">
+              <div className="h-[120px] overflow-y-auto rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 p-2.5 flex flex-col gap-2">
                 {chatMessages.map((msg, i) => (
                   <div
                     key={i}
                     className={`max-w-[85%] rounded-xl px-2.5 py-1.5 text-[11px] leading-relaxed ${msg.sender === "user"
-                        ? "bg-[#e8f7f0] text-[#059669] self-end font-semibold"
-                        : "bg-white text-slate-600 border border-slate-100 self-start font-medium"
+                        ? "bg-[#e8f7f0] dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-300 self-end font-semibold"
+                        : "bg-white dark:bg-[#111827] text-slate-600 dark:text-slate-200 border border-slate-100 dark:border-slate-800 self-start font-medium"
                       }`}
                   >
                     {msg.text}
@@ -950,21 +950,21 @@ export default function Respondents() {
                 <button
                   type="button"
                   onClick={() => handleAskAssistant("Who are the most frustrated respondents?")}
-                  className="w-full text-left px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-[#e8f7f0] hover:border-[#059669] hover:text-[#059669] transition-all text-[11px] font-semibold text-slate-600 cursor-pointer"
+                  className="w-full text-left px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/70 hover:bg-[#e8f7f0] dark:hover:bg-emerald-950/50 hover:border-[#059669] dark:hover:border-emerald-600 hover:text-[#059669] dark:hover:text-emerald-300 transition-all text-[11px] font-semibold text-slate-600 dark:text-slate-300 cursor-pointer"
                 >
                   Who are the most frustrated respondents?
                 </button>
                 <button
                   type="button"
                   onClick={() => handleAskAssistant("Compare sentiment across departments")}
-                  className="w-full text-left px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-[#e8f7f0] hover:border-[#059669] hover:text-[#059669] transition-all text-[11px] font-semibold text-slate-600 cursor-pointer"
+                  className="w-full text-left px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/70 hover:bg-[#e8f7f0] dark:hover:bg-emerald-950/50 hover:border-[#059669] dark:hover:border-emerald-600 hover:text-[#059669] dark:hover:text-emerald-300 transition-all text-[11px] font-semibold text-slate-600 dark:text-slate-300 cursor-pointer"
                 >
                   Compare sentiment across departments
                 </button>
                 <button
                   type="button"
                   onClick={() => handleAskAssistant("Show top issues for Engineering team")}
-                  className="w-full text-left px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-[#e8f7f0] hover:border-[#059669] hover:text-[#059669] transition-all text-[11px] font-semibold text-slate-600 cursor-pointer"
+                  className="w-full text-left px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/70 hover:bg-[#e8f7f0] dark:hover:bg-emerald-950/50 hover:border-[#059669] dark:hover:border-emerald-600 hover:text-[#059669] dark:hover:text-emerald-300 transition-all text-[11px] font-semibold text-slate-600 dark:text-slate-300 cursor-pointer"
                 >
                   Show top issues for Engineering team
                 </button>
@@ -977,9 +977,9 @@ export default function Respondents() {
                   placeholder="Ask a question..."
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
-                  className="w-full pl-3 pr-9 py-2 rounded-xl border border-slate-200 bg-white text-[12px] text-slate-700 outline-none focus:border-[#059669]"
+                  className="w-full pl-3 pr-9 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-[12px] text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 outline-none focus:border-[#059669] dark:focus:border-emerald-500"
                 />
-                <button type="submit" className="absolute right-2 text-slate-400 hover:text-[#059669] cursor-pointer">
+                <button type="submit" className="absolute right-2 text-slate-400 dark:text-slate-500 hover:text-[#059669] dark:hover:text-emerald-400 cursor-pointer">
                   <Send className="size-[14px]" />
                 </button>
               </form>
