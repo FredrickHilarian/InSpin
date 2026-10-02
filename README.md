@@ -140,7 +140,7 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:5173` in your browser.
+Visit `https://in-spin.vercel.app/` in your browser.
 
 ### Demo Credentials
 Demo credentials are pre-configured on the login screen for instant testing:
